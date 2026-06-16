@@ -6,6 +6,9 @@ Source code for [ai-yyc.com](https://ai-yyc.com) — the personal portfolio and
 blog of **Roy Aggarwal**, focused on AI governance & ethics, responsible AI, and
 digital transformation.
 
+Built solo, one page at a time, vibe-coding with AI. Not a developer by trade,
+but an AI professional who ships.
+
 ## Overview
 
 A static, multi-page site (HTML/CSS/vanilla JavaScript) with a small Flask
