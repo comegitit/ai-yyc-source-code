@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Web Development Project - ARTI 404</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="brain.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Match hca.html: load master_nav.js in <head> -->
+    <script src="master_nav.js"></script>
+  </head>
+
+  <body>
+    <!-- Header injected by master_nav.js -->
+    <div id="site-header"></div>
+
+    <!-- PAGE CONTENT -->
+    <main class="container">
+      <div class="media-header">
+        <img
+          src="images/sait_logo_tall_rectangle.png"
+          alt="SAIT School Logo"
+          class="media-image"
+        />
+
+        <div class="media-text">
+          <h2>ARTI 404: Web Development & Cloud Computing</h2>
+
+          <p>
+            This course introduces the fundamental principles and technologies
+            in web development and cloud computing. Students will learn to
+            create interactive web applications by mastering both front-end and
+            back-end technologies, along with database connectivity and
+            deployment to the cloud. This course covers the technical and
+            practical aspects of web development and cloud computing services
+            and emphasizes the importance of using these technologies to create
+            secure, scalable and accessible AI systems.
+          </p>
+
+          <p>
+            <strong><em>Course Topics</em></strong>
+          </p>
+
+          <ul>
+            <li>
+              Introduction to Web Development – Explain the fundamental concepts
+              and technologies in web development
+            </li>
+            <li>Front-End Frameworks – Create an interactive web page</li>
+            <li>Back-End Technologies – Solve programming problems</li>
+            <li>
+              Combining Front-End and Back-End Technologies – Develop a full
+              stack web application
+            </li>
+            <li>
+              Introduction to Cloud Technology – Explain the fundamental
+              concepts of cloud technology
+            </li>
+            <li>
+              Cloud Compute Services – Demonstrate the use and management of
+              cloud compute services
+            </li>
+          </ul>
+          <p>
+            <strong><em>Final Project</em></strong>
+          </p>
+          <ul>
+            <li>
+              <p>A lending form with Python Flask integration:</p>
+              <!-- prettier-ignore -->
+              <a href="lending_form_V2.html" class="profile-button">Go To Final Project</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="server-message">Waiting for server...</div>
+    </main>
+
+    <!-- Footer injected by master_nav.js -->
+    <div id="site-footer"></div>
+
+    <!-- Your original JS preserved exactly -->
+    <script src="/script.js"></script>
+
+    <!-- NAV SUBMENU TOGGLE (kept exactly as in your original file) -->
+    <script>
+      document.querySelectorAll(".submenu-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const parent = button.closest(".has-submenu");
+          const isOpen = parent.classList.contains("open");
+
+          // Close all other open submenus
+          document.querySelectorAll(".has-submenu.open").forEach((item) => {
+            if (item !== parent) {
+              item.classList.remove("open");
+              const btn = item.querySelector(".submenu-toggle");
+              if (btn) btn.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          // Toggle this submenu
+          parent.classList.toggle("open", !isOpen);
+          button.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+    </script>
+  </body>
+</html>

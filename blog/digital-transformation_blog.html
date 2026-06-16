@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Blog posts on AI digital transformation by Roy Aggarwal."
+    />
+    <title>Digital Transformation | Blog | Roy Aggarwal</title>
+    <link rel="icon" href="../brain.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- Scripts -->
+    <script src="../master_nav.js"></script>
+    <script src="../blog_categories.js"></script>
+    <script src="../blog_posts.js"></script>
+      <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai-yyc.com/blog/digital-transformation_blog.html" />
+    <meta property="og:title" content="Digital Transformation | Blog | Roy Aggarwal" />
+    <meta property="og:description" content="Strategy, execution, and real-world transformation enabled by AI, data, and emerging technologies." />
+    <meta property="og:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Digital Transformation | Blog | Roy Aggarwal" />
+    <meta name="twitter:description" content="Strategy, execution, and real-world transformation enabled by AI, data, and emerging technologies." />
+    <meta name="twitter:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+  </head>
+
+  <body>
+    <!-- Header injected by master_nav.js -->
+    <div id="site-header"></div>
+
+    <!-- BLOG LAYOUT WITH SIDEBAR -->
+    <div class="blog-container">
+      <!-- SIDEBAR injected by blog_categories.js -->
+      <div id="blog-sidebar-container"></div>
+
+      <!-- MAIN CONTENT -->
+      <main class="blog-content">
+        <header class="category-header">
+          <div class="card-header">
+            <img src="../images/arrow.svg" alt="" class="card-icon" />
+            <h1>Digital Transformation</h1>
+          </div>
+          <p class="category-intro">
+            Strategy, execution, and real-world transformation enabled by AI,
+            data, and emerging technologies.
+          </p>
+        </header>
+
+        <!-- BLOG POSTS LIST -->
+        <section class="blog-posts">
+          <div id="category-posts"></div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer injected by master_nav.js -->
+    <div id="site-footer"></div>
+
+    <!-- RENDER POSTS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const containerId = "category-posts";
+
+        if (typeof renderPostsToContainer === "function") {
+          renderPostsToContainer(
+            containerId,
+            (post) => post.category === "Digital Transformation",
+          );
+
+          // Fallback if nothing renders
+          const container = document.getElementById(containerId);
+          if (container && container.children.length === 0) {
+            container.innerHTML =
+              "<p>More content for Digital Transformation coming soon.</p>";
+          }
+        } else {
+          // Hard fallback if JS fails entirely
+          document.getElementById(containerId).innerHTML = `
+            <p>
+              <a href="posts/calgary_aidt.html">
+                Calgary AI Digital Transformation
+              </a>
+            </p>
+          `;
+        }
+      });
+    </script>
+  </body>
+</html>

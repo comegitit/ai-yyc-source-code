@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="If employers use AI to filter out candidates, job seekers deserve the same advantage. A look at building an autonomous AI agent that ingests job alerts, scores them against a career profile, and generates tailored application documents, automatically."
+    />
+    <title>
+      Building an Agentic Job Search System: Levelling the Playing Field | Roy
+      Aggarwal
+    </title>
+    <link rel="icon" href="../../brain.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../master_nav.js"></script>
+      <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ai-yyc.com/blog/posts/agentic-job-match.html" />
+    <meta property="og:title" content="An Agentic AI Solution Automating Job Searching &amp; Document Creation" />
+    <meta property="og:description" content="Job matching, scoring, and autonomous document creation using agentic AI." />
+    <meta property="og:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="An Agentic AI Solution Automating Job Searching &amp; Document Creation" />
+    <meta name="twitter:description" content="Job matching, scoring, and autonomous document creation using agentic AI." />
+    <meta name="twitter:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+  </head>
+
+  <body>
+    <!-- Header injected by master_nav.js -->
+    <div id="site-header"></div>
+
+    <!-- BLOG POST CONTENT -->
+    <main class="blog-post-container">
+      <!-- Post Header -->
+      <div class="post-header">
+        <h1>
+          Building an Agentic Job Search System: Levelling the Playing Field
+        </h1>
+        <div class="post-meta">
+          <time datetime="2026-05-08">May 8, 2026</time>
+          ·
+          <span class="post-category">Artificial Intelligence</span>
+          ·
+          <span class="post-tags">
+            AI Agents, Automation, Career Tech, Responsible AI
+          </span>
+          ·
+          <em>5 Minute Read</em>
+        </div>
+      </div>
+
+      <!-- Post Content -->
+      <div class="post-content">
+        <p class="post-intro">
+          The modern job search is an asymmetric contest. Employers deploy
+          AI-powered applicant tracking systems to automatically screen, score,
+          and discard hundreds of resumes before a human ever reads one. Job
+          seekers, meanwhile, are expected to manually sift through dozens of
+          postings a day, assess each one against their experience, and produce
+          individually tailored application documents, all by hand. The playing
+          field is not level. It should be.
+        </p>
+
+        <h2>The Problem with the Current Job Search Experience</h2>
+
+        <p>
+          Consider what a diligent job seeker faces on a given morning. Two
+          LinkedIn alert emails have arrived overnight. Combined, they contain
+          thirty-seven postings. Some are clearly relevant. Others use similar
+          keywords but describe roles that are a poor fit: wrong seniority,
+          wrong location, wrong function. A few look promising but require
+          careful reading to assess.
+        </p>
+
+        <p>
+          After an hour of review, the job seeker has identified eight roles
+          worth pursuing. Each now requires a tailored resume. Not just a
+          generic document, but one that speaks to the specific language and
+          priorities of that job description. Each resume also requires a cover
+          letter that opens with genuine relevance rather than a formulaic
+          introduction.
+        </p>
+
+        <p>
+          Multiply this across weeks of active searching, and the cognitive and
+          time burden becomes significant. Quality degrades. Generic documents
+          get submitted. Strong candidates undersell themselves simply because
+          the process is unsustainable at scale.
+        </p>
+
+        <p>
+          If employers are automating the candidate side of this equation, it is
+          entirely reasonable, and increasingly necessary, for candidates to
+          automate their side of it as well.
+        </p>
+
+        <h2>The Agentic Approach</h2>
+
+        <p>
+          Over the course of a few weeks in my spare time, I built an autonomous
+          job search agent designed to replicate the judgment of a thoughtful
+          human reviewer: at scale, overnight, without any manual intervention.
+        </p>
+
+        <p>
+          The system runs on a daily schedule at 4:30 AM. By the time I have my
+          morning coffee, it has already ingested new job alerts from LinkedIn
+          and Indeed, scraped the full text of each posting, scored every role
+          against my career profile using a large language model, generated
+          tailored resumes and cover letters for the strongest matches, and
+          delivered a prioritized summary to my phone via Telegram.
+        </p>
+
+        <p>
+          The result is not a stack of generic applications. It is a curated
+          shortlist of genuinely relevant opportunities, each accompanied by
+          application-ready documents written in my voice, grounded in my actual
+          experience, and calibrated to the specific language of the job
+          posting.
+        </p>
+
+        <h2>How the System Works</h2>
+
+        <p>
+          The architecture follows a five-stage pipeline, each stage feeding
+          cleanly into the next.
+        </p>
+
+        <p>
+          <strong>Stage 1 — Ingestion.</strong>
+          The system monitors my email inbox via IMAP, reading job alert emails
+          from LinkedIn and Indeed. LinkedIn alert emails embed job URLs
+          directly. Indeed uses tracking redirects, which the system follows
+          automatically to extract the underlying job identifier. New job URLs
+          are written to a SQLite database in a DISCOVERED state.
+        </p>
+
+        <p>
+          <strong>Stage 2 — Scraping.</strong>
+          Each discovered job URL is visited using Playwright, a browser
+          automation tool. The full job description is extracted from the live
+          page and stored. LinkedIn's authenticated session is maintained via a
+          saved session file, renewed monthly. Indeed's terms of service
+          prohibit automated scraping, so Indeed jobs are handled through email
+          content only. This was a deliberate design decision, discussed further
+          below.
+        </p>
+
+        <p>
+          <strong>Stage 3 — Scoring.</strong>
+          Each scraped job description is evaluated by Gemini 2.5 Flash against
+          a structured career profile — a JSON document encoding my skills,
+          experience, target roles, location preferences, and voice. The model
+          returns a score from 0 to 100, a rationale, matched requirements,
+          gaps, and location and seniority flags. Jobs scoring below 70% are
+          archived. Jobs scoring 70–89% generate a Telegram notification and
+          await manual review. Jobs scoring 90% or above proceed automatically
+          to document generation.
+        </p>
+
+        <p>
+          <strong>Stage 4 — Document Generation.</strong>
+          For each high-scoring job, Gemini 2.5 Pro generates a tailored resume
+          and cover letter. The prompts enforce strict rules: exact employment
+          dates, no invented metrics, ATS-compliant formatting, a word count
+          ceiling on cover letters, and language drawn directly from the job
+          description. Each output folder contains a resume, a cover letter, and
+          a plain text file with the source URL and match score for easy
+          reference.
+        </p>
+
+        <p>
+          <strong>Stage 5 — Delivery.</strong>
+          Results arrive via a Telegram bot on my phone and desktop
+          simultaneously. I receive individual notifications for each qualified
+          job, with score, matched requirements, and identified gaps. A daily
+          pipeline summary closes each run. From the Telegram interface, I can
+          approve, reject, or request regeneration of any document set using
+          simple commands.
+        </p>
+
+        <h2>Designing for Terms of Service Compliance</h2>
+
+        <p>
+          One of the most important architectural decisions in this project was
+          drawing a deliberate line around what the system is and is not
+          permitted to do.
+        </p>
+
+        <p>
+          LinkedIn's terms of service permit accessing content you are
+          authorized to view. The system uses my own authenticated session to
+          visit job postings I would otherwise visit manually. These are the
+          same URLs delivered to me by LinkedIn's own alert emails. This is
+          defensible use.
+        </p>
+
+        <p>
+          Indeed's terms of service are more restrictive. When technical
+          attempts to establish an authenticated session were blocked by their
+          bot detection infrastructure, the decision was straightforward: do not
+          attempt to circumvent it. Indeed jobs are ingested from email content
+          only. The system extracts job identifiers from email links and stores
+          the source URL for manual review, but does not attempt to scrape
+          Indeed pages. This is a meaningful capability constraint accepted
+          willingly in exchange for operating with integrity.
+        </p>
+
+        <p>
+          The principle at work here is the same one I apply professionally:
+          governance is not a constraint on transformation, it is a precondition
+          for it. An automated system that operates outside its authorized
+          boundaries creates legal and reputational risk. A system that operates
+          within them can be run confidently, indefinitely, and transparently.
+        </p>
+
+        <h2>The Technical Stack</h2>
+
+        <p>
+          The system is built entirely in Python and runs locally on a Windows
+          11 laptop. The key components are:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Python 3.13</strong>
+            — core runtime and pipeline orchestration
+          </li>
+          <li>
+            <strong>SQLite</strong>
+            — lightweight local database storing jobs, career profile, and LLM
+            audit logs across a 12-state pipeline state machine
+          </li>
+          <li>
+            <strong>Playwright</strong>
+            — headless browser automation for authenticated LinkedIn job
+            scraping
+          </li>
+          <li>
+            <strong>Google Gemini API</strong>
+            — Gemini 2.5 Flash for scoring (cost-efficient, high volume), Gemini
+            2.5 Pro for document generation (higher quality, lower volume)
+          </li>
+          <li>
+            <strong>python-telegram-bot</strong>
+            — bidirectional Telegram integration for notifications and command
+            handling
+          </li>
+          <li>
+            <strong>python-docx</strong>
+            — programmatic generation of ATS-compliant Word documents
+          </li>
+          <li>
+            <strong>Windows Task Scheduler</strong>
+            — daily 4:30 AM automated pipeline execution
+          </li>
+        </ul>
+
+        <p>
+          The entire system was designed and built with AI assistance — a
+          fitting symmetry for a project about using AI to navigate an AI-shaped
+          job market.
+        </p>
+
+        <h2>Results and Observations</h2>
+
+        <p>
+          In its first week of operation, the system processed over 250 job
+          postings. Approximately 35% cleared the 70% qualification threshold.
+          Roughly 10% scored 90% or above, triggering automatic document
+          generation.
+        </p>
+
+        <p>
+          The quality of the generated documents required initial calibration —
+          employment dates, seniority language, and tone needed to be explicitly
+          enforced through prompt engineering. Once those guardrails were in
+          place, the output became consistently usable with minor manual
+          refinement.
+        </p>
+
+        <p>
+          The more significant observation is qualitative: the scoring
+          rationales produced by the model are genuinely useful. They identify
+          not just whether a role is a fit, but why: which requirements are met,
+          where the gaps are, and how the location and seniority align. This
+          structured analysis, delivered before I have read a single posting,
+          meaningfully changes how I engage with my job search.
+        </p>
+
+        <h2>What This Demonstrates</h2>
+
+        <p>
+          This project is, at one level, a practical job search tool. At another
+          level, it is a demonstration of what becomes possible when AI
+          governance, responsible design, and disciplined execution are applied
+          to a real problem.
+        </p>
+
+        <p>
+          The system does not replace human judgment. It amplifies it. I still
+          decide which roles to pursue. I still review and refine the documents.
+          I still write the emails and attend the interviews. What the system
+          removes is the unsustainable manual burden of processing volume at the
+          top of the funnel.
+        </p>
+
+        <p>
+          For executives evaluating where AI agents can create legitimate value
+          in their organizations, this pattern — autonomous ingestion,
+          structured evaluation, human-in-the-loop approval, governed execution
+          — applies broadly. The job search is simply one domain where the
+          asymmetry was visible enough to make the case obvious.
+        </p>
+
+        <p>
+          Execution, not technology, is where transformation succeeds or fails.
+          This system exists because the execution was done carefully, within
+          appropriate boundaries, with the right tools applied to the right
+          problem.
+        </p>
+
+        <p>
+          My source code is available on github. For more details, or if your
+          organization is ready to explore agentic AI solutions more deeply,
+          <a style="color: #c8902a" href="mailto:roy@ai-yyc.com">
+            please reach out.
+          </a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

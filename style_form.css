@@ -1,0 +1,306 @@
+/* =============================================
+  DEDICATED STYLESHEET: style.css
+ ================================================ */
+ 
+ 
+ /* =============================================
+  BASIC PAGE SETUP
+ ================================================ */
+
+/* Brand colours sourced from www.sait.ca/brand/visual-identity/colour */
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f6f7f9;
+  color: #0c2340;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================================
+ HEADER SECTION
+ ================================================ */
+.header {
+  background: #f6f7f9;
+  border-bottom: 3px solid #de0000;
+  padding: 18px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* style the main heading (h1) inside the header section */
+.header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem; /* rem is an alternative to px, rem is size relative to the root element */
+  color: #0c2340;
+  margin: 0;
+}
+
+.header .subtitle {
+  font-size: 0.75rem;
+  color: #de0000;
+  letter-spacing: 0.1em; /* em is an alternative to px, em is size relative to the parent element */
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.header img {
+  height: 48px;
+}
+
+/* ========================================================
+ MAIN FORM CONTAINER: Below are within the main container
+ ========================================================= */
+.form-container {
+  max-width: 860px;
+  margin: 36px auto;
+  padding: 0 20px 60px;
+}
+
+/* ================================================
+ SECTION BOXES (white boxes with navy headers)
+ ================================================ */
+.section {
+  background: #ffffff;
+  border: 1px solid #dde0e6;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-title {
+  background: #0c2340;
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+}
+
+.section-body {
+  padding: 20px;
+}
+
+/* =============================================================
+ FORM LAYOUT - TWO COLUMN ROWS
+ =============================================================== */
+/* NOTE: The flexbox layout below was created with AI assistance.
+ Flexbox is an advanced CSS topic not yet covered in this course.
+ The 'display: flex' property creates flexible responsive layouts.
+ ==================================================================*/
+
+/* This creates the two-column layout for form fields */
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* Each form field group takes up half the row (or full width on small screens) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Some fields need full width */
+.form-group.full {
+  flex: 0 0 100%;
+}
+
+/* ================================================
+ LABELS AND INPUT FIELDS
+ ================================================ */
+label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0c2340;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Style all text inputs, number inputs, dropdowns, and text areas */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  padding: 9px 12px;
+  border: 1px solid #b0b8c4;
+  border-radius: 4px;
+  background: #f6f7f9;
+  color: #0c2340;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Advanced concept using the focus method: Red outline when user clicks into a field */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #de0000;
+  outline-offset: 1px;
+}
+
+/* For more professional appearance: Small helper text below some fields */
+.helper {
+  font-size: 0.7rem;
+  color: #6b7685;
+  margin-top: 3px;
+}
+
+/* ================================================
+ EBITDA CALCULATOR BOX; Advanced concept
+ ================================================ */
+.calc-box {
+  background: #f6f7f9;
+  border: 1px dashed #b0b8c4;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 4px;
+}
+
+/* Descendant selector that applies styles to calc-label elements within calc-box */
+.calc-box .calc-label {
+  font-size: 0.72rem;
+  color: #6b7685;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Each row in the calculator has a label and input side by side */
+.calc-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* style the label inside the calc-row */
+.calc-row label {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  min-width: 200px;
+  margin: 0;
+}
+
+.calc-row input {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+/* Line separating inputs from result */
+.calc-divider {
+  border: none;
+  border-top: 1px solid #b0b8c4;
+  margin: 10px 0;
+}
+
+/* The final EBITDA result display */
+.calc-result-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calc-result-row label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-width: 200px;
+  margin: 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.result-display {
+  width: 160px;
+  padding: 9px 12px;
+  background: #ffffff;
+  border: 1px solid #de0000;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0c2340;
+  text-align: right;
+}
+
+/* ================================================
+ FORM TYPE SELECTOR (dropdown at top)
+ ================================================ */
+.form-type-section {
+  background: #ffffff;
+  border: 1px solid #dde0e6;
+  border-radius: 6px;
+  padding: 24px 20px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.form-type-section label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  display: block;
+  margin-bottom: 10px;
+  color: #0c2340;
+}
+
+.form-type-section select {
+  max-width: 360px;
+  font-size: 0.95rem;
+}
+
+/* ================================================
+ SUBMIT BUTTON
+ ================================================ */
+.submit-row {
+  text-align: right;
+  padding: 16px 20px;
+  border-top: 1px solid #dde0e6;
+  background: #ffffff;
+}
+
+button[type="submit"] {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 11px 32px;
+  background: #de0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Specify button type and hover state */
+button[type="submit"]:hover {
+  background: #8a1425;
+}
+
+/* ================================================
+ HIDDEN CLASS - used to hide/show forms
+ ================================================ */
+.hidden {
+  display: none;
+}
+
+/* Required field styling */
+.required::after {
+  content: " *";
+  color: #de0000;
+}
+
+/* Required field styling */
+.required::after {
+  content: " *";
+  color: #de0000;
+}

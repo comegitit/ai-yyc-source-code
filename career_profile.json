@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "version": "1.4",
+    "last_updated": "2026-06-15",
+    "source_documents": [
+      "Resume_Roy_Aggarwal_Summer_2026.docx",
+      "ai-yyc.com/index.html"
+    ],
+    "notes": "v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Summer_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
+  },
+  "identity": {
+    "name": "Roy Aggarwal",
+    "headline": "AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience",
+    "positioning_statement": "I help organizations translate complex technology into aligned, governed, and business-ready outcomes at the intersection of enterprise systems and responsible AI.",
+    "location": "Calgary, AB, Canada",
+    "work_authorization": "Canadian citizen",
+    "email": "roy@ai-yyc.com",
+    "website": "https://ai-yyc.com",
+    "linkedin_url": "https://www.linkedin.com/in/calgaryroy/",
+    "total_years_experience": 17,
+    "years_experience_description": "over 15 years"
+  },
+  "target": {
+    "role_titles": [
+      "Digital Transformation Lead",
+      "AI Enablement Lead",
+      "AI Change Management Lead",
+      "Enterprise Systems Analyst",
+      "AI Ethics Analyst",
+      "Responsible AI Analyst",
+      "AI Policy Analyst",
+      "AI Risk Analyst",
+      "AI Governance Analyst",
+      "AI Compliance Analyst",
+      "AI Program Manager",
+      "AI Business Analyst"
+    ],
+    "role_title_variants": [
+      "AI Governance Specialist",
+      "Digital Transformation Manager",
+      "AI Strategy Lead",
+      "Responsible AI Lead",
+      "AI Ethics Specialist",
+      "Enterprise AI Analyst",
+      "AI Enablement Specialist",
+      "GRC Analyst (AI focus)",
+      "AI Risk and Compliance Analyst"
+    ],
+    "industries": [
+      "Financial Services",
+      "Energy",
+      "Transportation",
+      "Government",
+      "Technology",
+      "Consulting",
+      "Healthcare",
+      "Non-Profit"
+    ],
+    "excluded_industries": [],
+    "work_models": ["remote", "hybrid", "on-site"],
+    "engagement_types": ["full-time", "part-time", "contract", "consulting"],
+    "locations_accepted": [
+      "Calgary, AB",
+      "Remote - Canada",
+      "Remote - North America"
+    ],
+    "salary_floor_cad": null,
+    "company_size_preference": ["mid-size", "enterprise", "government", "consulting"],
+    "deal_breakers": []
+  },
+  "skills": {
+    "technical": [
+      { "skill": "AI Governance Frameworks", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "Ethical AI Design", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "Human-Centred AI Design", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "AI Policy and Compliance", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "AI Risk Management", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "Agentic AI Development", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
+      { "skill": "Python", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
+      { "skill": "LLM / Agent Orchestration", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
+      { "skill": "Prompt Engineering", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
+      { "skill": "Enterprise Business Intelligence", "proficiency": "expert", "last_used_year": 2012, "years_experience": 11 },
+      { "skill": "SAP BI / Value Engineering", "proficiency": "familiar", "last_used_year": 2012, "years_experience": 4 },
+      { "skill": "Data Governance", "proficiency": "expert", "last_used_year": 2026, "years_experience": 13 },
+      { "skill": "Database Architecture", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 10 },
+      { "skill": "SQL", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 10 },
+      { "skill": "Requirements Analysis", "proficiency": "expert", "last_used_year": 2026, "years_experience": 15 },
+      { "skill": "Business Process Improvement", "proficiency": "expert", "last_used_year": 2026, "years_experience": 15 },
+      { "skill": "Predictive Analytics", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 3 },
+      { "skill": "SEO Strategy", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 6 },
+      { "skill": "Web Development and Design", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 12 },
+      { "skill": "UX Optimization", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 6 }
+    ],
+    "domain": [
+      "Enterprise IT",
+      "Digital Transformation",
+      "AI Governance and Ethics",
+      "Responsible AI",
+      "Change Management",
+      "Stakeholder Alignment",
+      "Regulated Industry Environments",
+      "Energy Sector (Alberta)",
+      "Transportation / Rail",
+      "Financial Services (adjacent)",
+      "Non-Profit / Heritage Organizations"
+    ],
+    "tools_platforms": [
+      "SAP BI",
+      "SQL databases",
+      "Web CMS platforms",
+      "albertaancestors.ca (custom 250k-record platform)"
+    ],
+    "soft_skills": [
+      "Bridging business and technical teams",
+      "Translating complex technology for non-technical stakeholders",
+      "Executive-level communication",
+      "Cross-functional team leadership",
+      "Consensus building",
+      "Training and documentation development",
+      "Stakeholder management in regulated environments",
+      "Managing execution risk during critical transitions"
+    ],
+    "languages": ["English (native)"]
+  },
+  "experience": [
+    {
+      "company": "Alberta Family Histories Society",
+      "title": "Digital Transformation Lead | Change Agent",
+      "start_date": "2020-02",
+      "end_date": "present",
+      "location": "Calgary, AB",
+      "employment_type": "full-time",
+      "summary": "Led complete digital transformation for a non-profit heritage organization, delivering measurable outcomes across web, database, governance, and stakeholder engagement.",
+      "achievements": [
+        {
+          "text": "Spearheaded website redevelopment achieving 300% traffic growth and top search rankings through strategic SEO and UX optimization.",
+          "skills_demonstrated": ["Digital Transformation", "SEO Strategy", "UX Optimization"],
+          "quantified": true,
+          "impact_area": "process"
+        },
+        {
+          "text": "Architected albertaancestors.ca from concept to deployment: 250,000+ genealogy records with data governance protocols and QA processes.",
+          "skills_demonstrated": ["Database Architecture", "Data Governance", "Web Development"],
+          "quantified": true,
+          "impact_area": "product"
+        },
+        {
+          "text": "Managed databases for 300+ cemeteries; standardized data entry and validation rules across multiple data sources.",
+          "skills_demonstrated": ["Data Governance", "Data Management", "Process Standardization"],
+          "quantified": true,
+          "impact_area": "process"
+        },
+        {
+          "text": "Engaged board-level executives and volunteers, building consensus around technology initiatives and communicating technical concepts accessibly.",
+          "skills_demonstrated": ["Stakeholder Management", "Executive Communication", "Change Management"],
+          "quantified": false,
+          "impact_area": "people"
+        },
+        {
+          "text": "Developed training materials enabling non-technical volunteers to operate website, database, and content workflows independently.",
+          "skills_demonstrated": ["Training Development", "Documentation", "Change Management"],
+          "quantified": false,
+          "impact_area": "people"
+        }
+      ],
+      "keywords": ["digital transformation", "data governance", "SEO", "database architecture", "stakeholder management", "non-profit", "change management"]
+    },
+    {
+      "company": "Canadian Pacific Railway",
+      "title": "Business Intelligence Liaison | Enterprise Systems Analyst",
+      "start_date": "2008-03",
+      "end_date": "2012-06",
+      "location": "Calgary, AB",
+      "employment_type": "full-time",
+      "summary": "Primary bridge between enterprise BI teams and business stakeholders at a major Canadian railway; contributed to multi-million dollar SAP deployments.",
+      "achievements": [
+        {
+          "text": "Served as primary liaison between BI technical teams and business stakeholders, translating capabilities into value propositions.",
+          "skills_demonstrated": ["Business Intelligence", "Stakeholder Management", "Technical Translation"],
+          "quantified": false,
+          "impact_area": "people"
+        },
+        {
+          "text": "Selected to collaborate with SAP Value Engineering Division on multi-million dollar enterprise BI strategy and implementation roadmaps.",
+          "skills_demonstrated": ["SAP BI", "Enterprise Systems", "Strategic Planning"],
+          "quantified": true,
+          "impact_area": "revenue"
+        },
+        {
+          "text": "Led requirements gathering workshops for enterprise BI, identifying analytics needs and prioritizing development efforts.",
+          "skills_demonstrated": ["Requirements Analysis", "Stakeholder Management", "Business Analysis"],
+          "quantified": false,
+          "impact_area": "process"
+        },
+        {
+          "text": "Produced BRDs and process flow diagrams that became organizational templates for subsequent enterprise initiatives.",
+          "skills_demonstrated": ["Requirements Analysis", "Business Process Modeling", "Documentation"],
+          "quantified": false,
+          "impact_area": "process"
+        },
+        {
+          "text": "Managed change management for major system rollouts: training, communications, and user adoption monitoring.",
+          "skills_demonstrated": ["Change Management", "Training Development", "Communications"],
+          "quantified": false,
+          "impact_area": "people"
+        }
+      ],
+      "keywords": ["business intelligence", "SAP", "enterprise systems", "requirements analysis", "change management", "transportation", "regulated industry", "stakeholder management"]
+    },
+    {
+      "company": "TransAlta Utilities",
+      "title": "Enterprise Systems Analyst | Data Management Lead",
+      "start_date": "2001-01",
+      "end_date": "2007-11",
+      "location": "Calgary, AB",
+      "employment_type": "full-time",
+      "summary": "Led enterprise system upgrades and data management at a major Alberta energy company.",
+      "achievements": [
+        {
+          "text": "Led enterprise system upgrades coordinating cross-functional teams for successful deployment with minimal business disruption.",
+          "skills_demonstrated": ["Enterprise Systems", "Project Management", "Cross-Functional Leadership"],
+          "quantified": false,
+          "impact_area": "process"
+        },
+        {
+          "text": "Managed data integrity and QA for critical enterprise systems; developed automated validation protocols.",
+          "skills_demonstrated": ["Data Management", "QA Processes", "Data Governance"],
+          "quantified": false,
+          "impact_area": "risk"
+        },
+        {
+          "text": "Designed reporting frameworks and analytics dashboards for executive decision-making, translating complex operational data into actionable insights.",
+          "skills_demonstrated": ["Business Intelligence", "Analytics", "Executive Reporting"],
+          "quantified": false,
+          "impact_area": "revenue"
+        },
+        {
+          "text": "Coordinated system upgrade projects managing timelines, budgets, and resource allocation while maintaining service levels.",
+          "skills_demonstrated": ["Project Management", "Budget Management", "Resource Allocation"],
+          "quantified": false,
+          "impact_area": "process"
+        },
+        {
+          "text": "Developed comprehensive user training programs and supporting documentation.",
+          "skills_demonstrated": ["Training Development", "Documentation"],
+          "quantified": false,
+          "impact_area": "people"
+        }
+      ],
+      "keywords": ["enterprise systems", "data management", "analytics", "energy sector", "project management", "Alberta", "regulated industry"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "albertaancestors.ca",
+      "description": "Architected and built a custom 250,000+ record genealogy platform from concept to deployment for the Alberta Family Histories Society. Includes data governance protocols, QA processes, and volunteer-operated content workflows.",
+      "skills_demonstrated": ["Database Architecture", "Data Governance", "Web Development", "Digital Transformation", "QA Processes"],
+      "url": "https://albertaancestors.ca",
+      "status": "live"
+    },
+    {
+      "name": "AI-YYC Portfolio Site",
+      "description": "Personal professional portfolio at ai-yyc.com positioning expertise in digital transformation, AI governance, and ethics. Demonstrates SEO strategy, web development, and personal brand execution.",
+      "skills_demonstrated": ["SEO Strategy", "Web Development", "Personal Branding"],
+      "url": "https://ai-yyc.com",
+      "status": "live"
+    },
+    {
+  "name": "Agentic Job Search System",
+  "description": "Designed and built a fully autonomous agentic job search pipeline in Python. Ingests LinkedIn and Indeed job alerts via IMAP, scrapes full job descriptions using Playwright, scores each posting against a structured career profile using Claude Haiku, and automatically generates tailored ATS-compliant resumes and cover letters using Claude Sonnet for high-scoring matches. Delivers results via Telegram bot with approve/reject/regenerate commands. Runs autonomously at 5:00am daily via Windows Task Scheduler.",
+  "skills_demonstrated": ["AI Agent Design", "Python", "Prompt Engineering", "LLM Integration", "Process Automation", "Ethical AI Implementation", "Data Governance"],
+  "url": "https://ai-yyc.com",
+  "status": "live"
+}
+    
+  ],
+  "education": [
+    {
+      "institution": "SAIT",
+      "degree": "Post-Diploma Certificate",
+      "field": "Integrated Artificial Intelligence",
+      "year": 2026,
+      "status": "in-progress",
+      "notable": "Focus: Ethical AI System Design, AI Governance, Human-Centred AI. Graduating August 2026. Directly applicable to AI governance and responsible AI roles."
+    },
+    {
+      "institution": "The George Washington University",
+      "degree": "Masters Certificate in Business Analysis (IIBA Accredited)",
+      "field": "Business Analysis",
+      "year": null,
+      "status": "complete",
+      "notable": "Requirements analysis, stakeholder management, business process modeling. IIBA accreditation is industry-recognized."
+    },
+    {
+      "institution": "University of Alberta",
+      "degree": "Bachelor of Commerce",
+      "field": "Finance, Marketing",
+      "year": null,
+      "status": "complete",
+      "notable": "Business strategy, financial analysis, market research."
+    },
+    {
+      "institution": "SAIT",
+      "degree": "Certificate",
+      "field": "Web Development and Design",
+      "year": null,
+      "status": "complete",
+      "notable": "Practical foundation in web development, UX, and digital delivery. Applied directly in albertaancestors.ca and ai-yyc.com builds."
+    }
+  ],
+  "certifications": [],
+  "achievements_highlight": [
+    "Supported multi-million dollar enterprise BI deployments in collaboration with SAP Value Engineering at Canadian Pacific Railway.",
+    "Led website redevelopment achieving 300% traffic growth and top search rankings.",
+    "Architected albertaancestors.ca: 250,000+ record genealogy platform with governance and data quality frameworks.",
+    "Over 15 years of formal enterprise IT experience across Alberta energy, transportation, and non-profit sectors.",
+    "Completing SAIT AI certificate specializing in ethical AI design, governance frameworks, and human-centred implementation.",
+    "Consistently effective in regulated, high-stakes environments where stakeholder alignment and execution discipline are critical.",
+    "Designed and built a fully autonomous agentic job search system using Python, Claude (Anthropic), Playwright, and Telegram, processing job alerts, scoring matches against a career profile, and generating tailored application documents without human intervention."
+  ],
+  "value_proposition": {
+    "summary": "IT and business leader with over 15 years of formal enterprise experience, now focused on helping organizations adopt AI ethically, responsibly, and with clear business impact.",
+    "differentiators": [
+      "Bridge between business and technical teams: not purely technical, not purely strategic",
+      "Regulated industry depth: energy (TransAlta) and transportation (CP Rail) experience",
+      "AI governance expertise with formal education (SAIT AI certificate) plus practical application",
+      "Proven delivery in resource-constrained environments (non-profit, regulated enterprise)",
+      "Consistent track record of delivering complex systems across multiple sectors"
+    ]
+  },
+  "voice": {
+    "tone": "authoritative, business-focused, outcomes-oriented, governance-aware",
+    "signature_phrase": "Execution, not technology, is where transformation succeeds or fails.",
+    "positioning_statement": "I help organizations translate complex technology into aligned, governed, and business-ready outcomes at the intersection of enterprise systems and responsible AI.",
+    "phrases_to_use": [
+      "governed and business-ready outcomes",
+      "measurable impact",
+      "stakeholder alignment",
+      "responsible AI",
+      "bridge business and technical teams",
+      "disciplined execution",
+      "embed governance into operations",
+      "at the intersection of enterprise systems and responsible AI",
+      "over 15 years of enterprise IT experience"
+    ],
+    "phrases_to_avoid": [
+      "passionate about",
+      "leverage synergies",
+      "thought leader",
+      "guru",
+      "ninja",
+      "cutting-edge",
+      "revolutionary",
+      "I am excited to",
+      "20 years"
+    ],
+    "preferred_person": "first",
+    "cover_letter_opening_style": "Lead with a direct statement connecting the role's specific need to your experience. Avoid generic openers. Reference the intersection of governance and execution immediately."
+  }
+}

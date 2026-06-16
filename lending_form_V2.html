@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lending Web Form (Standalone)</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style_form.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.sait.ca/assets/app/sait/images/favicon/favicon-32x32.png"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <div>
+        <div class="subtitle"><strong>Finance Department</strong></div>
+        <h1>Lending Criteria Form</h1>
+      </div>
+      <img
+        src="https://ai-yyc.net/images/sait_extended_horizontal_full_colour_rgb.png"
+        alt="SAIT Logo"
+      />
+    </div>
+
+    <div class="form-container">
+      <div class="form-type-section">
+        <select id="formType" onchange="showForm()" required>
+          <option value="">— Select Form Type —</option>
+          <option value="business">Business / Corporate Lending</option>
+          <option value="retail">Retail / Personal Lending</option>
+        </select>
+        <div id="demoButtons" class="hidden">
+          <button
+            type="button"
+            class="demo-btn approved"
+            onclick="demoAutoFill('approved')"
+          >
+            Demo: Low Risk
+          </button>
+          <button
+            type="button"
+            class="demo-btn rejected"
+            onclick="demoAutoFill('rejected')"
+          >
+            Demo: High Risk
+          </button>
+        </div>
+        <div id="businessDemoButtons" class="hidden">
+          <button type="button" class="demo-btn" onclick="demoBusinessFill()">
+            Demo: Autofill
+          </button>
+        </div>
+        <a href="applications.html" class="demo-btn new-application-btn"
+          >View Applications</a
+        >
+      </div>
+
+      <form
+        id="businessForm"
+        class="hidden"
+        onsubmit="handleBusinessSubmit(event)"
+        novalidate
+      >
+        <!-- (identical business form markup copied from fullstack index.html) -->
+        <div class="section">
+          <div class="section-title">1 — Company Information</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="b_company">(1) Company Name</label>
+                <input
+                  type="text"
+                  id="b_company"
+                  placeholder="Enter company name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="required" for="b_industry"
+                  >(2) Industry Sector</label
+                >
+                <select id="b_industry" required>
+                  <option value="">— Select Industry —</option>
+                  <option>Technology</option>
+                  <option>Healthcare</option>
+                  <option>Manufacturing</option>
+                  <option>Retail</option>
+                  <option>Finance</option>
+                  <option>Construction</option>
+                  <option>Energy</option>
+                  <option>Agriculture</option>
+                  <option>Transportation</option>
+                  <option>Hospitality</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="b_years"
+                  >(3) Years in Business</label
+                >
+                <input
+                  type="number"
+                  id="b_years"
+                  placeholder="e.g. 5"
+                  min="0"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="required" for="b_employees"
+                  >(4) Number of Employees</label
+                >
+                <input
+                  type="number"
+                  id="b_employees"
+                  placeholder="e.g. 25"
+                  min="1"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="b_incorp"
+                  >(5) Date of Incorporation</label
+                >
+                <input type="date" id="b_incorp" required />
+              </div>
+              <div class="form-group">
+                <label class="required" for="b_ownership"
+                  >(6) Ownership Structure</label
+                >
+                <select id="b_ownership" required>
+                  <option value="">— Select —</option>
+                  <option>Sole Proprietorship</option>
+                  <option>Partnership</option>
+                  <option>Corporation (Private)</option>
+                  <option>Corporation (Public)</option>
+                  <option>Cooperative</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">2 — Financial Information</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="b_revenue"
+                  >(7) Annual Revenue ($)</label
+                >
+                <input
+                  type="number"
+                  id="b_revenue"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="required" for="b_profit"
+                  >(8) Annual Net Income ($)</label
+                >
+                <input
+                  type="number"
+                  id="b_profit"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="b_assets"
+                  >(9) Total Assets ($)</label
+                >
+                <input
+                  type="number"
+                  id="b_assets"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="required" for="b_liabilities"
+                  >(10) Total Liabilities ($)</label
+                >
+                <input
+                  type="number"
+                  id="b_liabilities"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group full">
+                <label>(11) EBITDA Calculation (optional)</label>
+                <div class="calc-box">
+                  <div class="calc-label">Calculate EBITDA</div>
+                  <div class="calc-row">
+                    <label>Net Income ($)</label>
+                    <input
+                      type="number"
+                      id="ebi_ni"
+                      placeholder="0.00"
+                      onchange="calcEBITDA()"
+                    />
+                  </div>
+                  <div class="calc-row">
+                    <label>Interest ($)</label>
+                    <input
+                      type="number"
+                      id="ebi_int"
+                      placeholder="0.00"
+                      onchange="calcEBITDA()"
+                    />
+                  </div>
+                  <div class="calc-row">
+                    <label>Taxes ($)</label>
+                    <input
+                      type="number"
+                      id="ebi_tax"
+                      placeholder="0.00"
+                      onchange="calcEBITDA()"
+                    />
+                  </div>
+                  <div class="calc-row">
+                    <label>Depreciation ($)</label>
+                    <input
+                      type="number"
+                      id="ebi_dep"
+                      placeholder="0.00"
+                      onchange="calcEBITDA()"
+                    />
+                  </div>
+                  <div class="calc-row">
+                    <label>Amortization ($)</label>
+                    <input
+                      type="number"
+                      id="ebi_amort"
+                      placeholder="0.00"
+                      onchange="calcEBITDA()"
+                    />
+                  </div>
+                  <hr class="calc-divider" />
+                  <div class="calc-result-row">
+                    <label>EBITDA</label>
+                    <div class="result-display" id="ebitdaResult">$0.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">3 — Debt &amp; Obligations</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b_currentdebt">(12) Total Current Debt ($)</label>
+                <input type="number" id="b_currentdebt" placeholder="0.00" />
+                <span class="helper"
+                  >All outstanding business loans, lines of credit, etc.</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="b_monthlydebt">(13) Monthly Debt Service ($)</label>
+                <input type="number" id="b_monthlydebt" placeholder="0.00" />
+                <span class="helper"
+                  >Total monthly debt payments (principal + interest).</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">4 — Loan Request Details</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b_loanamt">(14) Loan Amount Requested ($)</label>
+                <input type="number" id="b_loanamt" placeholder="0.00" />
+              </div>
+              <div class="form-group">
+                <label for="b_purpose">(15) Loan Purpose</label>
+                <select id="b_purpose">
+                  <option value="">— Select Purpose —</option>
+                  <option>Working Capital</option>
+                  <option>Equipment Purchase</option>
+                  <option>Real Estate</option>
+                  <option>Business Expansion</option>
+                  <option>Debt Consolidation</option>
+                  <option>Inventory</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b_term">(16) Desired Loan Term (Years)</label>
+                <input
+                  type="number"
+                  id="b_term"
+                  placeholder="e.g. 5"
+                  min="1"
+                  max="30"
+                />
+              </div>
+              <div class="form-group">
+                <label for="b_collateral">(17) Collateral Available</label>
+                <select id="b_collateral">
+                  <option value="">— Select —</option>
+                  <option>Real Estate</option>
+                  <option>Equipment</option>
+                  <option>Inventory</option>
+                  <option>Accounts Receivable</option>
+                  <option>Personal Guarantee</option>
+                  <option>None</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit">Submit Application →</button>
+        </div>
+      </form>
+
+      <form id="retailForm" class="hidden">
+        <div class="section">
+          <div class="section-title">1 — Personal Information</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="r_income"
+                  >(1) Annual Gross Income ($)</label
+                >
+                <input
+                  type="number"
+                  id="r_income"
+                  name="Annual Gross Income"
+                  placeholder="e.g. 75000"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="required" for="r_empstatus"
+                  >(2) Employment Status</label
+                >
+                <div class="empstatus-row">
+                  <select
+                    id="r_empstatus"
+                    name="Employment Status"
+                    onchange="checkOtherEmployment()"
+                    required
+                  >
+                    <option value="">— Select —</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Self-employed</option>
+                    <option>Contract</option>
+                    <option>Unemployed</option>
+                    <option>Retired</option>
+                    <option>Other</option>
+                  </select>
+                  <div id="other_emp_container" class="hidden">
+                    <input
+                      type="text"
+                      id="r_empstatus_other"
+                      placeholder="Please specify..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="r_empyears"
+                  >(3) Length of Current Employment (Years)</label
+                >
+                <input
+                  type="number"
+                  id="r_empyears"
+                  name="Years of Current Employment"
+                  placeholder="e.g. 4"
+                  min="0"
+                  step="0.5"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="required" for="r_dob">(4) Date of Birth</label>
+                <input type="date" id="r_dob" name="Date of Birth" required />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">2 — Assets &amp; Liabilities</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="r_monthlydebt"
+                  >(5) Monthly Debt Obligations ($)</label
+                >
+                <input
+                  type="number"
+                  id="r_monthlydebt"
+                  name="Monthly Debt Obligations"
+                  placeholder="0.00"
+                  required
+                />
+                <span class="helper"
+                  >All existing required monthly payments: loans, credit card
+                  minimums, leases, etc.</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="r_revlimit"
+                  >(6) Total Revolving Credit Limit ($)</label
+                >
+                <input
+                  type="number"
+                  id="r_revlimit"
+                  name="Total Revolving Credit Limit"
+                  placeholder="0.00"
+                />
+                <span class="helper"
+                  >Combined credit limit across all credit cards &amp; lines of
+                  credit.</span
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="r_revbalance"
+                  >(7) Total Revolving Balance ($)</label
+                >
+                <input
+                  type="number"
+                  id="r_revbalance"
+                  name="Total Revolving Balance"
+                  placeholder="0.00"
+                  required
+                />
+                <span class="helper"
+                  >Outstanding balance on all credit cards &amp; lines of
+                  credit.</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="required" for="r_savings"
+                  >(8) Savings / Liquid Assets ($)</label
+                >
+                <input
+                  type="number"
+                  id="r_savings"
+                  name="Liquid Assets"
+                  placeholder="0.00"
+                  required
+                />
+                <span class="helper"
+                  >Chequing, savings, GICs, or other accessible funds.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">3 — Housing</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="r_housingstatus"
+                  >(9) Housing Status</label
+                >
+                <select id="r_housingstatus" name="Housing Status" required>
+                  <option value="">— Select —</option>
+                  <option>Own</option>
+                  <option>Rent</option>
+                  <option>Live with Family</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="required" for="r_housingpayment"
+                  >(10) Monthly Housing Payment ($)</label
+                >
+                <input
+                  type="number"
+                  id="r_housingpayment"
+                  name="Monthly Housing Payment"
+                  placeholder="0.00"
+                  required
+                />
+                <span class="helper"
+                  >Monthly rent or mortgage payment. Enter $0 if no
+                  payment.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">4 — Credit History</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="required" for="r_bankruptcy"
+                  >(11) Prior Bankruptcy / Consumer Proposal (Past 7
+                  Years)</label
+                >
+                <select id="r_bankruptcy" name="Prior Bankruptcy" required>
+                  <option value="">— Select —</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+              <div class="form-group"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">5 — Optional Fields</div>
+          <div class="section-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="r_loanamt">(12) Loan Amount Requested ($)</label>
+                <input
+                  type="number"
+                  id="r_loanamt"
+                  name="Loan Amount Requested"
+                  placeholder="0.00"
+                />
+              </div>
+              <div class="form-group">
+                <label for="r_creditscore"
+                  >(13) Credit Score (If Voluntarily Provided)</label
+                >
+                <input
+                  type="number"
+                  id="r_creditscore"
+                  name="Credit Score"
+                  placeholder="300 – 900"
+                  min="300"
+                  max="900"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="r_credithistory"
+                  >(14) Length of Credit History (Years)</label
+                >
+                <input
+                  type="number"
+                  id="r_credithistory"
+                  name="Years of Credit History"
+                  placeholder="e.g. 8"
+                  min="0"
+                />
+              </div>
+              <div class="form-group">
+                <label for="r_delinquencies"
+                  >(15) Delinquencies in Last 12 Months (Self-Reported)</label
+                >
+                <input
+                  type="number"
+                  id="r_delinquencies"
+                  name="Delinquencies Past 12 Months"
+                  placeholder="e.g. 0"
+                  min="0"
+                />
+              </div>
+              <div class="form-group">
+                <label for="r_months_delinquent"
+                  >(15b) Months Since Last Delinquency</label
+                >
+                <input
+                  type="number"
+                  id="r_months_delinquent"
+                  name="Months Since Last Delinquency"
+                  placeholder="e.g. 24 (use 100 for never)"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="r_occupation">(16) Occupation Category</label>
+                <select id="r_occupation" name="Occupation Category">
+                  <option value="">— Select —</option>
+                  <option>Healthcare / Medical</option>
+                  <option>Education</option>
+                  <option>Technology / IT</option>
+                  <option>Finance / Accounting</option>
+                  <option>Legal / Law</option>
+                  <option>Skilled Trades</option>
+                  <option>Government / Public Service</option>
+                  <option>Retail / Hospitality</option>
+                  <option>Transportation / Logistics</option>
+                  <option>Construction / Real Estate</option>
+                  <option>Oil, Gas &amp; Resources</option>
+                  <option>Arts / Creative</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="r_dependents">(17) Number of Dependents</label>
+                <input
+                  type="number"
+                  id="r_dependents"
+                  name="Dependents"
+                  placeholder="e.g. 2"
+                  min="0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit">Submit Application →</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const DEFAULT_API_BASE = "https://royaggarwal.pythonanywhere.com";
+      const API_BASE = DEFAULT_API_BASE;
+
+      function showForm() {
+        var selectedValue = document.getElementById("formType").value;
+        var businessFormElement = document.getElementById("businessForm");
+        var retailFormElement = document.getElementById("retailForm");
+        var demoButtons = document.getElementById("demoButtons");
+        var businessDemoButtons = document.getElementById(
+          "businessDemoButtons",
+        );
+        if (businessFormElement) businessFormElement.className = "hidden";
+        if (retailFormElement) retailFormElement.className = "hidden";
+        if (demoButtons) {
+          demoButtons.className = "hidden";
+          demoButtons.style.display = "none";
+        }
+        if (businessDemoButtons) {
+          businessDemoButtons.className = "hidden";
+          businessDemoButtons.style.display = "none";
+        }
+        if (selectedValue === "business" && businessFormElement) {
+          businessFormElement.className = "";
+          if (businessDemoButtons) {
+            businessDemoButtons.className = "";
+            businessDemoButtons.style.display = "flex";
+          }
+        } else if (selectedValue === "retail" && retailFormElement) {
+          retailFormElement.className = "";
+          if (demoButtons) {
+            demoButtons.className = "";
+            demoButtons.style.display = "flex";
+          }
+        }
+      }
+
+      function demoBusinessFill() {
+        document.getElementById("b_company").value =
+          "Northbridge Fabrication Ltd.";
+        document.getElementById("b_industry").value = "Manufacturing";
+        document.getElementById("b_years").value = 7;
+        document.getElementById("b_employees").value = 18;
+        document.getElementById("b_incorp").value = "2018-03-15";
+        document.getElementById("b_ownership").value = "Corporation (Private)";
+        document.getElementById("b_revenue").value = 820000;
+        document.getElementById("b_profit").value = 98000;
+        document.getElementById("b_assets").value = 640000;
+        document.getElementById("b_liabilities").value = 280000;
+        document.getElementById("b_currentdebt").value = 160000;
+        document.getElementById("b_monthlydebt").value = 6200;
+        document.getElementById("b_loanamt").value = 150000;
+        document.getElementById("b_purpose").value = "Equipment Purchase";
+        document.getElementById("b_term").value = 6;
+        document.getElementById("b_collateral").value = "Equipment";
+      }
+
+      function demoAutoFill(type) {
+        if (type === "approved") {
+          document.getElementById("r_income").value = 68000;
+          document.getElementById("r_empstatus").value = "Full-time";
+          document.getElementById("r_empyears").value = 3.5;
+          document.getElementById("r_dob").value = "1992-04-20";
+          document.getElementById("r_monthlydebt").value = 850;
+          document.getElementById("r_revlimit").value = 14000;
+          document.getElementById("r_revbalance").value = 3800;
+          document.getElementById("r_savings").value = 7000;
+          document.getElementById("r_housingstatus").value = "Rent";
+          document.getElementById("r_housingpayment").value = 1400;
+          document.getElementById("r_bankruptcy").value = "No";
+          document.getElementById("r_loanamt").value = 12000;
+          document.getElementById("r_creditscore").value = 705;
+          document.getElementById("r_credithistory").value = 8;
+          document.getElementById("r_delinquencies").value = 1;
+          document.getElementById("r_months_delinquent").value = 24;
+          document.getElementById("r_occupation").value = "Education";
+          document.getElementById("r_dependents").value = 1;
+        } else if (type === "rejected") {
+          document.getElementById("r_income").value = 47000;
+          document.getElementById("r_empstatus").value = "Part-time";
+          document.getElementById("r_empyears").value = 1.5;
+          document.getElementById("r_dob").value = "1994-09-10";
+          document.getElementById("r_monthlydebt").value = 1500;
+          document.getElementById("r_revlimit").value = 8000;
+          document.getElementById("r_revbalance").value = 6200;
+          document.getElementById("r_savings").value = 1200;
+          document.getElementById("r_housingstatus").value = "Rent";
+          document.getElementById("r_housingpayment").value = 1550;
+          document.getElementById("r_bankruptcy").value = "No";
+          document.getElementById("r_loanamt").value = 18000;
+          document.getElementById("r_creditscore").value = 510;
+          document.getElementById("r_credithistory").value = 4;
+          document.getElementById("r_delinquencies").value = 2;
+          document.getElementById("r_months_delinquent").value = 6;
+          document.getElementById("r_occupation").value =
+            "Retail / Hospitality";
+          document.getElementById("r_dependents").value = 2;
+        }
+      }
+
+      function calcEBITDA() {
+        var netIncome =
+          parseFloat(document.getElementById("ebi_ni").value) || 0;
+        var interest =
+          parseFloat(document.getElementById("ebi_int").value) || 0;
+        var taxes = parseFloat(document.getElementById("ebi_tax").value) || 0;
+        var depreciation =
+          parseFloat(document.getElementById("ebi_dep").value) || 0;
+        var amortization =
+          parseFloat(document.getElementById("ebi_amort").value) || 0;
+        var total = netIncome + interest + taxes + depreciation + amortization;
+        var formattedTotal =
+          "$" +
+          total.toLocaleString("en-CA", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("ebitdaResult").textContent = formattedTotal;
+      }
+
+      function checkOtherEmployment() {
+        var empStatus = document.getElementById("r_empstatus").value;
+        var otherContainer = document.getElementById("other_emp_container");
+        var otherInput = document.getElementById("r_empstatus_other");
+
+        if (empStatus === "Other") {
+          otherContainer.classList.remove("hidden");
+          otherInput.setAttribute("required", "required");
+        } else {
+          otherContainer.classList.add("hidden");
+          otherInput.removeAttribute("required");
+          otherInput.value = "";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var today = new Date();
+        var year = today.getFullYear() - 18;
+        var month = (today.getMonth() + 1).toString().padStart(2, "0");
+        var day = today.getDate().toString().padStart(2, "0");
+        var maxDateStr = year + "-" + month + "-" + day;
+
+        var dobInput = document.getElementById("r_dob");
+        if (dobInput) {
+          dobInput.setAttribute("max", maxDateStr);
+        }
+
+        // Ensure button groups are hidden correctly on first render.
+        showForm();
+      });
+
+      async function submitPayload(payload) {
+        return fetch(API_BASE + "/api/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+          },
+          body: JSON.stringify(payload),
+        });
+      }
+
+      function collectBusinessPayload() {
+        return {
+          "Annual Gross Income":
+            document.getElementById("b_revenue")?.value || "0",
+          "Employment Status": "Self-employed",
+          "Years of Current Employment":
+            document.getElementById("b_years")?.value || "0",
+          "Date of Birth": "",
+          "Monthly Debt Obligations":
+            document.getElementById("b_monthlydebt")?.value || "0",
+          "Total Revolving Credit Limit":
+            document.getElementById("b_assets")?.value || "0",
+          "Total Revolving Balance":
+            document.getElementById("b_currentdebt")?.value || "0",
+          "Liquid Assets": document.getElementById("b_assets")?.value || "0",
+          "Housing Status": "Other",
+          "Monthly Housing Payment": "0",
+          "Prior Bankruptcy": "No",
+          "Loan Amount Requested":
+            document.getElementById("b_loanamt")?.value || "0",
+          "Credit Score": "700",
+          "Years of Credit History":
+            document.getElementById("b_years")?.value || "0",
+          "Delinquencies Past 12 Months": "0",
+          "Months Since Last Delinquency": "100",
+          "Occupation Category":
+            document.getElementById("b_industry")?.value || "Other",
+          Dependents: "0",
+        };
+      }
+
+      // Retail submit -> API
+      document
+        .getElementById("retailForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = {};
+          const dataPayload = new FormData(this);
+          dataPayload.forEach((value, key) => {
+            formData[key] = value;
+          });
+
+          try {
+            const response = await submitPayload(formData);
+
+            if (response.ok) {
+              const ct = response.headers.get("content-type") || "";
+              let result;
+              if (!ct.includes("application/json")) {
+                alert(
+                  "Expected JSON from /api/submit but received non-JSON response.",
+                );
+                return;
+              }
+              result = await response.json();
+              const appId =
+                result.application_id ||
+                result.applicationId ||
+                result.id ||
+                "";
+              const explanation = encodeURIComponent(
+                JSON.stringify(result.top_features || []),
+              );
+              const income = encodeURIComponent(
+                formData["Annual Gross Income"] || "",
+              );
+              const fico = encodeURIComponent(formData["Credit Score"] || "");
+              window.location.href = `results.html?id=${encodeURIComponent(appId)}&prediction=${encodeURIComponent(result.prediction)}&confidence=${encodeURIComponent(result.confidence)}&explanation=${explanation}&income=${income}&fico=${fico}`;
+            } else {
+              const err = await response
+                .json()
+                .catch(() => ({ message: "unknown" }));
+              alert("Error: " + err.message);
+            }
+          } catch (error) {
+            alert(
+              "Could not connect to the backend server. Check API base and CORS settings.",
+            );
+          }
+        });
+
+      // Business submit -> API
+      async function handleBusinessSubmit(e) {
+        e.preventDefault();
+        const modal = document.getElementById("businessModal");
+        modal.style.display = "flex";
+      }
+    </script>
+    <!-- Business form demo modal -->
+    <div
+      id="businessModal"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          padding: 2rem;
+          border-radius: 8px;
+          max-width: 420px;
+          margin: 1rem;
+          font-family: &quot;DM Sans&quot;, sans-serif;
+          color: #0c2340;
+        "
+      >
+        <p style="margin: 0 0 1.5rem; line-height: 1.6">
+          Business Form submissions are for demonstration purposes only. No data
+          has been written to the database. Click <strong>Ok</strong> to be
+          redirected to google.com.
+        </p>
+        <button
+          onclick="window.location.href = 'https://www.google.com'"
+          style="
+            background: #0c2340;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+          "
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

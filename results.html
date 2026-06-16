@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Results - Standalone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style_form.css">
+  <link rel="icon" type="image/png" href="https://www.sait.ca/assets/app/sait/images/favicon/favicon-32x32.png">
+</head>
+
+<body>
+  <div class="header">
+    <div>
+      <div class="subtitle"><strong>Finance Department</strong></div>
+      <h1>Lending Criteria Results</h1>
+    </div>
+    <img src="https://ai-yyc.net/images/sait_extended_horizontal_full_colour_rgb.png" alt="SAIT Logo" />
+  </div>
+
+  <div class="result-container">
+    <div class="section">
+      <div class="section-title">Application Status</div>
+      <div class="section-body">
+        <div class="status-box">
+          <span id="statusIcon" class="status-icon"></span>
+          <h2 id="statusText" class="status-text"></h2>
+          <p id="statusMsg" class="status-msg"></p>
+        </div>
+
+        <div class="details-list">
+          <div class="detail-item">
+            <span class="detail-label">Annual Income</span>
+            <span class="detail-value" id="resIncome"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">FICO Score</span>
+            <span class="detail-value" id="resFico"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Decision Strategy</span>
+            <span class="detail-value">Predictive Risk Model V1.0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Model Confidence</span>
+            <span class="detail-value" id="resConfidence">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="explainabilitySection">
+      <div class="section-title">Why this decision?</div>
+      <div class="section-body">
+        <p class="explain-desc">Below are the primary factors identified by our predictive model that influenced this specific risk
+          assessment.</p>
+        <div id="explanationDisplay"></div>
+      </div>
+    </div>
+
+    <div class="back-row">
+      <a href="lending_form_V2.html" class="back-btn">← Return to Application Form</a>
+    </div>
+  </div>
+
+  <script>
+    const DEFAULT_API_BASE = 'https://royaggarwal.pythonanywhere.com';
+    const API_BASE = DEFAULT_API_BASE;
+
+    function qs(name) {
+      const params = new URLSearchParams(location.search);
+      return params.get(name);
+    }
+
+    async function loadResult() {
+      const id = qs('id');
+      const qPrediction = qs('prediction');
+      const qConfidence = qs('confidence');
+      const qExplanation = qs('explanation');
+      const qIncome = qs('income');
+      const qFico = qs('fico');
+
+      // Fast path: if submit returned query params, render directly with no extra fetch.
+      if (qPrediction !== null) {
+        renderData({
+          prediction: qPrediction,
+          confidence: qConfidence || 0,
+          top_features: qExplanation ? JSON.parse(decodeURIComponent(qExplanation)) : [],
+          annual_gross_income: qIncome || 0,
+          credit_score: qFico || ''
+        });
+        return;
+      }
+
+      if (!id) {
+        document.getElementById('statusText').textContent = 'No application id provided.';
+        return;
+      }
+
+      try {
+        const res = await fetch(API_BASE + '/api/results?id=' + encodeURIComponent(id), { headers: { 'Accept': 'application/json' } });
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({ message: 'unknown' }));
+          document.getElementById('statusText').textContent = 'Error: ' + err.message;
+          return;
+        }
+
+        const ct = res.headers.get('content-type') || '';
+        let data;
+        if (ct.includes('application/json')) {
+          data = await res.json();
+        } else {
+          const txt = await res.text();
+          const m = txt.match(/window\.serverContext\s*=\s*(\{[\s\S]*?\});/);
+          if (m) {
+            try {
+              const sc = JSON.parse(m[1]);
+              data = {
+                prediction: sc.prediction,
+                confidence: sc.confidence,
+                top_features: sc.explanation || [],
+                annual_gross_income: sc.income,
+                credit_score: sc.fico,
+              };
+            } catch (parseErr) {
+              document.getElementById('statusText').textContent = 'Server returned HTML and parsing failed.';
+              return;
+            }
+          } else {
+            document.getElementById('statusText').textContent = 'Server returned HTML instead of JSON.';
+            return;
+          }
+        }
+        renderData(data);
+
+      } catch (err) {
+        document.getElementById('statusText').textContent = 'Network or CORS error: ' + err.message;
+      }
+    }
+
+    function renderData(data) {
+      const pred = String(data.prediction);
+      const conf = parseFloat(data.confidence || 0);
+      const features = data.top_features || [];
+
+      document.getElementById('resIncome').textContent = '$' + Number(data.annual_gross_income || 0).toLocaleString();
+      document.getElementById('resFico').textContent = data.credit_score || '';
+
+      if (conf) {
+        const confPercent = (conf * 100).toFixed(1) + '%';
+        document.getElementById('resConfidence').textContent = confPercent;
+      }
+
+      if (pred === '0') {
+        document.getElementById('statusText').textContent = "Low Default Risk";
+        document.getElementById('statusText').className = "status-text approved-text";
+        document.getElementById('statusIcon').textContent = "✅";
+        document.getElementById('statusMsg').textContent = "Congratulations! Based on our predictive model and your reported financial data, your application is classified as Low Default Risk.";
+      } else {
+        document.getElementById('statusText').textContent = "High Default Risk";
+        document.getElementById('statusText').className = "status-text rejected-text";
+        document.getElementById('statusIcon').textContent = "❌";
+        document.getElementById('statusMsg').textContent = "We regret to inform you that your application is classified as High Default Risk based on the assessment performed.";
+      }
+
+      if (features && features.length > 0) {
+        const container = document.getElementById('explanationDisplay');
+        container.innerHTML = '';
+        const maxImpact = Math.max(...features.map(f => f.impact || 0));
+        const predictedHighRisk = pred === '1';
+        features.forEach(f => {
+          const barWidth = maxImpact ? (f.impact / maxImpact) * 100 : 0;
+          const pushesHighRisk = (f.raw_impact || 0) > 0;
+          const supportsDecision = predictedHighRisk ? pushesHighRisk : !pushesHighRisk;
+          const barColor = supportsDecision ? (predictedHighRisk ? '#e53e3e' : '#38a169') : '#f59e0b';
+          const labelSuffix = supportsDecision ? ' (Supports Decision)' : ' (Counter-Signal)';
+
+          const item = document.createElement('div');
+          item.className = 'explain-item';
+          item.innerHTML = `
+            <div class="explain-row">
+              <span>${f.feature}${labelSuffix}</span>
+              <span class="explain-value">${(f.impact||0).toFixed(2)} pts</span>
+            </div>
+            <div class="explain-bar">
+              <div class="explain-bar-fill" style="width: ${barWidth}%; background: ${barColor};"></div>
+            </div>
+          `;
+          container.appendChild(item);
+        });
+      } else {
+        document.getElementById('explainabilitySection').style.display = 'none';
+      }
+    }
+
+    loadResult();
+  </script>
+</body>
+
+</html>

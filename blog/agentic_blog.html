@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Blog posts on Agentic AI by Roy Aggarwal."
+    />
+    <title>Agentic AI | Blog | Roy Aggarwal</title>
+    <link rel="icon" href="../brain.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../master_nav.js"></script>
+    <script src="../blog_posts.js"></script>
+    <script src="../blog_categories.js"></script>
+      <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai-yyc.com/blog/agentic_blog.html" />
+    <meta property="og:title" content="Agentic AI | Blog | Roy Aggarwal" />
+    <meta property="og:description" content="Autonomous AI delivering transformative organizational results." />
+    <meta property="og:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agentic AI | Blog | Roy Aggarwal" />
+    <meta name="twitter:description" content="Autonomous AI delivering transformative organizational results." />
+    <meta name="twitter:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+
+    <div class="blog-container">
+      <div id="blog-sidebar-container"></div>
+
+      <main class="blog-content">
+        <header class="category-header">
+          <div class="card-header">
+            <img src="../images/magic-wand.svg" alt="" class="card-icon" />
+            <h1>Agentic AI</h1>
+          </div>
+          <p class="category-intro">
+            Autonomous AI delivering transformative organizational results.
+          </p>
+        </header>
+
+        <section class="blog-posts" id="agentic-ai-posts"></section>
+      </main>
+    </div>
+
+    <div id="site-footer"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        renderPostsToContainer(
+          "agentic-ai-posts",
+          (post) => post.category === "Agentic AI",
+          { withButton: true },
+        );
+      });
+    </script>
+  </body>
+</html>

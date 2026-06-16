@@ -1,0 +1,1500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Grading System - Mockup</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --ink: #1a1a2e;
+        --paper: #f8f7f4;
+        --accent: #d4463c;
+        --border: #2a2a3e;
+        --highlight: #ffd700;
+        --muted: #6b6b7e;
+        --success: #2d6a4f;
+      }
+
+      body {
+        font-family: "Crimson Pro", serif;
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.6;
+        padding: 0;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 1px,
+          rgba(0, 0, 0, 0.02) 1px,
+          rgba(0, 0, 0, 0.02) 2px
+        );
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      header {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 30px 0;
+        margin-bottom: 40px;
+        border-bottom: 4px solid var(--accent);
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(212, 70, 60, 0.15),
+          transparent
+        );
+        border-radius: 50%;
+      }
+
+      header .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        font-size: 2.8em;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: 5px;
+      }
+
+      .subtitle {
+        font-family: "DM Mono", monospace;
+        font-size: 0.9em;
+        color: #b0b0c5;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .auth-section {
+        background: white;
+        border: 2px solid var(--border);
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+        animation: slideIn 0.6s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .form-section {
+        background: white;
+        border: 2px solid var(--border);
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+        animation: slideIn 0.6s ease-out 0.1s both;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+        font-weight: 700;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        transform: rotate(45deg);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 25px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 1.05em;
+        color: var(--ink);
+        font-family: "DM Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85em;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      select {
+        padding: 12px 15px;
+        border: 2px solid var(--border);
+        background: var(--paper);
+        font-family: "Crimson Pro", serif;
+        font-size: 1.05em;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .file-upload {
+        border: 3px dashed var(--border);
+        padding: 40px;
+        text-align: center;
+        background: var(--paper);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .file-upload:hover {
+        border-color: var(--accent);
+        background: white;
+      }
+
+      .file-upload.dragover {
+        border-color: var(--success) !important;
+        background: rgba(45, 106, 79, 0.1) !important;
+      }
+
+      .file-upload-icon {
+        font-size: 3em;
+        margin-bottom: 10px;
+        color: var(--muted);
+      }
+
+      .file-upload-text {
+        font-family: "DM Mono", monospace;
+        color: var(--muted);
+        font-size: 0.9em;
+      }
+
+      .forgot-password {
+        font-size: 0.9em;
+        color: var(--accent);
+        text-decoration: none;
+        font-family: "DM Mono", monospace;
+        transition: all 0.2s ease;
+        display: inline-block;
+      }
+
+      .forgot-password:hover {
+        text-decoration: underline;
+        transform: translateX(3px);
+      }
+
+      .btn {
+        padding: 15px 35px;
+        border: none;
+        background: var(--accent);
+        color: white;
+        font-family: "DM Mono", monospace;
+        font-size: 1em;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 4px 4px 0 var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 var(--border);
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn-secondary {
+        background: var(--border);
+      }
+
+      .grade-display {
+        background: linear-gradient(135deg, var(--success) 0%, #1d4d35 100%);
+        color: white;
+        padding: 25px;
+        margin: 25px 0;
+        border-left: 6px solid var(--highlight);
+        font-size: 1.3em;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .grade-number {
+        font-size: 2.5em;
+        font-weight: 700;
+        font-family: "DM Mono", monospace;
+      }
+
+      .results-table {
+        margin-top: 30px;
+        animation: slideIn 0.6s ease-out 0.2s both;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        border: 2px solid var(--border);
+      }
+
+      thead {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      th {
+        padding: 18px 15px;
+        text-align: left;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85em;
+        border-bottom: 3px solid var(--accent);
+        cursor: pointer;
+        position: relative;
+        transition: background 0.2s ease;
+      }
+
+      th:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      td {
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      tbody tr:hover {
+        background: var(--paper);
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 3px;
+        font-size: 0.85em;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+      }
+
+      .status-graded {
+        background: rgba(45, 106, 79, 0.2);
+        color: var(--success);
+        border: 1px solid var(--success);
+      }
+
+      .status-pending {
+        background: rgba(212, 70, 60, 0.2);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+      }
+
+      .more-info-btn {
+        background: var(--border);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        font-size: 0.85em;
+        transition: all 0.2s ease;
+      }
+
+      .more-info-btn:hover {
+        background: var(--accent);
+        transform: scale(1.05);
+      }
+
+      .actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .info-box {
+        background: #fff8e1;
+        border-left: 4px solid var(--highlight);
+        padding: 15px;
+        margin: 20px 0;
+        font-size: 0.95em;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 40px;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border: 3px solid var(--border);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-header {
+        font-size: 1.8em;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--accent);
+      }
+
+      .ai-comments {
+        background: var(--paper);
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid var(--accent);
+        font-style: italic;
+      }
+
+      .close-modal {
+        background: var(--border);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        margin-top: 20px;
+      }
+
+      .edit-controls {
+        background: #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+        border: 2px solid var(--border);
+      }
+
+      .edit-mode-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .toggle-edit {
+        background: var(--accent);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        font-size: 0.9em;
+        transition: all 0.2s ease;
+      }
+
+      .toggle-edit:hover {
+        background: #b83830;
+      }
+
+      .editable-field {
+        margin-bottom: 20px;
+      }
+
+      .editable-field label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .editable-field input[type="number"],
+      .editable-field textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid var(--border);
+        font-family: "Crimson Pro", serif;
+        font-size: 1em;
+      }
+
+      .editable-field textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .rerun-section {
+        background: #fff8e1;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid var(--highlight);
+      }
+
+      .rerun-section h4 {
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+
+      .prompt-input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid var(--border);
+        font-family: "Crimson Pro", serif;
+        font-size: 0.95em;
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .btn-save {
+        background: var(--success);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .btn-save:hover {
+        background: #1d4d35;
+      }
+
+      .btn-cancel {
+        background: var(--muted);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .btn-cancel:hover {
+        background: #4a4a5e;
+      }
+
+      .btn-rerun {
+        background: var(--accent);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .btn-rerun:hover {
+        background: #b83830;
+      }
+
+      .edit-mode-active {
+        display: block;
+      }
+
+      .edit-mode-inactive {
+        display: none;
+      }
+
+      .popup-notification {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 30px 50px;
+        border: 3px solid var(--success);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        z-index: 2000;
+        text-align: center;
+        animation: popupFadeIn 0.3s ease-out;
+      }
+
+      @keyframes popupFadeIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      .popup-notification h3 {
+        color: var(--success);
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        font-family: "DM Mono", monospace;
+      }
+
+      .popup-notification p {
+        color: var(--ink);
+        margin-bottom: 20px;
+      }
+
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+      }
+
+      .popup-close-btn {
+        background: var(--success);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        cursor: pointer;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .popup-close-btn:hover {
+        background: #1d4d35;
+      }
+
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+      }
+
+      body.dark-mode {
+        --ink: #ffffff;
+        --paper: #0d0d14;
+        --accent: #d4463c;
+        --border: #42425a;
+        --highlight: #ffea00;
+        --muted: #b0b0c5;
+        --success: #4caf50;
+        background-color: var(--paper);
+      }
+
+      body.dark-mode .auth-section,
+      body.dark-mode .form-section,
+      body.dark-mode table,
+      body.dark-mode .modal-content,
+      body.dark-mode .popup-notification,
+      body.dark-mode .edit-controls {
+        background: #1c1c28;
+      }
+
+      body.dark-mode input[type="text"],
+      body.dark-mode input[type="password"],
+      body.dark-mode input[type="number"],
+      body.dark-mode select,
+      body.dark-mode textarea {
+        background: #262636;
+        color: var(--ink);
+      }
+
+      body.dark-mode input[type="text"]:focus,
+      body.dark-mode input[type="password"]:focus,
+      body.dark-mode input[type="number"]:focus,
+      body.dark-mode select:focus,
+      body.dark-mode textarea:focus,
+      body.dark-mode .file-upload:hover {
+        background: #34344a;
+      }
+
+      body.dark-mode .info-box,
+      body.dark-mode .rerun-section {
+        background: #4a4014;
+        border-left-color: #ffd900;
+        border-left-width: 6px;
+        box-shadow: 0 4px 12px rgba(255, 217, 0, 0.15);
+      }
+
+      body.dark-mode header {
+        background: #151520;
+        color: var(--ink);
+      }
+
+      body.dark-mode thead {
+        background: #151520;
+        color: var(--ink);
+      }
+
+      body.dark-mode .btn {
+        box-shadow: 4px 4px 0 #5a5a7e;
+      }
+
+      body.dark-mode .btn:hover {
+        box-shadow: 2px 2px 0 #5a5a7e;
+      }
+
+      body.text-small {
+        font-size: 14px;
+      }
+      body.text-large {
+        font-size: 18px;
+      }
+
+      .floating-controls {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1000;
+      }
+
+      body.dark-mode .floating-btn {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+
+      body.dark-mode .floating-btn:hover {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+
+      .floating-btn {
+        background: var(--ink);
+        border: 2px solid var(--ink);
+        color: var(--paper);
+        padding: 12px 24px;
+        font-family: "DM Mono", monospace;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        font-size: 16px;
+      }
+
+      .floating-btn:hover {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+
+      .deck-link {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.8em;
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .deck-link:hover {
+        color: var(--accent);
+      }
+
+      body.dark-mode .deck-link {
+        color: #5a5a7e;
+      }
+
+      body.dark-mode .deck-link:hover {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div
+        class="container"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div>
+          <h1>AI Grading System</h1>
+          <div class="subtitle">Automated Assignment & Exam Evaluation</div>
+        </div>
+        <img
+          src="https://mvdataappstorageusilprod.blob.core.windows.net/medialibrary-268a9ad636374506b3dd93a9bffcbe65-r/b7aee8f9da17414cbc4bb1b130a43def/b7aee8f9da17414cbc4bb1b130a43def/Large/sait_core_vertical_reverse.png?sv=2017-04-17&sr=b&si=201904101617&sig=IvTOL9O2Hz%2FuX2h9pO%2FuDkF9HJSGjX8imPqo%2BHtTSlE%3D&st=0566-06-26T09%3A15%3A41Z&se=2036-03-16T02%3A01%3A51Z"
+          alt="SAIT Logo"
+          class="header-logo"
+          style="height: 105px; object-fit: contain; margin-right: 40px"
+        />
+      </div>
+    </header>
+
+    <div class="floating-controls">
+      <button class="floating-btn" id="textSizeToggle">Aa Text: Medium</button>
+      <button class="floating-btn" id="darkModeToggle">🌙 Dark Mode</button>
+    </div>
+
+    <div class="container">
+      <!-- Authentication Section -->
+      <div class="auth-section">
+        <h2 class="section-title">Instructor Login</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+            />
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <a href="#" class="forgot-password">Forgot Password?</a>
+          <button class="btn">Login</button>
+        </div>
+      </div>
+
+      <!-- Course & Assignment Information -->
+      <div class="form-section">
+        <h2 class="section-title">Assignment Details</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="course-name">Course Name</label>
+            <input
+              type="text"
+              id="course-name"
+              placeholder="e.g., Introduction to Computer Science"
+            />
+          </div>
+          <div class="form-group">
+            <label for="assignment-name">Assignment/Exam Name</label>
+            <input
+              type="text"
+              id="assignment-name"
+              placeholder="e.g., Midterm Exam - Algorithms"
+            />
+          </div>
+          <div class="form-group">
+            <label for="assignment-type">Assignment Type</label>
+            <select id="assignment-type">
+              <option>Assignment</option>
+              <option>Exam</option>
+              <option>Quiz</option>
+              <option>Project</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <strong>Note:</strong> Upload student submissions in PDF, DOCX, or TXT
+          format. The AI will analyze responses against your rubric.
+        </div>
+
+        <div class="form-group" style="margin-top: 25px">
+          <label for="exam-file">Load Student Submission</label>
+          <div class="file-upload" id="fileUploadContainer">
+            <div class="file-upload-icon" id="fileUploadIcon">📄</div>
+            <div class="file-upload-text" id="fileUploadText">
+              <strong>Click to upload</strong> or drag and drop<br />
+              PDF, DOCX, TXT (Max 10MB)
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-top: 25px">
+          <div class="form-group">
+            <label for="student-name">Student Name</label>
+            <input
+              type="text"
+              id="student-name"
+              placeholder="(Dynamically fetched from student submission)"
+            />
+          </div>
+          <div class="form-group">
+            <label for="marking-rigour">Marking Rigour</label>
+            <select id="marking-rigour">
+              <option>Strict</option>
+              <option selected>Medium</option>
+              <option>Easy</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions" style="justify-content: center">
+          <button class="btn">Grade Submission</button>
+          <input
+            type="file"
+            id="rubricInput"
+            accept=".csv,.pdf,.docx"
+            style="display: none"
+            onchange="handleRubricUpload(event)"
+          />
+          <button
+            class="btn btn-secondary"
+            onclick="document.getElementById('rubricInput').click()"
+          >
+            Upload Rubric
+          </button>
+        </div>
+      </div>
+
+      <!-- Grade Display -->
+      <div class="form-section">
+        <h2 class="section-title">Current Student Grade (AI Generated)</h2>
+        <div class="grade-display">
+          <div>
+            <strong>Student:</strong> John Doe<br />
+            <small style="opacity: 0.8">Graded on Feb 8, 2026 at 2:45 PM</small>
+          </div>
+          <div class="grade-number">87%</div>
+        </div>
+        <button class="btn" onclick="showModal()">Review / Edit Grade</button>
+      </div>
+
+      <!-- Results Table -->
+      <div class="form-section results-table">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+          "
+        >
+          <h2
+            class="section-title"
+            style="margin-bottom: 0; padding-bottom: 0; border-bottom: none"
+          >
+            All Student Results
+          </h2>
+          <input
+            type="text"
+            id="studentSearch"
+            placeholder="Search by student name..."
+            style="
+              min-width: 250px;
+              padding: 10px;
+              border: 2px solid var(--border);
+            "
+            onkeyup="filterTable()"
+          />
+        </div>
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  id="selectAll"
+                  onclick="toggleSelectAll()"
+                />
+              </th>
+              <th onclick="sortTable(1)">Student ID ⇅</th>
+              <th onclick="sortTable(2)">Student Name ⇅</th>
+              <th onclick="sortTable(3)">Grade (%) ⇅</th>
+              <th onclick="sortTable(4)">Letter Grade ⇅</th>
+              <th onclick="sortTable(5)">Status ⇅</th>
+              <th onclick="sortTable(6)">Graded On ⇅</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="checkbox" class="row-checkbox" value="2024001" />
+              </td>
+              <td>2024001</td>
+              <td>John Doe</td>
+              <td><strong>87</strong></td>
+              <td>B+</td>
+              <td><span class="status-badge status-graded">Graded</span></td>
+              <td>Feb 8, 2026</td>
+              <td>
+                <button class="more-info-btn" onclick="showModal()">
+                  Details
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="row-checkbox" value="2024002" />
+              </td>
+              <td>2024002</td>
+              <td>Sarah Johnson</td>
+              <td><strong>92</strong></td>
+              <td>A</td>
+              <td><span class="status-badge status-graded">Graded</span></td>
+              <td>Feb 8, 2026</td>
+              <td><button class="more-info-btn">Details</button></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="row-checkbox" value="2024003" />
+              </td>
+              <td>2024003</td>
+              <td>Michael Chen</td>
+              <td><strong>78</strong></td>
+              <td>C+</td>
+              <td><span class="status-badge status-graded">Graded</span></td>
+              <td>Feb 7, 2026</td>
+              <td><button class="more-info-btn">Details</button></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="row-checkbox" value="2024004" />
+              </td>
+              <td>2024004</td>
+              <td>Emily Rodriguez</td>
+              <td><strong>95</strong></td>
+              <td>A</td>
+              <td><span class="status-badge status-graded">Graded</span></td>
+              <td>Feb 8, 2026</td>
+              <td><button class="more-info-btn">Details</button></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="row-checkbox" value="2024005" />
+              </td>
+              <td>2024005</td>
+              <td>David Park</td>
+              <td>—</td>
+              <td>—</td>
+              <td><span class="status-badge status-pending">Pending</span></td>
+              <td>—</td>
+              <td>
+                <button class="more-info-btn" disabled style="opacity: 0.5">
+                  Details
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="row-checkbox" value="2024006" />
+              </td>
+              <td>2024006</td>
+              <td>Amanda Williams</td>
+              <td><strong>84</strong></td>
+              <td>B</td>
+              <td><span class="status-badge status-graded">Graded</span></td>
+              <td>Feb 7, 2026</td>
+              <td><button class="more-info-btn">Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="actions" style="justify-content: center">
+          <button class="btn" onclick="saveSelected()">Export Selected</button>
+          <button
+            class="btn btn-secondary"
+            style="
+              background: var(--accent);
+              color: white;
+              border-color: var(--accent);
+            "
+            onclick="deleteSelected()"
+          >
+            Delete Selected
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for AI Comments -->
+    <div class="modal" id="detailsModal">
+      <div class="modal-content">
+        <div class="edit-mode-header">
+          <h3 class="modal-header" style="margin: 0">Detailed Grade Report</h3>
+          <button class="toggle-edit" onclick="toggleEditMode()">
+            Enable Edit Mode
+          </button>
+        </div>
+
+        <div style="margin: 20px 0">
+          <strong>Student:</strong> John Doe<br />
+          <strong>Assignment:</strong> Midterm Exam - Algorithms<br />
+          <strong>Final Grade:</strong>
+          <span
+            id="displayGrade"
+            style="color: var(--success); font-size: 1.5em; font-weight: 700"
+            >87%</span
+          >
+        </div>
+
+        <!-- View Mode (Default) -->
+        <div id="viewMode">
+          <h4 style="margin-top: 25px; color: var(--accent)">
+            AI Grading Comments:
+          </h4>
+          <div class="ai-comments">
+            <p>
+              <strong>Strengths:</strong> Excellent understanding of sorting
+              algorithms demonstrated. Clear explanations of Big O notation with
+              accurate examples. Code implementations were well-structured and
+              efficient.
+            </p>
+            <p style="margin-top: 15px">
+              <strong>Areas for Improvement:</strong> The explanation of dynamic
+              programming could be more detailed. Question 4 lacked sufficient
+              justification for the chosen approach. Consider expanding on
+              time-space tradeoffs.
+            </p>
+            <p style="margin-top: 15px"><strong>Question Breakdown:</strong></p>
+            <ul style="margin-left: 20px">
+              <li>Q1 - Sorting Algorithms: 18/20 pts</li>
+              <li>Q2 - Big O Analysis: 20/20 pts</li>
+              <li>Q3 - Code Implementation: 25/30 pts</li>
+              <li>Q4 - Dynamic Programming: 24/30 pts</li>
+            </ul>
+          </div>
+          <button class="close-modal" onclick="hideModal()">Close</button>
+        </div>
+
+        <!-- Edit Mode -->
+        <div id="editMode" class="edit-mode-inactive">
+          <div class="edit-controls">
+            <h4 style="margin-bottom: 20px; color: var(--accent)">
+              Edit Grade & Comments
+            </h4>
+            <div class="editable-field">
+              <label for="gradeInput">Grade Percentage:</label>
+              <input
+                type="number"
+                id="gradeInput"
+                value="87"
+                min="0"
+                max="100"
+                step="0.1"
+              />
+            </div>
+            <div class="editable-field">
+              <label for="strengthsInput">Strengths:</label>
+              <textarea id="strengthsInput">
+Excellent understanding of sorting algorithms demonstrated. Clear explanations of Big O notation with accurate examples. Code implementations were well-structured and efficient.</textarea
+              >
+            </div>
+            <div class="editable-field">
+              <label for="improvementsInput">Areas for Improvement:</label>
+              <textarea id="improvementsInput">
+The explanation of dynamic programming could be more detailed. Question 4 lacked sufficient justification for the chosen approach. Consider expanding on time-space tradeoffs.</textarea
+              >
+            </div>
+            <div class="editable-field" style="margin-bottom: 25px">
+              <label for="breakdownInput">Question Breakdown:</label>
+              <textarea id="breakdownInput" rows="5">
+Q1 - Sorting Algorithms: 18/20 pts
+Q2 - Big O Analysis: 20/20 pts
+Q3 - Code Implementation: 25/30 pts
+Q4 - Dynamic Programming: 24/30 pts</textarea
+              >
+            </div>
+            <div class="button-group">
+              <button class="btn-save" onclick="saveChanges()">
+                Save Changes
+              </button>
+            </div>
+          </div>
+          <button class="close-modal" onclick="hideModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup Notification -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup-notification" id="popupNotification">
+      <h3>✓ Re-run Completed</h3>
+      <p>
+        The AI has finished re-grading the submission with your custom
+        instructions.
+      </p>
+      <button class="popup-close-btn" onclick="closePopup()">OK</button>
+    </div>
+
+    >
+
+    <script>
+      let editModeActive = false;
+
+      const fileUploadContainer = document.getElementById(
+        "fileUploadContainer",
+      );
+      const fileUploadIcon = document.getElementById("fileUploadIcon");
+      const fileUploadText = document.getElementById("fileUploadText");
+
+      fileUploadContainer.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        fileUploadContainer.classList.add("dragover");
+      });
+
+      fileUploadContainer.addEventListener("dragleave", (e) => {
+        e.preventDefault();
+        fileUploadContainer.classList.remove("dragover");
+      });
+
+      fileUploadContainer.addEventListener("drop", (e) => {
+        e.preventDefault();
+        fileUploadContainer.classList.remove("dragover");
+        fileUploadIcon.innerHTML = "⏳";
+        fileUploadText.innerHTML =
+          "<strong>Analyzing...</strong><br />Please wait a moment.";
+        setTimeout(() => {
+          fileUploadIcon.innerHTML = "✅";
+          fileUploadText.innerHTML =
+            "<strong>Upload Complete!</strong><br />Analysis ready.";
+        }, 2000);
+      });
+
+      function showModal() {
+        document.getElementById("detailsModal").style.display = "flex";
+        if (editModeActive) {
+          toggleEditMode();
+        }
+      }
+
+      function hideModal() {
+        document.getElementById("detailsModal").style.display = "none";
+      }
+
+      function filterTable() {
+        const input = document.getElementById("studentSearch");
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById("studentsTable");
+        const tr = table.getElementsByTagName("tr");
+        for (let i = 1; i < tr.length; i++) {
+          const td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            const txtValue = td.textContent || td.innerText;
+            tr[i].style.display =
+              txtValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+          }
+        }
+      }
+
+      function sortTable(n) {
+        const table = document.getElementById("studentsTable");
+        let switching = true,
+          dir = "asc",
+          switchcount = 0;
+        while (switching) {
+          switching = false;
+          const rows = table.getElementsByTagName("tr");
+          for (let i = 1; i < rows.length - 1; i++) {
+            let shouldSwitch = false;
+            const x = rows[i].getElementsByTagName("td")[n];
+            const y = rows[i + 1].getElementsByTagName("td")[n];
+            let xVal = x.textContent.trim();
+            let yVal = y.textContent.trim();
+            const xEmpty = xVal === "" || xVal === "—" || xVal === "-";
+            const yEmpty = yVal === "" || yVal === "—" || yVal === "-";
+            if (!xEmpty && !yEmpty) {
+              if (!isNaN(parseFloat(xVal)) && !isNaN(parseFloat(yVal))) {
+                xVal = parseFloat(xVal);
+                yVal = parseFloat(yVal);
+              } else {
+                xVal = xVal.toLowerCase();
+                yVal = yVal.toLowerCase();
+              }
+              if (dir === "asc" ? xVal > yVal : xVal < yVal) {
+                shouldSwitch = true;
+                break;
+              }
+            } else if (!xEmpty && yEmpty && dir === "asc") {
+              shouldSwitch = true;
+              break;
+            } else if (xEmpty && !yEmpty && dir === "desc") {
+              shouldSwitch = true;
+              break;
+            }
+          }
+          if (shouldSwitch) {
+            const rows2 = table.getElementsByTagName("tr");
+            for (let i = 1; i < rows2.length - 1; i++) {
+              const x = rows2[i].getElementsByTagName("td")[n];
+              const y = rows2[i + 1].getElementsByTagName("td")[n];
+              let xVal = x.textContent.trim(),
+                yVal = y.textContent.trim();
+              if (!isNaN(parseFloat(xVal)) && !isNaN(parseFloat(yVal))) {
+                xVal = parseFloat(xVal);
+                yVal = parseFloat(yVal);
+              }
+              if (dir === "asc" ? xVal > yVal : xVal < yVal) {
+                rows2[i].parentNode.insertBefore(rows2[i + 1], rows2[i]);
+                switching = true;
+                switchcount++;
+                break;
+              }
+            }
+          } else if (switchcount === 0 && dir === "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+
+      function toggleEditMode() {
+        editModeActive = !editModeActive;
+        const viewMode = document.getElementById("viewMode");
+        const editMode = document.getElementById("editMode");
+        const toggleBtn = document.querySelector(".toggle-edit");
+        if (editModeActive) {
+          viewMode.classList.add("edit-mode-inactive");
+          editMode.classList.remove("edit-mode-inactive");
+          editMode.classList.add("edit-mode-active");
+          toggleBtn.textContent = "View Mode";
+          toggleBtn.style.background = "var(--muted)";
+        } else {
+          viewMode.classList.remove("edit-mode-inactive");
+          editMode.classList.remove("edit-mode-active");
+          editMode.classList.add("edit-mode-inactive");
+          toggleBtn.textContent = "Enable Edit Mode";
+          toggleBtn.style.background = "var(--accent)";
+        }
+      }
+
+      function saveChanges() {
+        const newGrade = document.getElementById("gradeInput").value;
+        document.getElementById("displayGrade").textContent = newGrade + "%";
+        alert(
+          "Changes saved successfully!\n\nGrade: " +
+            newGrade +
+            "%\n\nThis is a mockup - in a real system, changes would be saved to the database.",
+        );
+        toggleEditMode();
+      }
+
+      function rerunGrading() {
+        showPopup();
+      }
+
+      function showPopup() {
+        document.getElementById("popupOverlay").style.display = "block";
+        document.getElementById("popupNotification").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
+        document.getElementById("popupNotification").style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("detailsModal");
+        if (event.target === modal) {
+          hideModal();
+        }
+      };
+
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+        darkModeToggle.innerHTML = "☀️ Light Mode";
+      }
+      darkModeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("darkMode", "enabled");
+          darkModeToggle.innerHTML = "☀️ Light Mode";
+        } else {
+          localStorage.setItem("darkMode", null);
+          darkModeToggle.innerHTML = "🌙 Dark Mode";
+        }
+      });
+
+      const textSizeToggle = document.getElementById("textSizeToggle");
+      const sizes = ["small", "medium", "large"];
+      const sizeLabels = [
+        "Aa Text: Small",
+        "Aa Text: Medium",
+        "Aa Text: Large",
+      ];
+      let currentSizeIndex = localStorage.getItem("textSizeIndex")
+        ? parseInt(localStorage.getItem("textSizeIndex"))
+        : 1;
+
+      function applyTextSize(index) {
+        document.body.classList.remove("text-small", "text-large");
+        if (sizes[index] === "small") document.body.classList.add("text-small");
+        else if (sizes[index] === "large")
+          document.body.classList.add("text-large");
+        textSizeToggle.innerHTML = sizeLabels[index];
+      }
+
+      applyTextSize(currentSizeIndex);
+      textSizeToggle.addEventListener("click", () => {
+        currentSizeIndex = (currentSizeIndex + 1) % sizes.length;
+        localStorage.setItem("textSizeIndex", currentSizeIndex);
+        applyTextSize(currentSizeIndex);
+      });
+
+      function toggleSelectAll() {
+        const selectAll = document.getElementById("selectAll");
+        document
+          .querySelectorAll(".row-checkbox")
+          .forEach((cb) => (cb.checked = selectAll.checked));
+      }
+
+      function getSelectedIDs() {
+        return Array.from(
+          document.querySelectorAll(".row-checkbox:checked"),
+        ).map((cb) => cb.value);
+      }
+
+      function saveSelected() {
+        const ids = getSelectedIDs();
+        if (ids.length === 0) {
+          alert("Please select at least one student submission to export.");
+          return;
+        }
+        alert("Exporting grades for Student ID(s): " + ids.join(", "));
+      }
+
+      function deleteSelected() {
+        const checkboxes = document.querySelectorAll(".row-checkbox:checked");
+        if (checkboxes.length === 0) {
+          alert("Please select at least one student submission to delete.");
+          return;
+        }
+        if (
+          confirm(
+            "Are you sure you want to delete " +
+              checkboxes.length +
+              " submission(s)?",
+          )
+        ) {
+          checkboxes.forEach((cb) => {
+            const tr = cb.closest("tr");
+            if (tr) tr.remove();
+          });
+          const selectAll = document.getElementById("selectAll");
+          if (selectAll) selectAll.checked = false;
+        }
+      }
+
+      function handleRubricUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+          alert('Rubric "' + file.name + '" uploaded successfully!');
+        }
+      }
+    </script>
+
+    <div style="text-align: center; margin: 20px 0 10px 0">
+      <a
+        href="documents/ai-grading-system.pdf"
+        style="
+          display: inline-block;
+          background: #2d6a4f;
+          color: white;
+          padding: 12px 30px;
+          font-family: &quot;DM Mono&quot;, monospace;
+          font-size: 0.9em;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          text-decoration: none;
+          box-shadow: 3px 3px 0 #2a2a3e;
+          transition: all 0.3s ease;
+        "
+        onmouseover="
+          this.style.transform = 'translate(2px,2px)';
+          this.style.boxShadow = '1px 1px 0 #2a2a3e';
+        "
+        onmouseout="
+          this.style.transform = 'translate(0,0)';
+          this.style.boxShadow = '3px 3px 0 #2a2a3e';
+        "
+      >
+        View Supporting Slide Deck
+      </a>
+    </div>
+  </body>
+</html>

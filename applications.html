@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications - Standalone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style_form.css">
+  <link rel="icon" type="image/png" href="https://www.sait.ca/assets/app/sait/images/favicon/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="subtitle"><strong>Finance Department</strong></div>
+      <h1>Database Administration</h1>
+    </div>
+    <img src="https://ai-yyc.net/images/sait_extended_horizontal_full_colour_rgb.png" alt="SAIT Logo" />
+  </div>
+
+  <div class="db-table-container">
+    <div class="header-actions">
+      <h2>Loan Applications Log</h2>
+      <a href="lending_form_V2.html" class="back-btn new-application-btn">+ New Application</a>
+    </div>
+
+    <table id="appsTable" class="display">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date Submitted</th>
+          <th>Annual Income</th>
+          <th>FICO Score</th>
+          <th>Employment</th>
+          <th>Loan Requested</th>
+          <th>Decision</th>
+          <th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+  <script>
+    const DEFAULT_API_BASE = 'https://royaggarwal.pythonanywhere.com';
+    const API_BASE = DEFAULT_API_BASE;
+
+    function formatCurrency(value) {
+      const raw = String(value ?? '').replace(/[^0-9.-]/g, '');
+      const num = Number(raw);
+      if (!Number.isFinite(num)) {
+        return value || '';
+      }
+      return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function formatConfidence(value) {
+      if (typeof value === 'number' && Number.isFinite(value)) {
+        return (value * 100).toFixed(2) + '%';
+      }
+      const raw = String(value ?? '').trim();
+      if (!raw) {
+        return '';
+      }
+      if (raw.endsWith('%')) {
+        const n = Number(raw.replace('%', '').trim());
+        return Number.isFinite(n) ? n.toFixed(2) + '%' : raw;
+      }
+      const n = Number(raw);
+      return Number.isFinite(n) ? (n * 100).toFixed(2) + '%' : raw;
+    }
+
+    async function loadApps() {
+      try {
+        const res = await fetch(API_BASE + '/api/applications', { headers: { 'Accept': 'application/json' } });
+        if (!res.ok) {
+          document.getElementById('appsTable').outerText = 'Failed to fetch applications';
+          return;
+        }
+        const ct = res.headers.get('content-type') || '';
+        let apps = [];
+        if (ct.includes('application/json')) {
+          const data = await res.json();
+          apps = data.applications || [];
+        } else {
+          // Fallback for older backend: parse rows from server-rendered HTML table.
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const rows = Array.from(doc.querySelectorAll('#appsTable tbody tr'));
+          apps = rows.map(r => {
+            const tds = r.querySelectorAll('td');
+            return {
+              id: tds[0] ? tds[0].textContent.trim() : '',
+              submitted_at: tds[1] ? tds[1].textContent.trim() : '',
+              annual_gross_income: tds[2] ? tds[2].textContent.trim() : '',
+              credit_score: tds[3] ? tds[3].textContent.trim() : '',
+              employment_status: tds[4] ? tds[4].textContent.trim() : '',
+              loan_amount_requested: tds[5] ? tds[5].textContent.trim() : '',
+              prediction: (tds[6] && /high/i.test(tds[6].textContent)) ? 1 : 0,
+              confidence: tds[7] ? tds[7].textContent.trim() : ''
+            };
+          });
+        }
+        const tbody = document.querySelector('#appsTable tbody');
+        tbody.innerHTML = '';
+        apps.forEach(a => {
+          const tr = document.createElement('tr');
+          const isRejected = String(a.prediction) === '1';
+          const decisionHtml = isRejected
+            ? '<span class="status-pill status-rejected">High Default Risk</span>'
+            : '<span class="status-pill status-approved">Low Default Risk</span>';
+          const conf = formatConfidence(a.confidence);
+          const income = formatCurrency(a.annual_gross_income);
+          const loanRequested = formatCurrency(a.loan_amount_requested);
+          tr.innerHTML = `<td>${a.id}</td><td>${a.submitted_at || ''}</td><td>${income}</td><td>${a.credit_score || ''}</td><td>${a.employment_status || ''}</td><td>${loanRequested}</td><td>${decisionHtml}</td><td>${conf}</td>`;
+          tbody.appendChild(tr);
+        });
+
+        // Initialize DataTable after populating
+        $('#appsTable').DataTable({
+          "order": [[0, "desc"]],
+          "pageLength": 25
+        });
+
+      } catch (err) {
+        document.getElementById('appsTable').outerText = 'Network or CORS error: ' + err.message;
+      }
+    }
+
+    loadApps();
+  </script>
+</body>
+</html>
