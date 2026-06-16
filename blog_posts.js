@@ -52,7 +52,7 @@ const BLOG_POSTS = [
 
   {
     id: "pentagon-vs-anthropic",
-    url: "posts/pentagon vs anthropic.html",
+    url: "posts/pentagon-vs-anthropic.html",
     title: "Pentagon vs Anthropic",
     date: "2026-02-27",
     displayDate: "February 2026",
@@ -62,8 +62,8 @@ const BLOG_POSTS = [
     minuteRead: 4,
   },
   {
-    id: "pentagon vs anthropic_2",
-    url: "posts/pentagon vs anthropic_2.html",
+    id: "pentagon-vs-anthropic-2",
+    url: "posts/pentagon-vs-anthropic-2.html",
     title: "Pentagon vs Anthropic - Update March 2026",
     date: "2026-03-08",
     displayDate: "March 2026",
@@ -76,7 +76,7 @@ const BLOG_POSTS = [
   {
     id: "applied-ai-walmart-supply-chain",
     url: "posts/applied-ai-walmart-supply-chain.html",
-    title: "The Walmart Supply Chain Case Study",
+    title: "From Hype to Hard Results: What Applied AI Looks Like in Practice",
     date: "2026-03-09",
     displayDate: "March 2026",
     category: "Applied AI",

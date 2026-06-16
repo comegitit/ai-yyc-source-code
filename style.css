@@ -113,11 +113,6 @@ a {
 /* ========================================= */
 /* NAVIGATION */
 /* ========================================= */
-/*.main-nav {
-  display: flex;
-  margin-left: auto;
-}*/
-
 .main-nav {
   position: absolute;
   right: 30px;
@@ -335,7 +330,7 @@ p {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  opacity: 0.6; /* 50% opacity */
+  opacity: 0.6;
 }
 
 .profiles {
@@ -444,7 +439,6 @@ footer {
 .category-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0,0,0,.12);
-  /*border-color: #red;*/
 }
 
 .category-card .card-header h3 {
@@ -469,7 +463,6 @@ footer {
 
 /* Highlight special category (Coursework) */
 .category-card-highlight {
-  /*border: 2px solid #red;*/
   background: #f0f4f8;
 }
 
@@ -720,7 +713,6 @@ color: #000;
   display: block;
   margin-left: 0;
   border-radius: 6px;
-  /*box-shadow: 0 2px 8px rgba(0,0,0,.1);*/
 }
 
 .post-image figcaption {
