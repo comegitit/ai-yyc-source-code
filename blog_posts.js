@@ -156,11 +156,24 @@ const BLOG_POSTS = [
       "Canada's AI for All: A Strategy, Not Yet a Law, and Why the Distinction Matters",
     date: "2026-06-06",
     displayDate: "June 2026",
-    category: "Governance & Ethics",
+    category: "AI Strategy",
     isCoursework: false,
     excerpt:
       "A federal strategy, not a law. Here is what that means for Calgary organizations.",
     minuteRead: 4,
+  },
+
+  {
+    id: "claude-design-release",
+    url: "posts/claude-design-release.html",
+    title: "Claude Design: The Next Revolution",
+    date: "2026-06-18",
+    displayDate: "June 2026",
+    category: "Digital Transformation",
+    isCoursework: false,
+    excerpt:
+      "Claude Design is a paradigm shift for digital transformation, compressing weeks of design and stakeholder alignment into minutes.",
+    minuteRead: 3,
   },
 
   // Add future posts here as new objects, for example:
