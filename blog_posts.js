@@ -163,19 +163,6 @@ const BLOG_POSTS = [
     minuteRead: 4,
   },
 
-  {
-    id: "claude-design-release",
-    url: "posts/claude-design-release.html",
-    title: "Claude Design: The Next Revolution",
-    date: "2026-06-18",
-    displayDate: "June 2026",
-    category: "Digital Transformation",
-    isCoursework: false,
-    excerpt:
-      "Claude Design is a paradigm shift for digital transformation, compressing weeks of design and stakeholder alignment into minutes.",
-    minuteRead: 3,
-  },
-
   // Add future posts here as new objects, for example:
   // {
   //   id: "my-new-post",
