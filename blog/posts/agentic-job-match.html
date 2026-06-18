@@ -130,7 +130,7 @@
         </p>
 
         <p>
-          <strong>Stage 1 — Ingestion.</strong>
+          <strong>Stage 1: Ingestion.</strong>
           The system monitors my email inbox via IMAP, reading job alert emails
           from LinkedIn and Indeed. LinkedIn alert emails embed job URLs
           directly. Indeed uses tracking redirects, which the system follows
@@ -139,7 +139,7 @@
         </p>
 
         <p>
-          <strong>Stage 2 — Scraping.</strong>
+          <strong>Stage 2: Scraping.</strong>
           Each discovered job URL is visited using Playwright, a browser
           automation tool. The full job description is extracted from the live
           page and stored. LinkedIn's authenticated session is maintained via a
@@ -150,9 +150,9 @@
         </p>
 
         <p>
-          <strong>Stage 3 — Scoring.</strong>
+          <strong>Stage 3: Scoring.</strong>
           Each scraped job description is evaluated by Gemini 2.5 Flash against
-          a structured career profile — a JSON document encoding my skills,
+          a structured career profile, a JSON document encoding my skills,
           experience, target roles, location preferences, and voice. The model
           returns a score from 0 to 100, a rationale, matched requirements,
           gaps, and location and seniority flags. Jobs scoring below 70% are
@@ -162,7 +162,7 @@
         </p>
 
         <p>
-          <strong>Stage 4 — Document Generation.</strong>
+          <strong>Stage 4: Document Generation.</strong>
           For each high-scoring job, Gemini 2.5 Pro generates a tailored resume
           and cover letter. The prompts enforce strict rules: exact employment
           dates, no invented metrics, ATS-compliant formatting, a word count
@@ -173,7 +173,7 @@
         </p>
 
         <p>
-          <strong>Stage 5 — Delivery.</strong>
+          <strong>Stage 5: Delivery.</strong>
           Results arrive via a Telegram bot on my phone and desktop
           simultaneously. I receive individual notifications for each qualified
           job, with score, matched requirements, and identified gaps. A daily
@@ -226,41 +226,34 @@
 
         <ul>
           <li>
-            <strong>Python 3.13</strong>
-            — core runtime and pipeline orchestration
+            <strong>Python 3.13</strong>: core runtime and pipeline orchestration
           </li>
           <li>
-            <strong>SQLite</strong>
-            — lightweight local database storing jobs, career profile, and LLM
+            <strong>SQLite</strong>: lightweight local database storing jobs, career profile, and LLM
             audit logs across a 12-state pipeline state machine
           </li>
           <li>
-            <strong>Playwright</strong>
-            — headless browser automation for authenticated LinkedIn job
+            <strong>Playwright</strong>: headless browser automation for authenticated LinkedIn job
             scraping
           </li>
           <li>
-            <strong>Google Gemini API</strong>
-            — Gemini 2.5 Flash for scoring (cost-efficient, high volume), Gemini
+            <strong>Google Gemini API</strong>: Gemini 2.5 Flash for scoring (cost-efficient, high volume), Gemini
             2.5 Pro for document generation (higher quality, lower volume)
           </li>
           <li>
-            <strong>python-telegram-bot</strong>
-            — bidirectional Telegram integration for notifications and command
+            <strong>python-telegram-bot</strong>: bidirectional Telegram integration for notifications and command
             handling
           </li>
           <li>
-            <strong>python-docx</strong>
-            — programmatic generation of ATS-compliant Word documents
+            <strong>python-docx</strong>: programmatic generation of ATS-compliant Word documents
           </li>
           <li>
-            <strong>Windows Task Scheduler</strong>
-            — daily 4:30 AM automated pipeline execution
+            <strong>Windows Task Scheduler</strong>: daily 4:30 AM automated pipeline execution
           </li>
         </ul>
 
         <p>
-          The entire system was designed and built with AI assistance — a
+          The entire system was designed and built with AI assistance, a
           fitting symmetry for a project about using AI to navigate an AI-shaped
           job market.
         </p>
@@ -275,7 +268,7 @@
         </p>
 
         <p>
-          The quality of the generated documents required initial calibration —
+          The quality of the generated documents required initial calibration,
           employment dates, seniority language, and tone needed to be explicitly
           enforced through prompt engineering. Once those guardrails were in
           place, the output became consistently usable with minor manual
@@ -310,9 +303,8 @@
 
         <p>
           For executives evaluating where AI agents can create legitimate value
-          in their organizations, this pattern — autonomous ingestion,
-          structured evaluation, human-in-the-loop approval, governed execution
-          — applies broadly. The job search is simply one domain where the
+          in their organizations, this pattern (autonomous ingestion,
+          structured evaluation, human-in-the-loop approval, governed execution) applies broadly. The job search is simply one domain where the
           asymmetry was visible enough to make the case obvious.
         </p>
 
