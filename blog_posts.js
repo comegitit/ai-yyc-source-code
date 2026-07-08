@@ -163,6 +163,19 @@ const BLOG_POSTS = [
     minuteRead: 4,
   },
 
+  {
+    id: "metacognition.html",
+    url: "posts/metacognition.html",
+    title: "Metacognition: The Missing Layer in Trustworthy AI",
+    date: "2026-07-08",
+    displayDate: "July 8 2026",
+    category: "Applied AI",
+    isCoursework: false,
+    excerpt:
+      "AI need to be more metacogitive as the future unfolds. Here is why and how.",
+    minuteRead: 4,
+  },
+
   // Add future posts here as new objects, for example:
   // {
   //   id: "my-new-post",
