@@ -168,11 +168,24 @@ const BLOG_POSTS = [
     url: "posts/metacognition.html",
     title: "Metacognition: The Missing Layer in Trustworthy AI",
     date: "2026-07-08",
-    displayDate: "July 8 2026",
+    displayDate: "July 2026",
     category: "Applied AI",
     isCoursework: false,
     excerpt:
-      "AI need to be more metacogitive as the future unfolds. Here is why and how.",
+      "AI needs to be more metacogitive as the future unfolds. Here is why and how.",
+    minuteRead: 4,
+  },
+
+  {
+    id: "agentic-proof-of-concept.html",
+    url: "posts/agentic-proof-of-concept.html",
+    title: "Built in a Weekend: A Lightweight Agentic AI System in Python",
+    date: "2026-07-13",
+    displayDate: "July 2026",
+    category: "Agentic AI",
+    isCoursework: false,
+    excerpt:
+      "Agentic AI solutions don't have to be long, complicated, or expensive.",
     minuteRead: 4,
   },
 
