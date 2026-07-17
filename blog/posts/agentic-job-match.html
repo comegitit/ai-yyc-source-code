@@ -14,18 +14,39 @@
     <link rel="icon" href="../../brain.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../../style.css" />
     <script src="../../master_nav.js"></script>
-      <!-- Open Graph -->
+    <!-- Open Graph -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://ai-yyc.com/blog/posts/agentic-job-match.html" />
-    <meta property="og:title" content="An Agentic AI Solution Automating Job Searching &amp; Document Creation" />
-    <meta property="og:description" content="Job matching, scoring, and autonomous document creation using agentic AI." />
-    <meta property="og:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+    <meta
+      property="og:url"
+      content="https://ai-yyc.com/blog/posts/agentic-job-match.html"
+    />
+    <meta
+      property="og:title"
+      content="An Agentic AI Solution Automating Job Searching &amp; Document Creation"
+    />
+    <meta
+      property="og:description"
+      content="Job matching, scoring, and autonomous document creation using agentic AI."
+    />
+    <meta
+      property="og:image"
+      content="https://ai-yyc.com/images/link_preview_G_E_DT.png"
+    />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="An Agentic AI Solution Automating Job Searching &amp; Document Creation" />
-    <meta name="twitter:description" content="Job matching, scoring, and autonomous document creation using agentic AI." />
-    <meta name="twitter:image" content="https://ai-yyc.com/images/link_preview_G_E_DT.png" />
+    <meta
+      name="twitter:title"
+      content="An Agentic AI Solution Automating Job Searching &amp; Document Creation"
+    />
+    <meta
+      name="twitter:description"
+      content="Job matching, scoring, and autonomous document creation using agentic AI."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ai-yyc.com/images/link_preview_G_E_DT.png"
+    />
   </head>
 
   <body>
@@ -151,25 +172,25 @@
 
         <p>
           <strong>Stage 3: Scoring.</strong>
-          Each scraped job description is evaluated by Gemini 2.5 Flash against
-          a structured career profile, a JSON document encoding my skills,
-          experience, target roles, location preferences, and voice. The model
-          returns a score from 0 to 100, a rationale, matched requirements,
-          gaps, and location and seniority flags. Jobs scoring below 70% are
-          archived. Jobs scoring 70–89% generate a Telegram notification and
-          await manual review. Jobs scoring 90% or above proceed automatically
-          to document generation.
+          Each scraped job description is evaluated by Claude Haiku 4.5 API
+          against a structured career profile, a JSON document encoding my
+          skills, experience, target roles, location preferences, and voice. The
+          model returns a score from 0 to 100, a rationale, matched
+          requirements, gaps, and location and seniority flags. Jobs scoring
+          below 70% are archived. Jobs scoring 70–89% generate a Telegram
+          notification and await manual review. Jobs scoring 90% or above
+          proceed automatically to document generation.
         </p>
 
         <p>
           <strong>Stage 4: Document Generation.</strong>
-          For each high-scoring job, Gemini 2.5 Pro generates a tailored resume
-          and cover letter. The prompts enforce strict rules: exact employment
-          dates, no invented metrics, ATS-compliant formatting, a word count
-          ceiling on cover letters, and language drawn directly from the job
-          description. Each output folder contains a resume, a cover letter, and
-          a plain text file with the source URL and match score for easy
-          reference.
+          For each high-scoring job, Claude Sonnet 4.6 API generates a tailored
+          resume and cover letter. The prompts enforce strict rules: exact
+          employment dates, no invented metrics, ATS-compliant formatting, a
+          word count ceiling on cover letters, and language drawn directly from
+          the job description. Each output folder contains a resume, a cover
+          letter, and a plain text file with the source URL and match score for
+          easy reference.
         </p>
 
         <p>
@@ -226,36 +247,43 @@
 
         <ul>
           <li>
-            <strong>Python 3.13</strong>: core runtime and pipeline orchestration
+            <strong>Python 3.13</strong>
+            : core runtime and pipeline orchestration
           </li>
           <li>
-            <strong>SQLite</strong>: lightweight local database storing jobs, career profile, and LLM
+            <strong>SQLite</strong>
+            : lightweight local database storing jobs, career profile, and LLM
             audit logs across a 12-state pipeline state machine
           </li>
           <li>
-            <strong>Playwright</strong>: headless browser automation for authenticated LinkedIn job
+            <strong>Playwright</strong>
+            : headless browser automation for authenticated LinkedIn job
             scraping
           </li>
           <li>
-            <strong>Google Gemini API</strong>: Gemini 2.5 Flash for scoring (cost-efficient, high volume), Gemini
-            2.5 Pro for document generation (higher quality, lower volume)
+            <strong>Google Claude API</strong>
+            : Claude Haiku 4.5 for scoring (cost-efficient, high volume), Claude
+            Sonnet 4.6 for document generation (higher quality, lower volume)
           </li>
           <li>
-            <strong>python-telegram-bot</strong>: bidirectional Telegram integration for notifications and command
+            <strong>python-telegram-bot</strong>
+            : bidirectional Telegram integration for notifications and command
             handling
           </li>
           <li>
-            <strong>python-docx</strong>: programmatic generation of ATS-compliant Word documents
+            <strong>python-docx</strong>
+            : programmatic generation of ATS-compliant Word documents
           </li>
           <li>
-            <strong>Windows Task Scheduler</strong>: daily 4:30 AM automated pipeline execution
+            <strong>Windows Task Scheduler</strong>
+            : daily 4:30 AM automated pipeline execution
           </li>
         </ul>
 
         <p>
-          The entire system was designed and built with AI assistance, a
-          fitting symmetry for a project about using AI to navigate an AI-shaped
-          job market.
+          The entire system was designed and built with AI assistance, a fitting
+          symmetry for a project about using AI to navigate an AI-shaped job
+          market.
         </p>
 
         <h2>Results and Observations</h2>
@@ -303,9 +331,10 @@
 
         <p>
           For executives evaluating where AI agents can create legitimate value
-          in their organizations, this pattern (autonomous ingestion,
-          structured evaluation, human-in-the-loop approval, governed execution) applies broadly. The job search is simply one domain where the
-          asymmetry was visible enough to make the case obvious.
+          in their organizations, this pattern (autonomous ingestion, structured
+          evaluation, human-in-the-loop approval, governed execution) applies
+          broadly. The job search is simply one domain where the asymmetry was
+          visible enough to make the case obvious.
         </p>
 
         <p>
@@ -314,7 +343,6 @@
           appropriate boundaries, with the right tools applied to the right
           problem.
         </p>
-
       </div>
 
       <!-- Call to Action -->
@@ -335,8 +363,10 @@
             href="mailto:roy@ai-yyc.com"
             class="back-link"
             style="color: var(--accent); font-weight: 600"
-            >please reach out</a
-          >.
+          >
+            please reach out
+          </a>
+          .
         </p>
       </div>
 
@@ -353,8 +383,9 @@
             border-radius: 6px;
             text-decoration: none;
           "
-          >&larr; Back to Blog</a
         >
+          &larr; Back to Blog
+        </a>
       </div>
     </main>
 
