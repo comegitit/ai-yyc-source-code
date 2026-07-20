@@ -50,6 +50,7 @@ const siteHeader = `
               <li><a href="${BASE}ethics.html">Governance & Ethics</a></li>
               <li><a href="${BASE}hcai.html">Human Centred AI</a></li>
               <li><a href="${BASE}predictive.html">Predictive Analytics</a></li>
+              <li><a href="${BASE}capstone.html"><blod><em>Capstone Project</em></bold></a></li>
               <!--<li><a href="${BASE}statistics.html">Statistics</a></li>-->
               <!--<li><a href="${BASE}webdev.html">Web Dev</a></li>-->
             </ul>
