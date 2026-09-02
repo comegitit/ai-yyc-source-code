@@ -17,6 +17,7 @@
   --text-secondary: #4A5568;
   --text-muted: #69778C;
   --border: #D8E4EE;
+  --header-height: 120px;  /* sticky header; .blog-sidebar offsets by this */
 }
 
 /*===============================================*/
@@ -69,7 +70,6 @@ html, body {
   color: var(--text-primary);
   background: var(--accent-bg);
   line-height: 1.6;
-  overflow-x: visible;
 }
 
 /* ========================================= */
@@ -113,7 +113,7 @@ button:focus-visible {
 /* Site Header & Footer Wrapper (for JS injection) */
 /* ============================================== */
 #site-header {
-  min-height: 120px;
+  min-height: var(--header-height);
   background: #fff;
   position: sticky;
   top: 0;
@@ -207,7 +207,6 @@ button:focus-visible {
   padding: 10px 0;
   list-style: none;
   margin: 0;
-  padding-left: 0;
   z-index: 10000;
 }
 
@@ -354,12 +353,6 @@ h2 {
   line-height: 1.4;
   border-left: 3px solid var(--gold);
   padding-left: 12px;
-}
-
-.page-header,
-h2,
-.blog-sidebar h3 {
-  border-left-color: var(--gold);
 }
 
 /* Subheadings */
@@ -618,7 +611,7 @@ footer {
   border-radius: 6px;
   height: fit-content;
   position: sticky;
-  top: 120px;
+  top: var(--header-height);
   border: 1px solid var(--accent);
   align-self: start;
   border-color: var(--accent);
@@ -754,7 +747,7 @@ a.back-link:hover,
 }
 
 .post-tags {
-color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .post-excerpt {
