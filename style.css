@@ -94,6 +94,21 @@ a {
   color: inherit;
 }
 
+/* Keyboard focus.
+   :focus-visible (not :focus) so the ring shows for keyboard and
+   assistive-tech users without flashing on ordinary mouse clicks.
+   No rule anywhere disables the browser default, so engines without
+   :focus-visible support still render their own focus indicator. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  /* offset puts the ring outside the element, so it always sits on the
+     page background. --accent scores 7.3:1 to 8.3:1 there, well past the
+     3:1 WCAG 2.2 needs. One colour works everywhere, including on
+     accent-filled buttons. */
+  outline-offset: 2px;
+}
+
 /* =============================================== */
 /* Site Header & Footer Wrapper (for JS injection) */
 /* ============================================== */
