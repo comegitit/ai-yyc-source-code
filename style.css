@@ -267,6 +267,15 @@ p {
   margin-bottom: 1em;
 }
 
+/* Horizontal rule between content blocks */
+.section-divider {
+  width: 120px;
+  height: 1px;
+  margin: 2.5em auto;
+  border: 0;
+  background: var(--border);
+}
+
 /* ========================================= */
 /* Card Icons */
 /* ========================================= */

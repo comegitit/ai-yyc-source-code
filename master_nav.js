@@ -50,7 +50,7 @@ const siteHeader = `
               <li><a href="${BASE}ethics.html">Governance & Ethics</a></li>
               <li><a href="${BASE}hcai.html">Human Centred AI</a></li>
               <li><a href="${BASE}predictive.html">Predictive Analytics</a></li>
-              <li><a href="${BASE}capstone.html"><blod><em>Capstone Project</em></bold></a></li>
+              <li><a href="${BASE}capstone.html"><strong><em>Capstone Project</em></strong></a></li>
               <!--<li><a href="${BASE}statistics.html">Statistics</a></li>-->
               <!--<li><a href="${BASE}webdev.html">Web Dev</a></li>-->
             </ul>
@@ -58,7 +58,7 @@ const siteHeader = `
 
           <!-- <li><a href="${BASE}capstone.html">Capstone Project</a></li> -->
           <li><a href="${BASE}blog.html">Blog</a></li>
-          <li><a href="${BASE}documents/Resume_Roy_Aggarwal_Summer_2026.pdf" target="_blank" rel="noopener noreferrer">Resum&eacute;</a></li>
+          <li><a href="${BASE}documents/Resume_Roy_Aggarwal_Fall_2026.pdf" target="_blank" rel="noopener noreferrer">Resum&eacute;</a></li>
           
         </ul>
       </nav>

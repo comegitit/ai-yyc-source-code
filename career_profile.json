@@ -3,10 +3,10 @@
     "version": "1.4",
     "last_updated": "2026-06-15",
     "source_documents": [
-      "Resume_Roy_Aggarwal_Summer_2026.docx",
+      "Resume_Roy_Aggarwal_Fall_2026.docx",
       "ai-yyc.com/index.html"
     ],
-    "notes": "v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Summer_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
+    "notes": "v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Fall_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
   },
   "identity": {
     "name": "Roy Aggarwal",

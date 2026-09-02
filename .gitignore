@@ -16,3 +16,6 @@ env/
 # Logs / temp
 *.log
 *.tmp
+
+# Local tooling
+launch-claude-*.bat
