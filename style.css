@@ -19,7 +19,6 @@
   --border: #D8E4EE;
 }
 
-
 /*===============================================*/
 /*  Heading Serif (self-hosted, no third party)  */
 /*===============================================*/
@@ -163,6 +162,17 @@ a {
   font-family: inherit;
 }
 
+.top-bar .nav-menu > li > a,
+.top-bar .nav-menu > li > button {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+.top-bar .nav-menu > li > a:hover,
+.top-bar .nav-menu > li > button:hover {
+  color: var(--gold);
+}
+
 .submenu-toggle {
   appearance: none;
 }
@@ -190,6 +200,12 @@ a {
   display: block;
   padding: 8px 15px;
   text-decoration: none;
+  color: var(--accent);
+}
+
+.submenu li a:hover {
+  color: var(--gold);
+  background: var(--surface-2);
 }
 
 @media (hover: hover) {
@@ -224,6 +240,7 @@ a {
   border-radius: 0 6px 6px 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(43, 80, 120, 0.06);
 }
 
 /* Subtle geometric accent behind the header */
@@ -244,26 +261,68 @@ a {
   margin: 0 0 0.4em 0;
   line-height: 1.3;
   color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.page-header h1 span {
+  color: var(--accent-mid);
+  font-weight: 500;
 }
 
 .page-header .tagline {
-  font-size: 1.2em;
-  color: var(--text-secondary);
   margin: 0;
+  font-size: 1.15em;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.hero-hook {
+  font-size: 1.15em;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--accent-light);
+  background: rgba(123, 167, 200, 0.06);
+  border-radius: 0 6px 6px 0;
+  max-width: 780px;
 }
 
 /* ========================================= */
 /* Section styling */
 section {
-  padding: 40px 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--border);
-  background: var(--section-gradient);   /* gradient — odd sections */
+  background: var(--section-gradient);
+  padding: 42px 20px;
 }
 
 /* Alternate section banding — warm white sections */
 section:nth-of-type(even) {
   background: var(--surface-1);
+}
+
+#core-focus {
+  position: relative;
+}
+
+#core-focus::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+#core-focus p strong {
+  display: block;
+  font-size: 1.05em;
+  color: var(--accent);
+  margin-bottom: 10px;
 }
 
 /* Headings inside sections */
@@ -274,6 +333,12 @@ h2 {
   line-height: 1.4;
   border-left: 3px solid var(--gold);
   padding-left: 12px;
+}
+
+.page-header,
+h2,
+.blog-sidebar h3 {
+  border-left-color: var(--gold);
 }
 
 /* Subheadings */
@@ -326,15 +391,16 @@ p {
 /* Adjust h3 in achievement cards to work with flexbox */
 .achievement h3 {
   margin: 0;
-  font-size: 1.2em;
   line-height: 1.3;
+  font-size: 1.15em;
+  color: var(--accent);
 }
 
 /* Layout grids */
 .roles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 26px;
 }
 
 /* Card style for role / competency / achievement blocks */
@@ -353,6 +419,19 @@ p {
   box-shadow: 0 6px 18px rgba(43, 80, 120, 0.14);
   border-top-color: var(--accent);
   border-color: var(--accent-light);
+}
+
+.achievement p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.achievement {
+  margin-bottom: 20px;
+}
+
+.education-item:first-child {
+  border-left: 3px solid var(--gold);
 }
 
 /* Sidebar icons */
@@ -469,6 +548,7 @@ footer {
 .category-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  border-color: var(--accent);
 }
 
 .category-card .card-header h3 {
@@ -493,7 +573,8 @@ footer {
 
 /* Highlight special category (Coursework) */
 .category-card-highlight {
-  background: #f0f4f8;
+  background: var(--surface-3);
+  border-left: 3px solid var(--gold);
 }
 
 /* Latest Posts Section */
@@ -525,15 +606,15 @@ footer {
 
 /* Sidebar */
 .blog-sidebar {
-  background: #f9f9f9;
   padding: 20px;
   border-radius: 6px;
   height: fit-content;
   position: sticky;
-  top: 120px;        /* below sticky header */
-  border: 1px solid var(--accent); /* NEW: accent border */
-  align-self: start; /* REQUIRED for CSS Grid */
-
+  top: 120px;
+  border: 1px solid var(--accent);
+  align-self: start;
+  border-color: var(--accent);
+  background: var(--surface-2);
 }
 
 .blog-sidebar h3 {
@@ -563,12 +644,15 @@ footer {
 }
 
 .category-nav-link:hover {
-  background: #fff;
+  color: var(--accent);
+  background: var(--gold-light);
 }
 
 .category-nav-link.active {
-  color: #fff;
   font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .category-nav-all {
@@ -604,6 +688,7 @@ footer {
 .category-header h1 {
   margin: 0;
   font-size: 2em;
+  color: var(--accent);
 }
 
 .category-intro {
@@ -647,6 +732,18 @@ footer {
 .blog-post-card h3 a:hover {
   color: #2D3748;
   text-decoration: underline;
+}
+
+a.back-link,
+.blog-post-card h2 a,
+.blog-post-card h3 a {
+  color: var(--accent);
+}
+
+a.back-link:hover,
+.blog-post-card h2 a:hover,
+.blog-post-card h3 a:hover {
+  color: var(--gold);
 }
 
 .post-meta {
@@ -700,6 +797,11 @@ color: #000;
 
 .post-category {
   font-weight: 600;
+  color: var(--accent);
+}
+
+.status-text {
+  color: var(--text-secondary);
 }
 
 /* Post Content */
@@ -722,6 +824,7 @@ color: #000;
   font-size: 1.6em;
   margin: 40px 0 20px 0;
   padding-left: 15px;
+  border-left: 3px solid var(--gold);
 }
 
 .post-content h3 {
@@ -794,113 +897,6 @@ figure.testimonial figcaption {
 
 figure.testimonial figcaption cite {
   font-style: normal;
-}
-
-/* ================================================= */
-/* ACCENT OVERRIDES (FINAL, WINS CASCADE)            */
-/* ================================================= */
-
-/* Top accent bar — gradient handled above in html::before */
-
-/* Main nav */
-.top-bar .nav-menu > li > a,
-.top-bar .nav-menu > li > button {
-  color: var(--accent);
-  transition: color 0.2s ease;
-}
-
-.top-bar .nav-menu > li > a:hover,
-.top-bar .nav-menu > li > button:hover {
-  color: var(--gold);
-}
-
-/* Submenu links */
-.submenu li a {
-  color: var(--accent);
-}
-
-.submenu li a:hover {
-  color: var(--gold);
-  background: var(--surface-2);
-}
-
-/* Headers & section accents */
-.page-header,
-h2,
-.blog-sidebar h3 {
-  border-left-color: var(--gold);
-}
-
-/* Category cards */
-.category-card:hover {
-  border-color: var(--accent);
-}
-
-/* Blog category header */
-.category-header h1 {
-  color: var(--accent);
-}
-
-/* Sidebar navigation */
-.category-nav-link:hover {
-  color: var(--accent);
-  background: var(--gold-light);
-}
-
-.category-nav-link.active {
-  background: var(--accent);
-  color: #fff;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-/* Links used as accents */
-a.back-link,
-.blog-post-card h2 a,
-.blog-post-card h3 a {
-  color: var(--accent);
-}
-
-a.back-link:hover,
-.blog-post-card h2 a:hover,
-.blog-post-card h3 a:hover {
-  color: var(--gold);
-}
-
-/* Post intro left border */
-.post-intro {
-  border-left: 4px solid var(--gold);
-}
-
-/* Blog sidebar accent border */
-.blog-sidebar {
-  border-color: var(--accent);
-  background: var(--surface-2);
-}
-
-/* Highlight special category */
-.category-card-highlight {
-  background: var(--surface-3);
-  border-left: 3px solid var(--gold);
-}
-
-/* Post content h2 left border */
-.post-content h2 {
-  border-left: 3px solid var(--gold);
-}
-
-/* Education items - subtle gold accent on current */
-.education-item:first-child {
-  border-left: 3px solid var(--gold);
-}
-
-/* Status text */
-.status-text {
-  color: var(--text-secondary);
-}
-
-/* Post category badge */
-.post-category {
-  color: var(--accent);
 }
 
 /* ========================================= */
@@ -1026,113 +1022,4 @@ a.back-link:hover,
   .media-header {
     flex-direction: column;
   }
-}
-/* ================================================= */
-/* HERO HOOK (NEW)                                   */
-/* ================================================= */
-
-.hero-hook {
-  font-size: 1.15em;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-top: 18px;
-  padding: 16px 18px;
-  border-left: 3px solid var(--accent-light);
-  background: rgba(123, 167, 200, 0.06);
-  border-radius: 0 6px 6px 0;
-  max-width: 780px;
-}
-
-/* Make hero feel more "executive" without redesign */
-.page-header .tagline {
-  font-size: 1.15em;
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-
-/* Subtle hierarchy boost for H1 */
-.page-header h1 {
-  letter-spacing: -0.02em;
-}
-
-/* ================================================= */
-/* CORE FOCUS (NEW SECTION UPGRADE)                  */
-/* ================================================= */
-
-#core-focus p strong {
-  display: block;
-  font-size: 1.05em;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* Give Core Focus a slightly more "anchor" feel */
-#core-focus {
-  position: relative;
-}
-
-/* subtle visual anchor bar */
-#core-focus::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 18px;
-  bottom: 18px;
-  width: 3px;
-  background: var(--gold);
-  opacity: 0.6;
-}
-
-/* ================================================= */
-/* ACHIEVEMENTS — EXECUTIVE READABILITY UPGRADE     */
-/* ================================================= */
-
-/* tighten spacing slightly for case-study feel */
-.achievement p {
-  color: var(--text-secondary);
-  line-height: 1.75;
-}
-
-/* stronger visual separation between achievements */
-.achievement {
-  margin-bottom: 20px;
-}
-
-/* make achievement headers feel more “headline-like” */
-.achievement h3 {
-  font-size: 1.15em;
-  color: var(--accent);
-}
-
-/* ================================================= */
-/* PAGE HEADER — SUBTLE HERO ENHANCEMENT            */
-/* ================================================= */
-
-/* adds slight depth so hero stands apart from sections */
-.page-header {
-  box-shadow: 0 2px 10px rgba(43, 80, 120, 0.06);
-}
-
-/* ================================================= */
-/* BRAND TEXT EMPHASIS (AI YYC LINE)                */
-/* ================================================= */
-
-.page-header h1 span {
-  color: var(--accent-mid);
-  font-weight: 500;
-}
-
-/* ================================================= */
-/* OPTIONAL: IMPROVE SECTION FLOW (EXECUTIVE FEEL)  */
-/* ================================================= */
-
-/* slightly tighter vertical rhythm between sections */
-section {
-  padding: 42px 20px;
-}
-
-/* reduce visual “grid heaviness” on first impression */
-.roles-grid {
-  gap: 26px;
 }
