@@ -1,17 +1,17 @@
 {
   "meta": {
-    "version": "1.4",
-    "last_updated": "2026-09-02",
+    "version": "1.6",
+    "last_updated": "2026-09-01",
     "source_documents": [
       "Resume_Roy_Aggarwal_Fall_2026.docx",
       "ai-yyc.com/index.html"
     ],
-    "notes": "v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Fall_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
+    "notes": "v1.6 (2026-09-01): Added an Applied AI (business-level, non-coding) angle and set the core-value order Applied AI > Digital Transformation > Governance. Headline -> 'Applied AI | Digital Transformation | AI Governance | 15+ Years Enterprise IT Experience'. Reordered/reweighted positioning statement, value-proposition summary, differentiators (new Applied-AI-first item), cover-letter opening, tone, and phrases_to_use; added applied-AI target role titles, domain entries, and skills (AI adoption/enablement, lifecycle/operations, performance monitoring). Folded SAIT AI management and maintenance coursework into the Integrated AI certificate education entry as its operational/business-AI focus. Hands-on/agentic skills kept as supporting proof of a business-first mindset. Ran run_calibration.py before and after. v1.5 (2026-09-01): SAIT certificate now complete (Graduated 2026); education status and generator prompt updated to reflect completion. Digital-Transformation-first rebalance (ordering + voice option): headline, positioning statement, value-proposition summary, differentiators, cover-letter opening, phrases_to_use, and tone reweighted transformation-led and governance-second; both remain target areas. Ran run_calibration.py before and after to confirm scoring behavior. v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Summer_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
   },
   "identity": {
     "name": "Roy Aggarwal",
-    "headline": "AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience",
-    "positioning_statement": "I help organizations translate complex technology into aligned, governed, and business-ready outcomes at the intersection of enterprise systems and responsible AI.",
+    "headline": "Applied AI | Digital Transformation | AI Governance | 15+ Years Enterprise IT Experience",
+    "positioning_statement": "I help organizations apply AI to real business outcomes, scale it through digital transformation, and keep it responsible and well-governed, working at the intersection of enterprise systems and applied AI.",
     "location": "Calgary, AB, Canada",
     "work_authorization": "Canadian citizen",
     "email": "roy@ai-yyc.com",
@@ -22,18 +22,20 @@
   },
   "target": {
     "role_titles": [
-      "Digital Transformation Lead",
+      "Applied AI Lead",
+      "AI Adoption Lead",
       "AI Enablement Lead",
+      "Digital Transformation Lead",
       "AI Change Management Lead",
+      "AI Program Manager",
+      "AI Business Analyst",
       "Enterprise Systems Analyst",
-      "AI Ethics Analyst",
+      "AI Governance Analyst",
       "Responsible AI Analyst",
       "AI Policy Analyst",
       "AI Risk Analyst",
-      "AI Governance Analyst",
-      "AI Compliance Analyst",
-      "AI Program Manager",
-      "AI Business Analyst"
+      "AI Ethics Analyst",
+      "AI Compliance Analyst"
     ],
     "role_title_variants": [
       "AI Governance Specialist",
@@ -75,6 +77,10 @@
       { "skill": "Human-Centred AI Design", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 2 },
       { "skill": "AI Policy and Compliance", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 2 },
       { "skill": "AI Risk Management", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "Applied AI (Business Enablement)", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "AI Adoption and Enablement", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 2 },
+      { "skill": "AI Lifecycle Management and Operations", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
+      { "skill": "AI Performance Monitoring and Model Drift", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 1 },
       { "skill": "Agentic AI Development", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
       { "skill": "Python", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
       { "skill": "LLM / Agent Orchestration", "proficiency": "proficient", "last_used_year": 2026, "years_experience": 1 },
@@ -92,6 +98,9 @@
       { "skill": "UX Optimization", "proficiency": "familiar", "last_used_year": 2026, "years_experience": 6 }
     ],
     "domain": [
+      "Applied AI (Business Level)",
+      "AI Adoption and Enablement",
+      "AI Operations and Lifecycle Management",
       "Enterprise IT",
       "Digital Transformation",
       "AI Governance and Ethics",
@@ -164,6 +173,24 @@
         }
       ],
       "keywords": ["digital transformation", "data governance", "SEO", "database architecture", "stakeholder management", "non-profit", "change management"]
+    },
+    {
+      "company": "Entrepreneurship & Family Care",
+      "title": "Career Break",
+      "start_date": "2012-06",
+      "end_date": "2020-02",
+      "location": "Calgary, AB",
+      "employment_type": "career break",
+      "summary": "Planned career break to launch an independent business venture and serve as primary caregiver for a young child.",
+      "achievements": [
+        {
+          "text": "Launched and ran an independent business venture while serving as primary caregiver for a young child.",
+          "skills_demonstrated": [],
+          "quantified": false,
+          "impact_area": "people"
+        }
+      ],
+      "keywords": []
     },
     {
       "company": "Canadian Pacific Railway",
@@ -276,12 +303,12 @@
   ],
   "education": [
     {
-      "institution": "SAIT",
+      "institution": "Southern Alberta Institute of Technology (SAIT)",
       "degree": "Post-Diploma Certificate",
       "field": "Integrated Artificial Intelligence",
       "year": 2026,
-      "status": "in-progress",
-      "notable": "Focus: Ethical AI System Design, AI Governance, Human-Centred AI. Graduating August 2026. Directly applicable to AI governance and responsible AI roles."
+      "status": "complete",
+      "notable": "Curriculum spanned applied and responsible AI, including AI management and maintenance: AI lifecycle management, operations and performance monitoring, and aligning AI systems with business objectives and governance frameworks over time. Also covered ethical AI system design, AI governance, and human-centred design. Directly applicable to applied AI, AI enablement, digital transformation, and governance roles."
     },
     {
       "institution": "The George Washington University",
@@ -300,7 +327,7 @@
       "notable": "Business strategy, financial analysis, market research."
     },
     {
-      "institution": "SAIT",
+      "institution": "",
       "degree": "Certificate",
       "field": "Web Development and Design",
       "year": null,
@@ -314,33 +341,39 @@
     "Led website redevelopment achieving 300% traffic growth and top search rankings.",
     "Architected albertaancestors.ca: 250,000+ record genealogy platform with governance and data quality frameworks.",
     "Over 15 years of formal enterprise IT experience across Alberta energy, transportation, and non-profit sectors.",
-    "Completing SAIT AI certificate specializing in ethical AI design, governance frameworks, and human-centred implementation.",
+    "Completed SAIT AI certificate covering applied AI management and operations, ethical AI design, governance frameworks, and human-centred implementation.",
     "Consistently effective in regulated, high-stakes environments where stakeholder alignment and execution discipline are critical.",
     "Designed and built a fully autonomous agentic job search system using Python, Claude (Anthropic), Playwright, and Telegram, processing job alerts, scoring matches against a career profile, and generating tailored application documents without human intervention."
   ],
   "value_proposition": {
-    "summary": "IT and business leader with over 15 years of formal enterprise experience, now focused on helping organizations adopt AI ethically, responsibly, and with clear business impact.",
+    "summary": "IT and business leader with over 15 years of formal enterprise experience, now focused on applying AI at the business level to drive digital transformation and clear business impact, with adoption kept responsible and well-governed.",
     "differentiators": [
+      "Applied AI at the business level: turns AI capability into practical, governed business outcomes, and understands the technology deeply enough to lead it without needing to be the coder",
+      "Digital transformation delivery: proven track record turning complex technology into business-ready outcomes across multiple sectors",
       "Bridge between business and technical teams: not purely technical, not purely strategic",
       "Regulated industry depth: energy (TransAlta) and transportation (CP Rail) experience",
-      "AI governance expertise with formal education (SAIT AI certificate) plus practical application",
       "Proven delivery in resource-constrained environments (non-profit, regulated enterprise)",
-      "Consistent track record of delivering complex systems across multiple sectors"
+      "AI governance expertise with formal education (SAIT AI certificate) plus practical application"
     ]
   },
   "voice": {
-    "tone": "authoritative, business-focused, outcomes-oriented, governance-aware",
+    "tone": "authoritative, business-focused, outcomes-oriented, applied-AI-led, transformation-focused, governance-aware",
     "signature_phrase": "Execution, not technology, is where transformation succeeds or fails.",
-    "positioning_statement": "I help organizations translate complex technology into aligned, governed, and business-ready outcomes at the intersection of enterprise systems and responsible AI.",
+    "positioning_statement": "I help organizations apply AI to real business outcomes, scale it through digital transformation, and keep it responsible and well-governed, working at the intersection of enterprise systems and applied AI.",
     "phrases_to_use": [
-      "governed and business-ready outcomes",
+      "apply AI at the business level",
+      "put AI to work for the business",
+      "practical, business-ready AI adoption",
+      "business-ready transformation",
+      "digital transformation that delivers",
       "measurable impact",
+      "disciplined execution",
+      "bridge business and technical teams",
       "stakeholder alignment",
       "responsible AI",
-      "bridge business and technical teams",
-      "disciplined execution",
+      "governed and business-ready outcomes",
       "embed governance into operations",
-      "at the intersection of enterprise systems and responsible AI",
+      "at the intersection of enterprise systems and applied AI",
       "over 15 years of enterprise IT experience"
     ],
     "phrases_to_avoid": [
@@ -355,6 +388,6 @@
       "20 years"
     ],
     "preferred_person": "first",
-    "cover_letter_opening_style": "Lead with a direct statement connecting the role's specific need to your experience. Avoid generic openers. Reference the intersection of governance and execution immediately."
+    "cover_letter_opening_style": "Lead with a direct statement connecting the role's specific need to your experience. Avoid generic openers. Frame the opening around applying AI to the role's business problem, then digital transformation and disciplined execution, with governance as the supporting theme."
   }
 }
