@@ -11,9 +11,8 @@ but an AI professional who ships.
 
 ## Overview
 
-A static, multi-page site (HTML/CSS/vanilla JavaScript) with a small Flask
-component used for a coursework full-stack demo. There is no build step — files
-are served as-is.
+A static, multi-page site (HTML/CSS/vanilla JavaScript). There is no build
+step and no backend — files are served as-is.
 
 ## Stack
 
@@ -21,8 +20,6 @@ are served as-is.
   `style.css` (single source of truth for colour, type, and spacing tokens).
 - **Vanilla JavaScript** — no framework. Shared header/footer and the blog
   listing are injected client-side.
-- **Flask** (`app.py`) — backs the ARTI 404 web-development coursework demo,
-  deployed separately on PythonAnywhere via WSGI.
 
 ## Project structure
 
@@ -37,9 +34,8 @@ are served as-is.
 | `blog_posts.js` | Blog post metadata (the data that drives all listings) |
 | `blog_categories.js` | Blog sidebar + shared post-card rendering helpers |
 | `style.css` | Global styles and design tokens |
-| `style_form.css` | Styles for the lending-form coursework demo |
-| `app.py` | Flask backend for the web-dev coursework demo |
 | `images/` | Logos, icons (SVG), and social link-preview images |
+| `fonts/` | Self-hosted Source Serif 4 (woff2) and its OFL licence |
 | `documents/` | Downloadable resumes and coursework artifacts (PDF, etc.) |
 
 ## Adding a blog post
