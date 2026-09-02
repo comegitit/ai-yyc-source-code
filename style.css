@@ -838,11 +838,42 @@ color: var(--text-primary);
   margin-bottom: 1.2em;
 }
 
+/* Call-to-action block closing every blog post. The markup already
+   carried class="post-cta"; only the rule was missing, so the styles
+   lived inline in 15 identical copies. */
+.post-cta {
+  margin-top: 50px;
+  padding: 28px 32px;
+  background: var(--gold-light);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+}
+
+.post-cta p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
 /* Post Footer */
 .post-footer {
   margin-top: 50px;
   padding-top: 30px;
   border-top: 2px solid var(--border);
+}
+
+/* Solid "back to blog" button. Deliberately not .back-link: that class
+   styles inline text links, and its :hover would repaint this button's
+   label dark on a dark fill. font-weight is carried over because the
+   markup previously inherited it from .back-link. */
+.post-back-button {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .back-link {
