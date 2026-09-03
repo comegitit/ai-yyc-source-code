@@ -15,7 +15,7 @@
   --section-gradient: linear-gradient(180deg, #E8EFF7 0%, #F4F7FB 100%); /* top-to-bottom blue wash */
   --text-primary: #1A2533;
   --text-secondary: #4A5568;
-  --text-muted: #69778C;
+  --text-muted: #616D81;
   --border: #D8E4EE;
   --header-height: 120px;  /* sticky header; .blog-sidebar offsets by this */
 }

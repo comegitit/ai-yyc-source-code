@@ -54,6 +54,8 @@
       const href = link.getAttribute("href");
       if (href === currentPage) {
         link.classList.add("active");
+        // The filled pill is a visual cue only; expose it too.
+        link.setAttribute("aria-current", "page");
       }
     });
   });
