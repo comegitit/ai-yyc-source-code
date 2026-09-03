@@ -27,6 +27,7 @@ const BASE = getBasePath();
 // Header HTML
 // --------------------------------------------
 const siteHeader = `
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="${BASE}index.html" class="logo-link">
@@ -121,12 +122,39 @@ function initSubmenuToggle() {
   });
 
   document.addEventListener("click", () => {
+    closeAllSubmenus();
+  });
+
+  // Escape closes an open submenu and puts focus back on its button, so a
+  // keyboard user is not stranded inside a menu they cannot dismiss.
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const open = document.querySelector(".has-submenu.open");
+    if (!open) return;
+    closeAllSubmenus();
+    open.querySelector(".submenu-toggle")?.focus();
+  });
+
+  // Tabbing out of the menu closes it. Without this it stayed open,
+  // overlaying the page, while focus had already moved on.
+  document.addEventListener("focusin", (e) => {
     document.querySelectorAll(".has-submenu.open").forEach((item) => {
-      item.classList.remove("open");
-      item
-        .querySelector(".submenu-toggle")
-        ?.setAttribute("aria-expanded", "false");
+      if (!item.contains(e.target)) {
+        item.classList.remove("open");
+        item
+          .querySelector(".submenu-toggle")
+          ?.setAttribute("aria-expanded", "false");
+      }
     });
+  });
+}
+
+function closeAllSubmenus() {
+  document.querySelectorAll(".has-submenu.open").forEach((item) => {
+    item.classList.remove("open");
+    item
+      .querySelector(".submenu-toggle")
+      ?.setAttribute("aria-expanded", "false");
   });
 }
 
@@ -147,6 +175,9 @@ function highlightActivePage() {
     if (!target) return;
     if (target === currentPage || (inBlogSection && target === "blog.html")) {
       link.classList.add("active");
+      // The gold underline is a visual cue only; aria-current exposes the
+      // same fact to assistive tech.
+      link.setAttribute("aria-current", "page");
     }
   });
 
