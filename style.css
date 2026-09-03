@@ -310,8 +310,12 @@ button:focus-visible {
 }
 
 /* ========================================= */
-/* Section styling */
-section {
+/* Section styling */
+/* Opt-in banding. This previously styled every <section> on the site, so
+   the ten <section> elements on the blog picked up a gradient panel, 42px
+   padding and a bottom border that nothing asked for. Only the nine
+   sections on the home page want it, and they now say so. */
+.section-band {
   margin-bottom: 20px;
   border-bottom: 1px solid var(--border);
   background: var(--section-gradient);
@@ -319,7 +323,7 @@ section {
 }
 
 /* Alternate section banding — warm white sections */
-section:nth-of-type(even) {
+.section-band:nth-of-type(even) {
   background: var(--surface-1);
 }
 
