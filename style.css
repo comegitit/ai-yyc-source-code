@@ -94,6 +94,21 @@ a {
   color: inherit;
 }
 
+/* Available to screen readers and voice control, removed from the visual
+   layout. Used to give short link text ("here") a full accessible name.
+   Not display:none, which would hide it from assistive tech too. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Keyboard focus.
    :focus-visible (not :focus) so the ring shows for keyboard and
    assistive-tech users without flashing on ordinary mouse clicks.
@@ -255,6 +270,11 @@ button:focus-visible {
    Replaces per-link inline <span style="color: ..."> markup. */
 .container li a {
   color: var(--accent-mid);
+  /* Weight is the second, non-colour cue. --accent-mid sits at 5.40:1 on
+     white but only 2.87:1 against body text, so colour alone would fail
+     WCAG 1.4.1. Matches the bold-and-coloured treatment .back-link
+     already uses. */
+  font-weight: 600;
 }
 
 /* Page header / Hero */
@@ -885,6 +905,30 @@ a.back-link:hover,
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
+  font-weight: 600;
+}
+
+/* Prose links underline on hover and keyboard focus only: a third cue at
+   the moment of interaction, with nothing underlined at rest. */
+.container li a:hover,
+.container li a:focus-visible,
+.post-content a:hover,
+.post-content a:focus-visible,
+.post-intro a:hover,
+.post-intro a:focus-visible,
+.post-cta a:hover,
+.post-cta a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Fallback so a prose link that carries no component class can never render
+   with no cue at all. Before this, an unclassed link inherited its
+   surrounding colour and weight and was invisible as a link. */
+.post-content a:not([class]),
+.post-intro a:not([class]),
+.post-cta a:not([class]),
+.container p a:not([class]) {
+  color: var(--accent);
   font-weight: 600;
 }
 
