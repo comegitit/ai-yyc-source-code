@@ -134,12 +134,29 @@ function initSubmenuToggle() {
 // Active page highlighting
 // --------------------------------------------
 function highlightActivePage() {
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const path = window.location.pathname;
+  const currentPage = path.split("/").pop() || "index.html";
+
+  // Category pages and posts live under /blog/, so they belong to Blog.
+  const inBlogSection = path.includes("/blog/") || currentPage === "blog.html";
 
   document.querySelectorAll(".main-nav a").forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href && href.endsWith(currentPage)) {
+    // Compare basenames; href is prefixed with BASE and would otherwise
+    // match on any path ending with the same string.
+    const target = (link.getAttribute("href") || "").split("/").pop();
+    if (!target) return;
+    if (target === currentPage || (inBlogSection && target === "blog.html")) {
       link.classList.add("active");
     }
   });
+
+  // On a coursework page the matching link sits inside the closed submenu,
+  // so mark the parent button instead.
+  const openSub = document.querySelector(".submenu .active");
+  if (openSub) {
+    openSub
+      .closest(".has-submenu")
+      ?.querySelector(".submenu-toggle")
+      ?.classList.add("active");
+  }
 }

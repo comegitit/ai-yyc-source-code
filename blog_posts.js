@@ -141,7 +141,7 @@ const BLOG_POSTS = [
     id: "AI-legal-and-compliance-landscape-in-calgary",
     url: "posts/AI-legal-and-compliance-landscape-in-calgary.html",
     title: "AI Legal & Compliance in Calgary: Past, Present, and Future",
-    date: "2026-05-28",
+    date: "2026-05-27",
     displayDate: "May 2026",
     category: "Governance & Ethics",
     isCoursework: false,

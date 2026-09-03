@@ -188,6 +188,13 @@ button:focus-visible {
   color: var(--gold);
 }
 
+/* Current section. master_nav.js has always applied .active here, but no
+   rule existed for it, so it never rendered. box-shadow rather than a
+   border keeps the underline from changing the nav's height. */
+.main-nav .active {
+  box-shadow: 0 2px 0 var(--gold);
+}
+
 .submenu-toggle {
   appearance: none;
 }
@@ -806,10 +813,6 @@ a.back-link:hover,
 .post-category {
   font-weight: 600;
   color: var(--accent);
-}
-
-.status-text {
-  color: var(--text-secondary);
 }
 
 /* Post Content */
