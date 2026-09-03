@@ -19,3 +19,8 @@ env/
 
 # Local tooling
 launch-claude-*.bat
+
+# Deployment artefacts: rebuilt from the tree, never part of it.
+# The zip must stay ignored so a rebuild cannot package the previous one.
+ai-yyc-deploy-*.zip
+ai-yyc-DEPLOY-INSTRUCTIONS.*
