@@ -363,7 +363,8 @@ button:focus-visible {
 }
 
 /* ========================================= */
-/* Section styling */
+/* Section styling */
+
 /* Opt-in banding. This previously styled every <section> on the site, so
    the ten <section> elements on the blog picked up a gradient panel, 42px
    padding and a bottom border that nothing asked for. Only the nine
