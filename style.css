@@ -381,28 +381,6 @@ button:focus-visible {
   background: var(--surface-1);
 }
 
-#core-focus {
-  position: relative;
-}
-
-#core-focus::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 18px;
-  bottom: 18px;
-  width: 3px;
-  background: var(--gold);
-  opacity: 0.6;
-}
-
-#core-focus p strong {
-  display: block;
-  font-size: 1.05em;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
 /* Headings inside sections */
 h2,
 .media-text h1 {
@@ -538,15 +516,6 @@ p {
   color: var(--text-secondary);
   max-width: 780px;
   margin: -0.4em 0 1.6em 0;
-}
-
-/* Emphasised figure inside running prose. Bold and italic rather than a
-   colour or highlight, so it reads as emphasis and not as a link. Sits on
-   a <strong> to keep the emphasis semantic; both properties are set so the
-   class works wherever it is applied. */
-.metric {
-  font-weight: 700;
-  font-style: italic;
 }
 
 /* Role attribution line at the top of a proof card. */
