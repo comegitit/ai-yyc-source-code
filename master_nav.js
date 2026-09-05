@@ -5,6 +5,12 @@
 // Base path resolver
 // --------------------------------------------
 function getBasePath() {
+  // The error page is served at whatever depth was requested, so its own
+  // links have to be root-absolute rather than relative to that path.
+  if (window.SITE_ERROR_PAGE) {
+    return "/";
+  }
+
   const path = window.location.pathname;
 
   // If we're inside /blog/posts/, go up two levels
@@ -162,6 +168,11 @@ function closeAllSubmenus() {
 // Active page highlighting
 // --------------------------------------------
 function highlightActivePage() {
+  // An error page is not any of the nav destinations, so nothing is current.
+  if (window.SITE_ERROR_PAGE) {
+    return;
+  }
+
   const path = window.location.pathname;
   const currentPage = path.split("/").pop() || "index.html";
 
