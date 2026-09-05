@@ -1,12 +1,12 @@
 {
   "meta": {
-    "version": "1.6",
-    "last_updated": "2026-09-01",
+    "version": "1.7",
+    "last_updated": "2026-09-05",
     "source_documents": [
       "Resume_Roy_Aggarwal_Fall_2026.docx",
       "ai-yyc.com/index.html"
     ],
-    "notes": "v1.6 (2026-09-01): Added an Applied AI (business-level, non-coding) angle and set the core-value order Applied AI > Digital Transformation > Governance. Headline -> 'Applied AI | Digital Transformation | AI Governance | 15+ Years Enterprise IT Experience'. Reordered/reweighted positioning statement, value-proposition summary, differentiators (new Applied-AI-first item), cover-letter opening, tone, and phrases_to_use; added applied-AI target role titles, domain entries, and skills (AI adoption/enablement, lifecycle/operations, performance monitoring). Folded SAIT AI management and maintenance coursework into the Integrated AI certificate education entry as its operational/business-AI focus. Hands-on/agentic skills kept as supporting proof of a business-first mindset. Ran run_calibration.py before and after. v1.5 (2026-09-01): SAIT certificate now complete (Graduated 2026); education status and generator prompt updated to reflect completion. Digital-Transformation-first rebalance (ordering + voice option): headline, positioning statement, value-proposition summary, differentiators, cover-letter opening, phrases_to_use, and tone reweighted transformation-led and governance-second; both remain target areas. Ran run_calibration.py before and after to confirm scoring behavior. v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Summer_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
+    "notes": "v1.7 (2026-09-05): Added the SIGNAL capstone, which was absent from the profile entirely: as a project, as the leading achievements_highlight, and as a note on the SAIT education entry. SIGNAL is the strongest applied-AI evidence available and the scorer and generator previously had no way to cite it. Client described rather than named, matching the site. No skills, scoring fields or prompts touched. v1.6 (2026-09-01): Added an Applied AI (business-level, non-coding) angle and set the core-value order Applied AI > Digital Transformation > Governance. Headline -> 'Applied AI | Digital Transformation | AI Governance | 15+ Years Enterprise IT Experience'. Reordered/reweighted positioning statement, value-proposition summary, differentiators (new Applied-AI-first item), cover-letter opening, tone, and phrases_to_use; added applied-AI target role titles, domain entries, and skills (AI adoption/enablement, lifecycle/operations, performance monitoring). Folded SAIT AI management and maintenance coursework into the Integrated AI certificate education entry as its operational/business-AI focus. Hands-on/agentic skills kept as supporting proof of a business-first mindset. Ran run_calibration.py before and after. v1.5 (2026-09-01): SAIT certificate now complete (Graduated 2026); education status and generator prompt updated to reflect completion. Digital-Transformation-first rebalance (ordering + voice option): headline, positioning statement, value-proposition summary, differentiators, cover-letter opening, phrases_to_use, and tone reweighted transformation-led and governance-second; both remain target areas. Ran run_calibration.py before and after to confirm scoring behavior. v1.4: Brand lockstep with LinkedIn header. headline updated to 'AI Governance & Ethics | Digital Transformation | 15+ Years Enterprise IT Experience'. Corrected employer name TransAlta Corporation -> TransAlta Utilities. Source resume is now Resume_Roy_Aggarwal_Summer_2026.docx. No skills, scoring fields, or prompt touched; ran run_calibration.py to confirm no scoring drift. v1.3: Promoted hands-on builder competencies (Agentic AI Development, Python, LLM/Agent Orchestration, Prompt Engineering) from the Agentic Job Search project's skills_demonstrated into top-level skills.technical so the scorer credits hands-on building, not just governance/strategy. Positioning intentionally stays business/governance-led (~75% soft/business, 25% technical); the agentic system is the prime technical example. v1.2: Corrected employment dates throughout. Adjusted years_experience per skill to reflect actual tenure. total_years_experience updated to 17 (formal). Headline updated to over 15 years. Web dev business period 2012-2020 not listed as formal employment."
   },
   "identity": {
     "name": "Roy Aggarwal",
@@ -279,6 +279,13 @@
   ],
   "projects": [
     {
+      "name": "SIGNAL (Strategic Intelligence Gateway for Next-Gen Analytics & Lending)",
+      "description": "SAIT Integrated AI capstone, delivered in consultation with a major Alberta-based financial institution. An AI-assisted decision-support system for commercial credit monitoring: ingests borrower financial packages in mixed formats, extracts and validates key figures, checks them against early warning indicator rules, and surfaces rated, evidence-backed alerts in role-tailored dashboards. Roy was Project Manager, leading a four-person team through delivery and defining the decision-support boundaries: it does not approve or decline credit, assign ratings or default predictions, recommend remediation, or touch live banking systems, and it runs entirely on synthetic and public reference data. Built as an auditable proof of concept that reduces manual extraction time, enables earlier risk detection, and keeps every credit decision with a qualified human.",
+      "skills_demonstrated": ["Project Management", "Applied AI", "AI Governance", "Responsible AI Implementation", "Stakeholder Management", "Requirements Analysis", "Regulated Industry Delivery"],
+      "url": "https://ai-yyc.com/capstone.html",
+      "status": "proof of concept"
+    },
+    {
       "name": "albertaancestors.ca",
       "description": "Architected and built a custom 250,000+ record genealogy platform from concept to deployment for the Alberta Family Histories Society. Includes data governance protocols, QA processes, and volunteer-operated content workflows.",
       "skills_demonstrated": ["Database Architecture", "Data Governance", "Web Development", "Digital Transformation", "QA Processes"],
@@ -308,7 +315,7 @@
       "field": "Integrated Artificial Intelligence",
       "year": 2026,
       "status": "complete",
-      "notable": "Curriculum spanned applied and responsible AI, including AI management and maintenance: AI lifecycle management, operations and performance monitoring, and aligning AI systems with business objectives and governance frameworks over time. Also covered ethical AI system design, AI governance, and human-centred design. Directly applicable to applied AI, AI enablement, digital transformation, and governance roles."
+      "notable": "Curriculum spanned applied and responsible AI, including AI management and maintenance: AI lifecycle management, operations and performance monitoring, and aligning AI systems with business objectives and governance frameworks over time. Also covered ethical AI system design, AI governance, and human-centred design. Directly applicable to applied AI, AI enablement, digital transformation, and governance roles. Capstone project was SIGNAL, an AI-assisted commercial credit monitoring proof of concept built in consultation with a major Alberta-based financial institution."
     },
     {
       "institution": "The George Washington University",
@@ -337,6 +344,7 @@
   ],
   "certifications": [],
   "achievements_highlight": [
+    "Project Manager for SIGNAL, an AI-assisted commercial credit monitoring proof of concept delivered in consultation with a major Alberta-based financial institution; led a four-person team and defined the decision-support boundaries, keeping every credit decision with a qualified human.",
     "Supported multi-million dollar enterprise BI deployments in collaboration with SAP Value Engineering at Canadian Pacific Railway.",
     "Led website redevelopment achieving 300% traffic growth and top search rankings.",
     "Architected albertaancestors.ca: 250,000+ record genealogy platform with governance and data quality frameworks.",
