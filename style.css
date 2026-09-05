@@ -518,15 +518,15 @@ p {
 }
 
 /* ========================================= */
-/* Applied AI in Practice (home page proof)  */
+/* How I Apply AI In Practice (home page proof) */
 /* ========================================= */
 
-/* The proof section reuses .achievement cards inside .roles-grid--two-up.
-   .achievement carries a 20px bottom margin because it was written as a
-   stacked block; inside a grid the 26px gap already handles spacing, and
-   the margin just makes the two cards sit unevenly. Safe on mobile too,
-   where .roles-grid collapses to 1fr but keeps its gap. */
-#proof .achievement {
+/* .achievement carries a 20px bottom margin because it was written as a
+   stacked block. Inside any grid the 26px gap already handles spacing and
+   the margin just makes cards sit unevenly, so drop it there. Applies to
+   both the proof cards and What Ive Achieved. Safe on mobile too, where
+   .roles-grid collapses to 1fr but keeps its gap. */
+.roles-grid .achievement {
   margin-bottom: 0;
 }
 
@@ -560,10 +560,52 @@ p {
   margin-bottom: 0.6em;
 }
 
-/* Read-more link closing a proof card. Matches the weight-plus-colour
-   treatment .container li a uses, so colour is never the only cue. */
-.proof-link {
+/* Link closing a card, on the proof cards and the Where I Fit cards. An
+   outline "ghost" treatment: unmistakably interactive at a glance, but
+   subordinate to the solid .profile-button actions and far cheaper in
+   height. Colour is never the only cue, since the border and the arrow
+   both survive without it. inline-block also means the whitespace Prettier
+   may put inside the tag is stripped rather than padding the box. */
+.more-link {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid var(--accent-light);
+  border-radius: 5px;
+  color: var(--accent);
+  font-size: 0.92em;
   font-weight: 600;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.more-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Example job titles closing a Where I Fit card. Secondary to the sentence
+   above it: the sentence makes the argument, the titles are a lookup. */
+.role-examples {
+  font-size: 0.92em;
+  color: var(--text-muted);
+}
+
+/* Whatever ends the card carries no trailing margin; the card padding
+   already provides the space. */
+.role-column p:last-child {
+  margin-bottom: 0;
+}
+
+.role-examples strong {
+  color: var(--text-secondary);
+}
+
+/* Coursework line under a degree. Smaller and muted so the qualification
+   stays the headline and the detail reads as supporting text. */
+.education-detail {
+  font-size: 0.92em;
+  font-style: italic;
+  color: var(--text-muted);
 }
 
 /* Sidebar icons */

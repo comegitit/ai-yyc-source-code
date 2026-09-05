@@ -2,7 +2,7 @@
 <!--
   WORK IN PROGRESS - the index.html refactor. Not for deployment under this
   filename: rename to index.html when approved. Supporting styles live in
-  style.css under "Applied AI in Practice (home page proof)".
+  style.css under "How I Apply AI In Practice (home page proof)".
 -->
 <html lang="en">
   <head>
@@ -12,7 +12,7 @@
     <!-- Primary SEO -->
     <meta
       name="description"
-      content="Applied AI and digital transformation professional in Calgary. Over 15 years of enterprise IT experience bridging business and technical teams to deliver governed, business-ready outcomes."
+      content="Applied AI, digital transformation and AI governance in Calgary. Business problem first, technology second, backed by 15+ years of enterprise IT."
     />
 
     <!-- Open Graph -->
@@ -26,7 +26,7 @@
     />
     <meta
       property="og:description"
-      content="I help organizations apply AI to real business outcomes, scale it through digital transformation, and keep it responsible and well-governed. Over 15 years of enterprise IT experience."
+      content="Business problem first, technology second. Two AI systems built this year: one delivered with a major Alberta-based financial institution, one I built and run myself."
     />
     <meta
       property="og:image"
@@ -45,7 +45,7 @@
     />
     <meta
       name="twitter:description"
-      content="I help organizations apply AI to real business outcomes, scale it through digital transformation, and keep it responsible and well-governed. Over 15 years of enterprise IT experience."
+      content="Business problem first, technology second. Two AI systems built this year: one delivered with a major Alberta-based financial institution, one I built and run myself."
     />
     <meta
       name="twitter:image"
@@ -79,7 +79,11 @@
         },
         "alumniOf": [
           { "@type": "CollegeOrUniversity", "name": "SAIT" },
-          { "@type": "CollegeOrUniversity", "name": "University of Alberta" }
+          { "@type": "CollegeOrUniversity", "name": "University of Alberta" },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "The George Washington University"
+          }
         ],
         "sameAs": ["https://www.linkedin.com/in/calgaryroy/"]
       }
@@ -106,7 +110,7 @@
         </h1>
 
         <p class="tagline">
-          Bridging Business & Technical Teams | Deep Enterprise IT Experience
+          Bridging Business &amp; Technical Teams | Deep Enterprise IT Experience
         </p>
 
         <p class="hero-hook">
@@ -119,12 +123,12 @@
 
       <!-- NEW: PROOF. Two real systems, above the fold, before any claims. -->
       <section id="proof" class="section-band">
-        <h2>Applied AI in Practice</h2>
+        <h2>How I Apply AI In Practice</h2>
 
         <p class="section-dek">
-          Two systems designed and built end to end this year: one with a major
-          Alberta-based financial institution, one running daily on my own job
-          search.
+          <strong>Business problem first, technology second.</strong>
+          Two systems from this year: one delivered with a major Alberta-based
+          financial institution, one I built and run myself.
         </p>
 
         <div class="roles-grid roles-grid--two-up">
@@ -157,9 +161,7 @@
             </p>
 
             <p>
-              <a href="capstone.html" class="proof-link">
-                See the full project &rarr;
-              </a>
+              <a href="capstone.html" class="more-link">See the full project</a>
             </p>
           </div>
 
@@ -180,9 +182,9 @@
               since May 2026. It reads overnight job alerts, scores each posting
               against a structured career profile, and drafts tailored,
               application-ready documents for the strongest matches,
-              <strong class="metric">
+              <em>
                 producing roughly 30 high-quality application packages a month.
-              </strong>
+              </em>
             </p>
 
             <p>
@@ -196,46 +198,35 @@
             <p>
               <a
                 href="blog/posts/agentic-job-match.html"
-                class="proof-link"
+                class="more-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Read the full write-up &rarr;
+                Read the full write-up
               </a>
             </p>
           </div>
         </div>
       </section>
 
-      <!-- VALUE PROPOSITION -->
-      <!-- CHANGED: moved below the proof, and collapsed from 3 bullets plus
-           2 paragraphs down to the two sentences that were actually doing
-           differentiating work. -->
-      <section id="core-focus" class="section-band">
-        <h2>Value Proposition</h2>
+      <!-- WHERE I FIT -->
+      <!-- CHANGED: replaces the old Target Roles and Core Competencies
+           sections. Between them they ran 32 list items across seven cards
+           and about two screens, largely restating one another. Reframed
+           from a list of wanted job titles into what each discipline buys
+           an employer, with the titles kept as a lookup rather than as the
+           argument. The competencies that actually differentiate are now
+           demonstrated by the proof section above instead of asserted.
+           The standfirst is the one sentence worth keeping from the old
+           Value Proposition section, which this absorbs. -->
+      <section id="where-i-fit" class="section-band">
+        <h2>Where I Fit</h2>
 
-        <p>
-          Over 15 years of enterprise IT experience means I understand the
-          technology deeply enough to lead AI adoption without needing to be the
-          coder. I am most effective where AI initiatives stall, when technical
+        <p class="section-dek">
+          I am most effective where AI initiatives stall: when technical
           capability, business execution, and governance are pulling in
           different directions and someone has to align them.
         </p>
-      </section>
-
-      <!-- ==================================================== -->
-      <!-- EVERYTHING BELOW IS UNCHANGED FROM index.html.       -->
-      <!-- Reordering, collapsing and deleting happens in the   -->
-      <!-- next iteration. The one exception: the old           -->
-      <!-- "Selected Project" section was removed, because the  -->
-      <!-- new proof section above supersedes it directly.      -->
-      <!-- ==================================================== -->
-
-      <!-- Target Roles -->
-      <section id="target-roles" class="section-band">
-        <h2>Target Roles</h2>
-
-        <p>Experience directly applicable to the following roles:</p>
 
         <div class="roles-grid">
           <div class="role-column">
@@ -243,12 +234,22 @@
               <img src="images/brain.svg" alt="Brain" class="card-icon" />
               <h3>Applied AI</h3>
             </div>
-            <ul>
-              <li>Applied AI Lead</li>
-              <li>AI Adoption Lead</li>
-              <li>AI Enablement Lead</li>
-              <li>Enterprise AI Analyst</li>
-            </ul>
+
+            <p>
+              Getting AI out of pilots and into daily use, with adoption that
+              survives contact with the business.
+            </p>
+
+            <p class="role-examples">
+              <strong>Roles like:</strong>
+              Applied AI Lead, AI Adoption Lead, Enterprise AI Analyst
+            </p>
+
+            <p>
+              <a href="blog/appliedai.html" class="more-link">
+                More on applied AI
+              </a>
+            </p>
           </div>
 
           <div class="role-column">
@@ -256,164 +257,128 @@
               <img src="images/arrow.svg" alt="Arrow" class="card-icon" />
               <h3>Digital Transformation</h3>
             </div>
-            <ul>
-              <li>Digital Transformation Lead</li>
-              <li>AI Change Management Lead</li>
-              <li>AI Program Manager</li>
-              <li>Enterprise Systems Analyst (AI/Data Focus)</li>
-            </ul>
+
+            <p>
+              Scaling what works across complex enterprise environments, without
+              disrupting the business already running on them.
+            </p>
+
+            <p class="role-examples">
+              <strong>Roles like:</strong>
+              Digital Transformation Lead, AI Program Manager, AI Change
+              Management Lead
+            </p>
+
+            <p>
+              <a href="blog/digital-transformation_blog.html" class="more-link">
+                More on digital transformation
+              </a>
+            </p>
           </div>
 
           <div class="role-column">
             <div class="card-header">
               <img src="images/scales.svg" alt="Scales" class="card-icon" />
-              <h3>AI Governance & Strategy</h3>
+              <h3>AI Governance &amp; Strategy</h3>
             </div>
-            <ul>
-              <li>AI Governance Analyst</li>
-              <li>AI Compliance Analyst</li>
-              <li>Responsible AI Analyst</li>
-              <li>AI Risk Analyst</li>
-            </ul>
-          </div>
-        </div>
-      </section>
 
-      <!-- Core Competencies -->
-      <section id="competencies" class="section-band">
-        <h2>Core Competencies</h2>
+            <p>
+              Keeping deployed AI defensible: oversight, model drift, audit
+              readiness, and regulation that keeps moving.
+            </p>
 
-        <div class="roles-grid roles-grid--two-up">
-          <div class="role-column">
-            <div class="card-header">
-              <img src="images/brain.svg" alt="Brain" class="card-icon" />
-              <h3>Applied AI</h3>
-            </div>
-            <ul>
-              <li>AI Adoption &amp; Enablement</li>
-              <li>AI Lifecycle Management &amp; Operations</li>
-              <li>AI Performance Monitoring</li>
-              <li>Agentic AI Development</li>
-              <li>Predictive Analytics</li>
-            </ul>
-          </div>
+            <p class="role-examples">
+              <strong>Roles like:</strong>
+              AI Governance Analyst, Responsible AI Analyst, AI Compliance
+              Analyst, AI Risk Analyst
+            </p>
 
-          <div class="role-column">
-            <div class="card-header">
-              <img src="images/compass.svg" alt="Compass" class="card-icon" />
-              <h3>Transformation & Strategy</h3>
-            </div>
-            <ul>
-              <li>Bridging Business & Technical Teams</li>
-              <li>Translating Complex AI Concepts</li>
-              <li>Enterprise Systems & Data</li>
-              <li>Requirements Analysis</li>
-              <li>Strategic Planning</li>
-            </ul>
-          </div>
-
-          <div class="role-column">
-            <div class="card-header">
-              <img src="images/people.svg" alt="People" class="card-icon" />
-              <h3>Leadership & Collaboration</h3>
-            </div>
-            <ul>
-              <li>Project Management</li>
-              <li>Stakeholder Management</li>
-              <li>Cross-Functional Team Collaboration</li>
-              <li>Change Management</li>
-              <li>Business Process Improvement</li>
-            </ul>
-          </div>
-
-          <div class="role-column">
-            <div class="card-header">
-              <img
-                src="images/lightbulb.svg"
-                alt="Lightbulb"
-                class="card-icon"
-              />
-              <h3>AI Governance & Ethics</h3>
-            </div>
-            <ul>
-              <li>AI Governance &amp; Policy</li>
-              <li>Ethical AI Implementation</li>
-              <li>Human-Centred AI Design</li>
-              <li>AI Risk Management</li>
-              <li>Enterprise Data Governance</li>
-            </ul>
+            <p>
+              <a href="blog/ethics_blog.html" class="more-link">
+                More on governance &amp; ethics
+              </a>
+            </p>
           </div>
         </div>
       </section>
 
       <!-- Achievements -->
       <section id="achievements" class="section-band">
-        <h2>Selected Achievements</h2>
+        <h2>What I've Achieved</h2>
 
-        <div class="achievement">
-          <div class="card-header">
-            <img src="images/briefcase.svg" alt="Briefcase" class="card-icon" />
-            <h3>Enterprise Impact</h3>
-          </div>
-          <p>
-            Supported multi-million dollar enterprise BI deployments in
-            collaboration with SAP's Value Engineering division, while acting as
-            primary liaison between technical teams and business stakeholders at
-            Canadian Pacific Railway.
-          </p>
-        </div>
+        <p class="section-dek">
+          More than fifteen years across enterprise IT and digital
+          transformation, much of it inside Alberta's regulated energy and rail
+          sectors. The constraints on change there are the same ones that now
+          govern where AI can and cannot be deployed.
+        </p>
 
-        <div class="achievement">
-          <div class="card-header">
-            <img src="images/chart-line-up.svg" alt="Chart" class="card-icon" />
-            <h3>Digital Transformation</h3>
+        <div class="roles-grid">
+          <div class="achievement">
+            <div class="card-header">
+              <img
+                src="images/chart-line-up.svg"
+                alt="Chart"
+                class="card-icon"
+              />
+              <h3>Digital Transformation</h3>
+            </div>
+            <p>
+              Led website redevelopment achieving 300% traffic growth and top
+              search rankings.
+            </p>
+            <p>
+              Built
+              <a
+                href="https://albertaancestors.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                albertaancestors.ca,
+              </a>
+              architecting a 250,000+ record genealogy platform with
+              governance and data quality frameworks.
+            </p>
           </div>
-          <p>
-            Led website redevelopment achieving 300% traffic growth and top
-            search rankings.
-          </p>
-          <p>
-            Built albertaancestors.ca, architecting a 250,000+ record genealogy
-            platform with governance and data quality frameworks.
-          </p>
-        </div>
 
-        <div class="achievement">
-          <div class="card-header">
-            <img
-              src="images/check-circle.svg"
-              alt="Checkmark"
-              class="card-icon"
-            />
-            <h3>Regulated Industry Delivery</h3>
+          <div class="achievement">
+            <div class="card-header">
+              <img
+                src="images/briefcase.svg"
+                alt="Briefcase"
+                class="card-icon"
+              />
+              <h3>Enterprise Impact</h3>
+            </div>
+            <p>
+              Supported multi-million dollar enterprise BI deployments in
+              collaboration with SAP's Value Engineering division, while acting
+              as primary liaison between technical teams and business
+              stakeholders at Canadian Pacific Railway.
+            </p>
           </div>
-          <p>
-            Delivered complex systems across Alberta's energy and transportation
-            sectors, managing stakeholder alignment, execution risk, and
-            continuity.
-          </p>
-        </div>
 
-        <div class="achievement">
-          <div class="card-header">
-            <img
-              src="images/graduation-cap.svg"
-              alt="Graduation Cap"
-              class="card-icon"
-            />
-            <h3>360&deg; AI</h3>
+          <div class="achievement">
+            <div class="card-header">
+              <img
+                src="images/check-circle.svg"
+                alt="Checkmark"
+                class="card-icon"
+              />
+              <h3>Regulated Industry Delivery</h3>
+            </div>
+            <p>
+              Alberta's energy and transportation sectors, including TransAlta's
+              wholesale electricity billing system, where regulators, safety
+              requirements and continuity obligations constrained every change.
+            </p>
           </div>
-          <p>
-            Studied AI Implementation &amp; Maintenance, Governance &amp;
-            Ethics, and selected technical courses to gain a holistic
-            understanding of the AI landscape in today's workforce.
-          </p>
         </div>
       </section>
 
       <!-- Testimonials -->
       <section id="testimonials" class="section-band">
-        <h2>Testimonials</h2>
+        <h2>What Others Say</h2>
 
         <figure class="testimonial">
           <blockquote>
@@ -421,9 +386,7 @@
               "Roy and I worked together for six years on digital transformation
               initiatives for the Alberta Family Histories Society. From concept
               through launch and ongoing user support, Roy was engaged,
-              dependable, and effective at every stage of the process. His
-              knowledge, skill set, and personality would be a worthy asset for
-              any organization or contract work."
+              dependable, and effective at every stage of the process."
             </p>
           </blockquote>
           <figcaption>
@@ -438,10 +401,7 @@
           <blockquote>
             <p>
               "Roy consistently demonstrated a thoughtful and practical approach
-              to applying ethical principles in real-world contexts. I would
-              confidently recommend him to any team looking for someone capable
-              of engaging deeply with complex problems, particularly in areas
-              related to AI ethics."
+              to applying ethical principles in real-world contexts."
             </p>
           </blockquote>
           <figcaption>
@@ -456,10 +416,7 @@
           <blockquote>
             <p>
               "Roy demonstrated exceptional communication and project management
-              skills throughout my Human-Centered AI course. He consistently
-              contributed thoughtful insights with clarity and depth, while
-              showing strong organization and leadership in collaborative work.
-              I would confidently recommend him to any team."
+              skills throughout my Human-Centered AI course."
             </p>
           </blockquote>
           <figcaption>
@@ -473,13 +430,25 @@
 
       <!-- Education -->
       <section id="education" class="section-band">
-        <h2>Education & Professional Development</h2>
+        <h2>Education &amp; Professional Development</h2>
 
         <div class="education-item">
           <p class="education-institution">
-            Post-Diploma Certificate, Integrated Artificial Intelligence
+            Post-Diploma Certificate,
+            <a
+              href="https://www.sait.ca/programs-and-courses/certificates/integrated-artificial-intelligence"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Integrated Artificial Intelligence
+            </a>
             <br />
             Southern Alberta Institute of Technology (SAIT)
+            <br />
+            <span class="education-detail">
+              Implementation and maintenance, governance and ethics,
+              human-centred design, applied machine learning
+            </span>
           </p>
 
           <p class="education-institution">
@@ -495,32 +464,19 @@
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- CONNECT -->
+      <!-- CHANGED: the old "Let's Connect" and "More" sections were two
+           bands doing one job. Merged, with all three actions in one row. -->
       <section id="cta" class="section-band">
         <h2>Let's Connect</h2>
         <p>
-          Available to discuss digital transformation initiatives, AI
-          governance, and responsible AI implementation across enterprise
-          environments.
+          Available to discuss Applied AI and Digital Transformation
+          initiatives, AI Governance, and Responsible AI implementation across
+          Enterprise Environments.
         </p>
 
-        <div class="availability-item">
-          <h3>Open to:</h3>
-          <ul>
-            <li>Full-time or part-time roles</li>
-            <li>Contract or consulting engagements</li>
-            <li>On-site, remote, or hybrid work models</li>
-          </ul>
-        </div>
-
-        <a href="mailto:roy@ai-yyc.com" class="profile-button">Email Me</a>
-      </section>
-
-      <!-- More -->
-      <section id="more" class="section-band">
-        <h2>More</h2>
-        <br />
         <div class="profiles" style="justify-content: left">
+          <a href="mailto:roy@ai-yyc.com" class="profile-button">Email Me</a>
           <a
             href="https://www.linkedin.com/in/calgaryroy/"
             target="_blank"
@@ -537,6 +493,7 @@
           >
             View &amp; Download Resume (PDF)
           </a>
+          <a href="blog.html" class="profile-button">Read the Blog</a>
         </div>
       </section>
     </main>
