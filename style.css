@@ -516,6 +516,55 @@ p {
   border-left: 3px solid var(--gold);
 }
 
+/* ========================================= */
+/* Applied AI in Practice (home page proof)  */
+/* ========================================= */
+
+/* The proof section reuses .achievement cards inside .roles-grid--two-up.
+   .achievement carries a 20px bottom margin because it was written as a
+   stacked block; inside a grid the 26px gap already handles spacing, and
+   the margin just makes the two cards sit unevenly. Safe on mobile too,
+   where .roles-grid collapses to 1fr but keeps its gap. */
+#proof .achievement {
+  margin-bottom: 0;
+}
+
+/* Standfirst under a section heading: one line of context covering the
+   whole section, so the cards beneath it don't each repeat it. */
+.section-dek {
+  font-size: 1.08em;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 780px;
+  margin: -0.4em 0 1.6em 0;
+}
+
+/* Emphasised figure inside running prose. Bold and italic rather than a
+   colour or highlight, so it reads as emphasis and not as a link. Sits on
+   a <strong> to keep the emphasis semantic; both properties are set so the
+   class works wherever it is applied. */
+.metric {
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Role attribution line at the top of a proof card. */
+.proof-role {
+  display: block;
+  font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-mid);
+  margin-bottom: 0.6em;
+}
+
+/* Read-more link closing a proof card. Matches the weight-plus-colour
+   treatment .container li a uses, so colour is never the only cue. */
+.proof-link {
+  font-weight: 600;
+}
+
 /* Sidebar icons */
 .sidebar-icon {
   width: 18px;
