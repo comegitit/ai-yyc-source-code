@@ -30,3 +30,9 @@ ai-yyc-DEPLOY-INSTRUCTIONS.*
 
 # Word lock files left behind by an open .docx
 ~$*
+
+# Imported reference copy. The agentic job-search project owns this file and
+# tracks it; keeping a second tracked copy here would guarantee the two drift.
+# Kept locally for reference, and never uploaded: in the web root it would be
+# publicly readable.
+career_profile.json
