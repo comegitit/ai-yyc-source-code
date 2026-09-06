@@ -189,6 +189,32 @@ const BLOG_POSTS = [
     minuteRead: 4,
   },
 
+  {
+    id: "atb-ai-productivity-gap",
+    url: "posts/atb-ai-productivity-gap.html",
+    title: "ATB Gave 5,000 Employees AI. The Hard Part Came Next.",
+    date: "2026-09-06",
+    displayDate: "September 2026",
+    category: "Applied AI",
+    isCoursework: false,
+    excerpt:
+      "ATB deployed generative AI to 5,000 people and the productivity was real. Turning it into organizational value proved harder.",
+    minuteRead: 3,
+  },
+
+  {
+    id: "capturing-the-saving",
+    url: "posts/capturing-the-saving.html",
+    title: "Capturing the Saving: What Has to Change After the AI Lands",
+    date: "2026-09-06",
+    displayDate: "September 2026",
+    category: "Digital Transformation",
+    isCoursework: false,
+    excerpt:
+      "Saved time does not accumulate on its own. The decisions that turn individual AI productivity into organizational value.",
+    minuteRead: 4,
+  },
+
   // Add future posts here as new objects, for example:
   // {
   //   id: "my-new-post",

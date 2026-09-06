@@ -3,24 +3,9 @@
     <aside class="blog-sidebar">
       <h3>Categories</h3> 
 
-        <a href="ethics_blog.html" class="category-nav-link">
-          <img src="../images/scales.svg" class="sidebar-icon" alt="" />
-          Governance & Ethics
-        </a>
-
-        <a href="digital-transformation_blog.html" class="category-nav-link">
-          <img src="../images/arrow.svg" class="sidebar-icon" alt="" />
-          Digital Transformation
-        </a>
-
-        <a href="human-centred.html" class="category-nav-link">
-          <img src="../images/people.svg" class="sidebar-icon" alt="" />
-          Human-Centred AI
-        </a>
-
-        <a href="agentic_blog.html" class="category-nav-link">
-          <img src="../images/magic-wand.svg" class="sidebar-icon" alt="" />
-          Agentic AI
+        <a href="appliedai.html" class="category-nav-link">
+          <img src="../images/briefcase.svg" class="sidebar-icon" alt="" />
+          Applied AI & Case Studies
         </a>
 
         <a href="ai-strategy.html" class="category-nav-link">
@@ -28,9 +13,24 @@
           AI Strategy
         </a>
 
-        <a href="appliedai.html" class="category-nav-link">
-          <img src="../images/briefcase.svg" class="sidebar-icon" alt="" />
-          Applied AI & Case Studies
+        <a href="digital-transformation_blog.html" class="category-nav-link">
+          <img src="../images/arrow.svg" class="sidebar-icon" alt="" />
+          Digital Transformation
+        </a>
+
+        <a href="agentic_blog.html" class="category-nav-link">
+          <img src="../images/magic-wand.svg" class="sidebar-icon" alt="" />
+          Agentic AI
+        </a>
+
+        <a href="human-centred.html" class="category-nav-link">
+          <img src="../images/people.svg" class="sidebar-icon" alt="" />
+          Human-Centred AI
+        </a>
+
+        <a href="ethics_blog.html" class="category-nav-link">
+          <img src="../images/scales.svg" class="sidebar-icon" alt="" />
+          Governance & Ethics
         </a>
 
       <nav class="category-nav">
