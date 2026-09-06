@@ -18,7 +18,7 @@ const BLOG_POSTS = [
     title: "Case Study: Human-Centred AI: A Medical Chatbot Example",
     date: "2026-01-01",
     displayDate: "January 2026",
-    category: "Human Centred AI",
+    category: "Human-Centred AI",
     isCoursework: true,
     excerpt:
       "Coursework analysis of the Ada Health chatbot, examining human-in-the-loop design, accessibility standards, and automation bias in healthcare AI.",
@@ -67,9 +67,9 @@ const BLOG_POSTS = [
     title: "Pentagon vs Anthropic - Update March 2026",
     date: "2026-03-08",
     displayDate: "March 2026",
-    category: "Human Centred AI",
+    category: "Human-Centred AI",
     isCoursework: false,
-    excerpt: "The dispute through a human centred lens.",
+    excerpt: "The dispute through a human-centred lens.",
     minuteRead: 4,
   },
 

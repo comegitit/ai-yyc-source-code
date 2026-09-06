@@ -536,7 +536,13 @@ p {
    both survive without it. inline-block also means the whitespace Prettier
    may put inside the tag is stripped rather than padding the box. */
 .more-link {
-  display: inline-block;
+  /* Block plus fit-content centres the pill in its card without stretching
+     it to full width, which would read as a heavy button rather than a
+     quiet way onward. */
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   padding: 7px 14px;
   border: 1px solid var(--accent-light);
   border-radius: 5px;

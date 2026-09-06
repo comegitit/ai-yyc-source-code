@@ -15,7 +15,7 @@
 
         <a href="human-centred.html" class="category-nav-link">
           <img src="../images/people.svg" class="sidebar-icon" alt="" />
-          Human Centred AI
+          Human-Centred AI
         </a>
 
         <a href="agentic_blog.html" class="category-nav-link">
