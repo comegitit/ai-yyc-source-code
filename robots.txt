@@ -1,0 +1,7 @@
+# ai-yyc.com
+# Search engines and AI assistants may read and cite this site.
+# The content signal below still reserves rights against model training.
+
+User-agent: *
+Content-Signal: search=yes,ai-train=no,use=reference
+Allow: /

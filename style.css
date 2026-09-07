@@ -5,9 +5,11 @@
 :root {
   --accent: #2B5078;           /* deep navy — authoritative, trustworthy */
   --accent-mid: #4F6D8A;       /* mid blue — secondary usage */
+  --accent-hover: #5F6D7A;     /* muted slate-blue — button hover fill only */
   --accent-light: #7BA7C8;     /* sky — hover highlights, subtle fills */
   --accent-bg: rgba(30, 60, 130, 0.04);  /* page frame wash */
   --gold: #C8902A;             /* warm amber — selective emphasis only */
+  --gold-deep: #9E6B00;        /* same hue, dark enough to carry white text (4.6:1) */
   --gold-light: rgba(200, 144, 42, 0.12);
   --surface-1: #FDFCFA;        /* very light warm white — plain sections */
   --surface-2: #F5F8FB;        /* slightly blue-tinted off-white */
@@ -616,11 +618,36 @@ p {
   box-shadow: 0 2px 6px rgba(43,80,120,0.18);
 }
 
+/* Hover stays in the blue family but deliberately quiet. It was --gold, which
+   collided with the gold resting state of .profile-button--accent below:
+   hovering a navy button made it look like that button. Gold is no longer a
+   button state anywhere.
+
+   --accent-hover is lighter than the resting --accent, so on this near-white
+   page the hovered button recedes toward the background rather than shouting.
+   That is intended: by the time this state shows, the pointer is already on the
+   button and the cursor has already changed, so the fill only has to confirm,
+   not attract. Keyboard users never depend on it, since :focus-visible draws a
+   3px --accent ring instead. 5.31:1 on white, so it clears AA regardless. */
 .profile-button:hover {
-  background: var(--gold);
+  background: var(--accent-hover);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(200,144,42,0.28);
+  box-shadow: 0 5px 14px rgba(95, 109, 122, 0.3);
+}
+
+/* One action per page may take the gold fill: on the home page it is the blog,
+   the only browse action sitting among contact actions. Use it sparingly, since
+   two of these and the emphasis is gone.
+
+   --gold-deep rather than --gold, because white on --gold is 2.8:1, under the
+   4.5:1 WCAG AA needs at this size. --gold-deep is the same hue at full
+   saturation, so it stays gold rather than going bronze, and clears AA at
+   4.6:1. Hover is inherited from the rule above: every button on the site
+   lands on the same blue. */
+.profile-button--accent {
+  background: var(--gold-deep);
+  box-shadow: 0 2px 6px rgba(158, 107, 0, 0.3);
 }
 
 /* Footer */

@@ -63,22 +63,18 @@
 
 // ----- Shared blog card helpers (Perplexity additions) -----
 
-// Helper so cards work from blog.html and /blog/*.html
+// Helper so cards work from any page that renders them: index.html, blog.html,
+// and the category pages under /blog/.
 function getPostUrl(post) {
   const path = post.url; // e.g., "posts/intro-to-trustworthy-ai.html"
-  const pathname = window.location.pathname;
 
-  // If we are on the root blog page (e.g., /blog.html),
-  // we need "blog/posts/..." instead of just "posts/..."
-  const isRootBlogPage =
-    pathname.endsWith("/blog.html") || pathname === "/blog.html";
-
-  if (isRootBlogPage) {
-    return "blog/" + path; // "blog/posts/intro-to-trustworthy-ai.html"
+  // Under /blog/, "posts/..." already resolves correctly. Anywhere at the site
+  // root, including index.html and blog.html, the link needs the blog/ prefix.
+  if (window.location.pathname.includes("/blog/")) {
+    return path;
   }
 
-  // When already under /blog/..., "posts/..." is correct
-  return path;
+  return "blog/" + path; // "blog/posts/intro-to-trustworthy-ai.html"
 }
 
 function createBlogPostCard(post, withButton = false) {
