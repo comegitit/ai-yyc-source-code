@@ -37,3 +37,10 @@ ai-yyc-DEPLOY-INSTRUCTIONS.*
 # Kept locally for reference, and never uploaded: in the web root it would be
 # publicly readable.
 career_profile.json
+
+# Local backups kept while reworking a page or the resume. Superseded copies,
+# never uploaded, and not worth version control since git already holds the
+# history they were made to preserve.
+index_old.html
+*_old_2026.docx
+*_old_2026.pdf
