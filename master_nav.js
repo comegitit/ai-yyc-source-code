@@ -38,7 +38,7 @@ const siteHeader = `
     <div class="top-bar-inner">
       <a href="${BASE}index.html" class="logo-link">
         <img src="${BASE}images/logo.png" alt="" class="site-logo" />
-        <span class="site-wordmark">ai-yyc<span class="wordmark-tld">.com</span></span>
+        <span class="site-wordmark">ai-yyc.com</span>
       </a>
 
       <nav class="main-nav">

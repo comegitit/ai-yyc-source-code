@@ -8,7 +8,10 @@
   --accent-hover: #5F6D7A;     /* muted slate-blue — button hover fill only */
   --accent-light: #7BA7C8;     /* sky — hover highlights, subtle fills */
   --accent-bg: rgba(30, 60, 130, 0.04);  /* page frame wash */
-  --mark: #CF5C40;             /* terracotta — matches images/logo.png */
+  /* Azure baked into images/logo.png. Recorded here so the mark's colour is
+     greppable and so section icons can match it; changing this value does NOT
+     recolour the logo, the PNG has to be regenerated. */
+  --mark: #1284D6;
   --gold: #C8902A;             /* warm amber — selective emphasis only */
   --gold-deep: #9E6B00;        /* same hue, dark enough to carry white text (4.6:1) */
   --gold-light: rgba(200, 144, 42, 0.12);
@@ -222,13 +225,6 @@ button:focus-visible {
      the Georgia fallback still renders at the right weight. */
   font-optical-sizing: none;
   font-variation-settings: "opsz" 60;
-}
-
-/* The TLD carries the mark's colour so the accent bookends the lockup: mark on
-   the left, ".com" on the right, the name in grey between them. A terracotta
-   dot alone was too small to register. */
-.site-wordmark .wordmark-tld {
-  color: var(--mark);
 }
 
 /* ========================================= */
