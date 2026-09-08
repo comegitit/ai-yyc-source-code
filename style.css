@@ -8,7 +8,7 @@
   --accent-hover: #5F6D7A;     /* muted slate-blue — button hover fill only */
   --accent-light: #7BA7C8;     /* sky — hover highlights, subtle fills */
   --accent-bg: rgba(30, 60, 130, 0.04);  /* page frame wash */
-  /* Azure baked into images/logo.png. Recorded here so the mark's colour is
+  /* Azure baked into images/logo-mark.png. Recorded here so the colour is
      greppable and so section icons can match it; changing this value does NOT
      recolour the logo, the PNG has to be regenerated. */
   --mark: #1284D6;
@@ -209,7 +209,7 @@ button:focus-visible {
 }
 
 /* The wordmark is live text in the site's own heading face rather than pixels
-   baked into logo.png. It stays crisp at any resolution, is selectable and
+   baked into the mark image. It stays crisp at any resolution, is selectable and
    indexable, and keeps a third typeface out of the header. */
 .site-wordmark {
   font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
