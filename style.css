@@ -8,6 +8,7 @@
   --accent-hover: #5F6D7A;     /* muted slate-blue — button hover fill only */
   --accent-light: #7BA7C8;     /* sky — hover highlights, subtle fills */
   --accent-bg: rgba(30, 60, 130, 0.04);  /* page frame wash */
+  --mark: #CF5C40;             /* terracotta — matches images/logo.png */
   --gold: #C8902A;             /* warm amber — selective emphasis only */
   --gold-deep: #9E6B00;        /* same hue, dark enough to carry white text (4.6:1) */
   --gold-light: rgba(200, 144, 42, 0.12);
@@ -186,10 +187,48 @@ button:focus-visible {
   justify-content: space-between;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  /* 6px and 32px below are measured off the original lockup: the designer set
+     the wordmark's x-height at 0.215 of the mark height with a 6px gap. The
+     original also dropped the wordmark 5px below centre, which is NOT copied
+     here: that offset suited a geometric sans with a tall x-height and reads
+     as sagging in a serif. */
+  gap: 6px;
+  text-decoration: none;
+}
+
 .site-logo {
   height: 72px;
   width: auto;
   display: block;
+}
+
+/* The wordmark is live text in the site's own heading face rather than pixels
+   baked into logo.png. It stays crisp at any resolution, is selectable and
+   indexable, and keeps a third typeface out of the header. */
+.site-wordmark {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--text-secondary);
+  /* Source Serif 4 carries an optical-size axis (8-60). At wordmark size the
+     browser auto-picks the text end, which is sturdy and low-contrast and reads
+     as a slab at wordmark size. Forcing the display end gives finer hairlines
+     and the stroke contrast a wordmark wants. Weight stays on font-weight so
+     the Georgia fallback still renders at the right weight. */
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 60;
+}
+
+/* The TLD carries the mark's colour so the accent bookends the lockup: mark on
+   the left, ".com" on the right, the name in grey between them. A terracotta
+   dot alone was too small to register. */
+.site-wordmark .wordmark-tld {
+  color: var(--mark);
 }
 
 /* ========================================= */
@@ -1113,6 +1152,18 @@ figure.testimonial figcaption cite {
 
   .site-logo {
     height: 32px;
+  }
+
+  .logo-link {
+    gap: 3px;
+  }
+
+  .site-wordmark {
+    font-size: 14px;
+    /* Display hairlines get spindly this small; let the axis pick the text end. */
+    font-optical-sizing: auto;
+    font-variation-settings: normal;
+    letter-spacing: 0.01em;
   }
 
   .main-nav {
