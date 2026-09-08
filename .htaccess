@@ -1,0 +1,12 @@
+Redirect 301 /hca.html /hcai.html
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?ai-yyc\.net$ [NC]
+RewriteRule ^(.*)$ https://ai-yyc.com/$1 [R=301,L]
+ErrorDocument 404 /404.html
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 hour"
+</IfModule>
+
