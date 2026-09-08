@@ -38,13 +38,8 @@ ai-yyc-DEPLOY-INSTRUCTIONS.*
 # publicly readable.
 career_profile.json
 
-# Local backups kept while reworking a page or the resume. Superseded copies,
+# Local backups kept while reworking the resume. Superseded copies,
 # never uploaded, and not worth version control since git already holds the
 # history they were made to preserve.
-index_old.html
 *_old_2026.docx
 *_old_2026.pdf
-
-# Local comparison scratch pages, not part of the site.
-logo-compare.html
-icon-compare.html
