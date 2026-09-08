@@ -342,6 +342,10 @@ button:focus-visible {
 .page-header h1 span {
   color: var(--accent-mid);
   font-weight: 500;
+  /* Was an inline style attribute on the span in index.html, which the
+     mobile rules could not override. Moved here so the cascade works. */
+  font-size: 0.5em;
+  vertical-align: middle;
 }
 
 .page-header .tagline {
@@ -1091,14 +1095,24 @@ figure.testimonial figcaption cite {
 /* ========================================= */
 @media (max-width: 768px) {
 
+  /* #site-header reserves this much space so the JS-injected nav does not
+     shift the page as it lands. The bar below is 90px on mobile, so the
+     desktop 120px was leaving 30px of dead space above the hero. The
+     other user of this variable is .blog-sidebar's sticky top, and the
+     sidebar is static at this width, so lowering it here is inert. */
+  :root {
+    --header-height: 92px;
+  }
+
   .top-bar-inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 6px;
+    padding: 9px 20px;
   }
 
   .site-logo {
-    height: 40px;
+    height: 32px;
   }
 
   .main-nav {
@@ -1201,6 +1215,73 @@ figure.testimonial figcaption cite {
   .post-intro {
     font-size: 1.05em;
     padding-left: 15px;
+  }
+}
+
+/* Mobile density: get the first proof card's heading above the fold.
+   At 390px the SIGNAL heading sat at 889px, well past a ~660px visible
+   area once the browser chrome is subtracted. These reductions plus the
+   removal of the hero hook bring it to 548px (622px at 360-375px). */
+@media (max-width: 768px) {
+  .page-header {
+    margin-bottom: 22px;
+    padding: 18px 16px 18px 20px;
+  }
+
+  .page-header h1 {
+    font-size: 1.75em;
+  }
+
+  /* Block, so the strapline starts on its own line instead of running on
+     from "Roy Aggarwal" and orphaning "AI Governance" underneath it.
+
+     Sized to hold all three terms on one line: Source Serif 4 is
+     self-hosted, so the widths this is tuned against are the widths every
+     device gets. One line from 360px up, which covers current iPhones and
+     Android down to the budget sizes, with 7px of slack at the tightest.
+     Below that the floor takes over and it wraps instead. nowrap is
+     deliberately not used: .page-header sets overflow hidden, so an
+     over-wide line would be clipped rather than wrapped, and one line at
+     320px needs 10px type.
+
+     The terms carry non-breaking spaces in the markup, so the only break
+     points are the pipes. Without them a wrap splits "Digital
+     Transformation" across two lines, which reads worse than the orphan
+     this replaced. The clamp ceiling stops it competing with the h1. */
+  .page-header h1 span {
+    display: block;
+    font-size: clamp(11px, 3.15vw, 16px);
+    line-height: 1.35;
+    margin-top: 6px;
+  }
+
+  .page-header .tagline {
+    font-size: 1.02em;
+  }
+
+  .section-band {
+    padding: 24px 20px;
+  }
+
+  h2,
+  .media-text h1 {
+    font-size: 1.45em;
+  }
+
+  .section-dek {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 1.1em;
+  }
+
+  /* The hook costs 154px at its desktop size, which is the difference
+     between the first proof card's heading sitting above the fold and
+     below it. Tighter type and padding bring that to 84px. */
+  .hero-hook {
+    font-size: 0.95em;
+    line-height: 1.45;
+    margin-top: 8px;
+    padding: 6px 12px;
   }
 }
 
