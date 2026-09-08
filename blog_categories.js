@@ -84,9 +84,6 @@ function createBlogPostCard(post, withButton = false) {
   const url = getPostUrl(post);
   const headingTag = withButton ? "h2" : "h3";
 
-  // Only show " · Coursework" when isCoursework is true
-  const courseworkLabel = post.isCoursework ? " · Coursework" : "";
-
   article.innerHTML = `
     <${headingTag}>
       <a href="${url}">
@@ -94,7 +91,7 @@ function createBlogPostCard(post, withButton = false) {
       </a>
     </${headingTag}>
     <p class="post-meta">
-      ${post.displayDate} · ${post.category}${courseworkLabel}
+      ${post.displayDate} · ${post.category}
     </p>
     <p class="post-excerpt">
       ${post.excerpt}
