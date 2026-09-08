@@ -29,14 +29,21 @@ step and no backend — files are served as-is.
 | `blog.html` | Blog index (categories + latest posts) |
 | `blog/` | Blog category pages |
 | `blog/posts/` | Individual blog post pages |
-| `*.html` (root) | Coursework and topic pages (ethics, hcai, predictive, etc.) |
+| `*.html` (root) | Education and topic pages (ethics, hcai, predictive, etc.) |
 | `master_nav.js` | Injects the shared header/footer on every page; resolves paths from any folder depth |
 | `blog_posts.js` | Blog post metadata (the data that drives all listings) |
 | `blog_categories.js` | Blog sidebar + shared post-card rendering helpers |
 | `style.css` | Global styles and design tokens |
 | `images/` | Logos, icons (SVG), and social link-preview images |
 | `fonts/` | Self-hosted Source Serif 4 (woff2) and its OFL licence |
-| `documents/` | Downloadable resumes and coursework artifacts (PDF, etc.) |
+| `documents/` | Downloadable resumes and course artifacts (PDF, etc.) |
+
+### Kept in the repo, not deployed
+
+`statistics.html` and `webdev.html` are retained here as a record but are
+deliberately not uploaded to `public_html`, so they return 404 on the live
+site. Their links in `master_nav.js` are commented out to match. Do not
+re-upload them without also restoring those links.
 
 ## Adding a blog post
 

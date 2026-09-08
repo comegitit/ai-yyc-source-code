@@ -193,7 +193,7 @@ function highlightActivePage() {
     }
   });
 
-  // On a coursework page the matching link sits inside the closed submenu,
+  // On an Education page the matching link sits inside the closed submenu,
   // so mark the parent button instead.
   const openSub = document.querySelector(".submenu .active");
   if (openSub) {
