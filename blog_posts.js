@@ -3,7 +3,7 @@ const BLOG_POSTS = [
   {
     id: "intro-to-trustworthy-ai",
     url: "posts/intro-to-trustworthy-ai.html", // relative to /blog/
-    title: "Building Trustworthy AI in Organizations",
+    title: "Building Trustworthy AI in Organizations: The Foundation for the Future",
     date: "2026-02-01", // ISO for sorting
     displayDate: "February 2026",
     category: "Governance & Ethics",
@@ -38,7 +38,7 @@ const BLOG_POSTS = [
   {
     id: "ai-strategy-post",
     url: "posts/why-your-ai-strategy-is-failing.html",
-    title: "Why Your AI Strategy is Failing",
+    title: 'Why Your AI Strategy is Failing (And How to Fix the "Pilot Trap")',
     date: "2026-03-01",
     displayDate: "March 2026",
     category: "AI Strategy",
