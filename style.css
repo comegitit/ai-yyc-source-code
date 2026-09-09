@@ -690,6 +690,14 @@ footer {
   margin: 0;
 }
 
+/* When the privacy link is commented out of the footer, the copyright is the
+   only element left and space-between would strand it hard left under a centred
+   nav. Centre it while it stands alone. Comment nodes are not elements, so this
+   stops matching by itself once the link comes back, and nothing needs undoing. */
+.footer-bottom p:only-child {
+  margin-inline: auto;
+}
+
 .footer-privacy {
   font-size: 0.85em;
   color: var(--text-muted);

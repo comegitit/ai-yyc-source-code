@@ -73,7 +73,10 @@ const siteFooter = `
 
     <div class="footer-bottom">
       <p>Developed by Roy Aggarwal &copy; <span id="year"></span></p>
-      <a href="${BASE}privacy.html" class="footer-privacy">Privacy</a>
+      <!-- Privacy link is parked until the Clarity tag ships and privacy.html
+           goes back into public_html. Uncomment this line to restore it; the
+           bottom row re-splits on its own. -->
+      <!--<a href="${BASE}privacy.html" class="footer-privacy">Privacy</a>-->
     </div>
   </footer>
 `;
