@@ -214,6 +214,16 @@ rather than trusting this number. Scope confirmed by survey, not assumption:
 Data takes a couple of hours to appear. Test in incognito, since the normal
 browser will have `noTrack` set after step 8.
 
+**Expect a stale-cache false alarm.** `master_nav.js` and `style.css` are served
+with `Cache-Control: max-age=14400`, so a browser that visited in the previous
+four hours keeps serving its own copy and shows the pre-deploy site. Verified
+2026-09-08: a page appeared to still have the old nav until a hard reload, while
+the edge was serving the correct file all along. HTML is not edge-cached
+(`cf-cache-status: DYNAMIC`), so page edits do go live immediately. When
+verifying the tag, hard-reload or use incognito before concluding anything is
+broken. Note this 4-hour TTL comes from Cloudflare's Browser Cache TTL setting
+and overrides the 1-hour CSS expiry set in `.htaccess`.
+
 ---
 
 ## If data never appears, check these in order
