@@ -214,15 +214,21 @@ rather than trusting this number. Scope confirmed by survey, not assumption:
 Data takes a couple of hours to appear. Test in incognito, since the normal
 browser will have `noTrack` set after step 8.
 
-**Expect a stale-cache false alarm.** `master_nav.js` and `style.css` are served
-with `Cache-Control: max-age=14400`, so a browser that visited in the previous
-four hours keeps serving its own copy and shows the pre-deploy site. Verified
-2026-09-08: a page appeared to still have the old nav until a hard reload, while
-the edge was serving the correct file all along. HTML is not edge-cached
-(`cf-cache-status: DYNAMIC`), so page edits do go live immediately. When
-verifying the tag, hard-reload or use incognito before concluding anything is
-broken. Note this 4-hour TTL comes from Cloudflare's Browser Cache TTL setting
-and overrides the 1-hour CSS expiry set in `.htaccess`.
+**Expect a stale-cache false alarm.** A browser that visited recently keeps
+serving its own copy of `master_nav.js` and `style.css` and shows the pre-deploy
+site. Verified 2026-09-08: a page appeared to still have the old nav until a hard
+reload, while the edge was serving the correct file all along. HTML is not
+edge-cached (`cf-cache-status: DYNAMIC`), so page edits do go live immediately.
+When verifying the tag, hard-reload or use incognito before concluding anything
+is broken.
+
+Updated 2026-09-09: the browser TTL is now set by `mod_expires` in `.htaccess`,
+not by Cloudflare. Cloudflare's Browser Cache TTL was moved to "Respect Existing
+Headers", replacing a flat 4-hour override that had shadowed the origin. Current
+values: HTML 5 minutes, CSS and JS 1 hour, images 7 days, fonts 1 year. Before
+this change the JS files carried no cache header at all, which left them on
+browser heuristic caching and could hold `blog_posts.js` stale for days after a
+post was published.
 
 ---
 
