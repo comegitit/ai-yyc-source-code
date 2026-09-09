@@ -40,8 +40,21 @@ This is the last step of the install, not an optional extra. Once the tag is liv
    re-splits on its own; the CSS rule that centres the lone copyright
    (`.footer-bottom p:only-child`) stops matching by itself, so **nothing in
    `style.css` needs undoing.**
-2. Upload `privacy.html` back into `public_html`, and re-upload `master_nav.js`.
-3. Purge the Cloudflare cache.
+2. **Put `privacy.html` back in the sitemap.** Delete the `"privacy.html"` line
+   from the `EXCLUDE` set in `tools/generate_sitemap.py`, then regenerate:
+
+   ```sh
+   python tools/generate_sitemap.py
+   ```
+
+   It was excluded on purpose while the page returned 404, because a sitemap
+   listing a 404 reports an error in Search Console. Miss this step and the page
+   goes live but stays out of the sitemap, and search engines are far less likely
+   to find it. The count should go from 32 URLs to 33.
+3. Upload `privacy.html` back into `public_html`, and re-upload `master_nav.js`
+   and `sitemap.xml`.
+4. Purge the Cloudflare cache. Needed for `master_nav.js`; `privacy.html` and
+   `sitemap.xml` are never edge-cached.
 
 **The page also makes a commitment that constrains setup.** It states the site
 "runs Clarity's strictest masking setting", so **setting masking to Strict is not
