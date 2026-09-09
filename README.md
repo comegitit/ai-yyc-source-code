@@ -63,6 +63,46 @@ python -m http.server 8000
 
 Then open <http://localhost:8000/index.html>.
 
+## Hosting and infrastructure
+
+Deployed by **manual upload to `public_html`**. The repo is not wired to the
+server, so a change is not live until it is uploaded and the Cloudflare cache
+is purged.
+
+**Hosting.** cPanel shared hosting. `ai-yyc.net` is the account's **Main
+Domain** and `ai-yyc.com` is an **alias**; both resolve to the same
+`/public_html`, so one upload serves both. `.net` is kept renewed as brand
+defence and because the hosting account is built on it.
+
+**DNS and CDN.** Nameservers are at Cloudflare for both zones, configured
+identically.
+
+### What `.htaccess` owns
+
+- Host canonicalisation: `ai-yyc.net` and `www.ai-yyc.com` both 301 to
+  `https://ai-yyc.com`, preserving the path
+- The legacy `/hca.html` to `/hcai.html` alias
+- The 404 handler
+- Browser cache TTLs per file type, via `mod_expires`: HTML 5 minutes,
+  CSS and JS 1 hour, images 7 days, fonts 1 year
+
+**Do not add an HTTPS-forcing rule here.** Behind a proxy the origin sees every
+request as insecure, which produces an infinite redirect loop. HTTPS is enforced
+at the edge instead.
+
+### What Cloudflare owns (not visible in this repo)
+
+| Setting | Value | Why |
+| --- | --- | --- |
+| Browser Cache TTL | Respect Existing Headers | So the TTLs above stay version controlled rather than hidden in a dashboard |
+| Always Use HTTPS | On | Upgrades HTTP at the edge. cPanel's own "Force HTTPS Redirect" is deliberately **off** so the two never duplicate |
+| SSL/TLS mode | Full (strict) | Encrypts and verifies the origin certificate |
+
+Full (strict) is safe because cPanel AutoSSL issues a SAN certificate covering
+every hostname on the account and renews it automatically. That makes AutoSSL
+load-bearing: if the origin certificate ever expires, the site returns `526`.
+Switching the affected zone back to `Full` restores service immediately.
+
 ## License
 
 © Roy Aggarwal. All rights reserved.
