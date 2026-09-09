@@ -241,8 +241,7 @@ button:focus-visible {
   margin: 0;
 }
 
-.nav-menu > li > a,
-.nav-menu > li > button {
+.nav-menu > li > a {
   font-size: 1.35em;
   font-weight: 600;
   line-height: 1.2;
@@ -255,14 +254,12 @@ button:focus-visible {
   font-family: inherit;
 }
 
-.top-bar .nav-menu > li > a,
-.top-bar .nav-menu > li > button {
+.top-bar .nav-menu > li > a {
   color: var(--accent);
   transition: color 0.2s ease;
 }
 
-.top-bar .nav-menu > li > a:hover,
-.top-bar .nav-menu > li > button:hover {
+.top-bar .nav-menu > li > a:hover {
   color: var(--gold);
 }
 
@@ -271,50 +268,6 @@ button:focus-visible {
    border keeps the underline from changing the nav's height. */
 .main-nav .active {
   box-shadow: 0 2px 0 var(--gold);
-}
-
-.submenu-toggle {
-  appearance: none;
-}
-
-.has-submenu {
-  position: relative;
-}
-
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  min-width: 200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,.15);
-  padding: 10px 0;
-  list-style: none;
-  margin: 0;
-  z-index: 10000;
-}
-
-.submenu li a {
-  display: block;
-  padding: 8px 15px;
-  text-decoration: none;
-  color: var(--accent);
-}
-
-.submenu li a:hover {
-  color: var(--gold);
-  background: var(--surface-2);
-}
-
-@media (hover: hover) {
-  .has-submenu:hover .submenu {
-    display: block;
-  }
-}
-
-.has-submenu.open .submenu {
-  display: block;
 }
 
 /* ========================================= */
@@ -1179,8 +1132,7 @@ figure.testimonial figcaption cite {
   width: auto;
 }
 
-.nav-menu > li > a,
-  .nav-menu > li > button {
+.nav-menu > li > a {
     display: block;
     width: 100%;
     text-align: left;
@@ -1189,25 +1141,6 @@ figure.testimonial figcaption cite {
     padding: 6px 0;
   }
 
-.submenu {
-    position: static;
-    display: none;
-    width: 100%;
-    box-shadow: none;
-    padding-left: 15px;
-    margin-top: 5px;
-  }
-
-  .has-submenu.open .submenu {
-    display: block;
-  }
-
-  .submenu li a {
-    display: block;
-    padding: 8px 0;
-    font-size: 1em;
-  }
-  
   .roles-grid {
     grid-template-columns: 1fr;
   }
