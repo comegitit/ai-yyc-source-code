@@ -62,7 +62,19 @@ const siteHeader = `
 // --------------------------------------------
 const siteFooter = `
   <footer>
-    <p>Developed by Roy Aggarwal &copy; <span id="year"></span></p>
+    <nav class="footer-nav" aria-label="Footer">
+      <ul>
+        <li><a href="${BASE}index.html">Career</a></li>
+        <li><a href="${BASE}education.html">Education</a></li>
+        <li><a href="${BASE}blog.html">Blog</a></li>
+        <li><a href="${BASE}documents/Resume_Roy_Aggarwal_Fall_2026.pdf" target="_blank" rel="noopener noreferrer">Resum&eacute;</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-bottom">
+      <p>Developed by Roy Aggarwal &copy; <span id="year"></span></p>
+      <a href="${BASE}privacy.html" class="footer-privacy">Privacy</a>
+    </div>
   </footer>
 `;
 

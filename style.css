@@ -652,6 +652,71 @@ footer {
   color: var(--text-secondary);
 }
 
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: var(--gold);
+}
+
+/* Copyright left, privacy right. The 1200px/30px matches .top-bar-inner so
+   the privacy link sits under the right edge of the nav above it. */
+.footer-bottom {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 16px 30px 0;
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-privacy {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer-privacy:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* Kept with the footer rather than in the shared 768px blocks lower down, so
+   the whole footer reads in one place. */
+@media (max-width: 768px) {
+  .footer-nav ul {
+    gap: 18px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
 /*================================================*/
 /*  Flexbox to wrap text around blog post images */
 /*================================================*/
