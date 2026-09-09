@@ -116,8 +116,7 @@ const BLOG_POSTS = [
   {
     id: "agentic-job-match",
     url: "posts/agentic-job-match.html",
-    title:
-      "An Agentic AI Solution Automating Job Searching & Document Creation",
+    title: "Building an Agentic Job Search System: Levelling the Playing Field",
     date: "2026-05-08",
     displayDate: "May 2026",
     category: "Agentic AI",
@@ -165,7 +164,7 @@ const BLOG_POSTS = [
   {
     id: "agentic-proof-of-concept.html",
     url: "posts/agentic-proof-of-concept.html",
-    title: "Built in a Weekend: A Lightweight Agentic AI System in Python",
+    title: "Built over a Weekend: A Lightweight Agentic AI System in Python",
     date: "2026-07-13",
     displayDate: "July 2026",
     category: "Agentic AI",
