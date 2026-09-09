@@ -49,8 +49,10 @@ re-upload them without also restoring those links.
 
 ## Adding a blog post
 
-1. Create the post HTML in `blog/posts/`. Give it a `<link rel="canonical">`;
-   the sitemap generator reads it and will refuse to run without one.
+1. Create the post HTML in `blog/posts/`. It needs three things the generators
+   read, and they stop with an error if any is missing: a
+   `<link rel="canonical">`, an `<h1>`, and a `<meta name="description">`.
+   Copy an existing post as the starting point.
 2. Add a metadata entry to the `BLOG_POSTS` array in `blog_posts.js`
    (see the commented template at the bottom of that file).
 3. Regenerate the sitemap and the structured data:
