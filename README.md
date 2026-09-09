@@ -61,9 +61,10 @@ re-upload them without also restoring those links.
 
 4. Upload **three** files to `public_html`: the new post, `blog_posts.js`,
    and `sitemap.xml`.
-5. Purge the Cloudflare cache. The new post is a new URL and needs no purge,
-   but `blog_posts.js` and `sitemap.xml` are updates to files the edge is
-   already holding.
+5. Purge the Cloudflare cache. Only `blog_posts.js` actually needs it: HTML
+   and `sitemap.xml` come back `cf-cache-status: DYNAMIC`, so they are never
+   held at the edge and go live on upload. Forgetting the purge leaves the
+   blog index up to an hour stale, then it corrects itself.
 
 Use lowercase, hyphenated filenames (e.g. `my-new-post.html`), no spaces.
 
