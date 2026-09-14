@@ -306,3 +306,96 @@ clicks, scroll depth) and will provoke the same reaction Cloudflare's did. The
 fix is removing and rearranging cards, but do it *after* a week of real data,
 once it's clear what actually gets looked at. Get the tag installed and confirmed
 working first.
+
+---
+
+## Session notes, 2026-09-09 evening
+
+Decisions made in conversation that are not reflected in the body above. Fold
+them in properly when convenient; until then, read this section as authoritative
+where it conflicts.
+
+**State verified 2026-09-14: nothing in the install has been done.** No `js/`
+directory, no `analytics.js`, no `clarity.ms` reference in any page, privacy link
+still commented out in `master_nav.js`, `privacy.html` still in `EXCLUDE`.
+**Step 1 of Setup order is the next action.**
+
+### Change to the setup order
+
+**Set masking to Strict before deploying, not after.** The body has it as step 6,
+after the tag is live. Move it to immediately after creating the project. Otherwise
+the first sessions are captured unmasked, and `privacy.html` promises strictest
+masking from the moment it is public. Costs nothing to do early.
+
+### No UTM parameters on outreach links. Decided, do not re-propose.
+
+The install was pulled forward to measure LinkedIn DM outreach conversion. UTM
+tagging was proposed and **rejected by the owner**, correctly:
+
+- A DM link displaying `?utm_source=linkedin&utm_medium=dm&utm_content=07` reads
+  as funnel processing to a contact being asked for help.
+- It risks the OG preview card, which is doing real work in the message.
+- **At this traffic volume the timestamp is the attribution.** Baseline is roughly
+  five visitors a week. A cluster of sessions in the hours after a blitz is
+  unambiguous without any query parameter.
+
+What is lost is per-contact identification. Two free partial recoveries: keep a
+send-order log with rough times and cross-reference against session timestamps;
+and city is a weak identifier where only one contact lives there.
+
+### Expectations set
+
+- **Clarity lags 30 minutes to 2 hours.** Not real-time. Do not conclude the tag
+  is broken from a blank dashboard 15 minutes after install.
+- **Single-digit session counts make every chart useless.** The recordings list is
+  the instrument, as the body already says.
+
+### Dashboard metrics the owner actually wants
+
+For the later customization task. Verified against Clarity's capabilities:
+
+| Wanted | Clarity |
+|---|---|
+| Unique visitors over time | Standard card |
+| Geographic location | Country/State/City cards |
+| Session duration | Yes |
+| Pages visited | Yes |
+| Device type | Yes |
+| Time of day | **Weak.** Per-session timestamps only, no distribution chart |
+| Time spent per page | **Uncertain.** Verify live rather than assume |
+
+Own-IP filtering is not a dashboard task. It is the `localStorage` gate, already
+decided. No IP blocking.
+
+### Time estimates
+
+Active work is about 2h20m: Phase 1 signup and masking 15 min, Phase 2 code
+(analytics file, 34-page insert, privacy restoration, local verify, commit) about
+65 min, Phase 3 upload, cache purge and verification about 55 min. Phases 1 and 3
+cost no Claude quota. Owner budgets 6 hours elapsed.
+
+Dashboard customization is a separate 45 to 90 minute collaborative session, to be
+done after a week of real data. Add 1 to 2 hours if the time-of-day and per-page
+gaps need a charting workaround built from a CSV export.
+
+### Update 2026-09-14: the outreach went out untracked
+
+The LinkedIn blitz that pulled this install forward has already happened. LinkedIn
+rate-limited the rapid sends as suspected spam, so the messages went out slowly
+over several days rather than in one 9:30 AM burst. **No Clarity tag was live for
+any of it.** Those clicks are unrecoverable.
+
+Consequences for how this work is framed from here:
+
+- **The install is no longer deadline-driven.** Do it properly rather than fast.
+- **Residual value is still real.** DM links have a long tail; people open messages
+  days late. Installing now catches stragglers from this round, and covers any
+  follow-up messages, which is the more likely place the intel gets used.
+- **Timestamp-as-attribution is weaker than planned.** Sends were spread across
+  days, so there is no single spike to read. The baseline of roughly five visitors
+  a week is still low enough that any elevated traffic is probably outreach, but
+  it can no longer be tied to a specific send.
+- The send-order log idea in the previous section is now retrospective at best.
+
+Separately: the LinkedIn card-suppression behaviour is a known, settled issue. Do
+not re-investigate the site as a cause.
