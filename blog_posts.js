@@ -198,6 +198,18 @@ const BLOG_POSTS = [
     minuteRead: 4,
   },
 
+  {
+    id: "pacing-the-frontier",
+    url: "posts/pacing-the-frontier.html",
+    title: "Pacing the Frontier: What Happens When the Accelerators Ask for a Speed Limit",
+    date: "2026-09-13",
+    displayDate: "September 2026",
+    category: "Governance & Ethics",
+    excerpt:
+      "Dario Amodei asked the industry to slow down and two rivals agreed within hours. What the proposal commits to, and what it means if you deploy AI rather than build it.",
+    minuteRead: 5,
+  },
+
   // Add future posts here as new objects, for example:
   // {
   //   id: "my-new-post",
