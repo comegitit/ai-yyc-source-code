@@ -1,9 +1,9 @@
 # Analytics — Microsoft Clarity
 
 **Status: installed, deployed and verified 2026-09-15.** This document was the
-build spec; it is now the operating record. The install is finished, so read this
-for how the thing works and what was decided, not as a task list. The only work
-still outstanding is dashboard customization, at the bottom.
+build spec; it is now the operating record. The install is finished and **nothing
+is outstanding**, so read this for how the thing works and what was decided, not as
+a task list.
 
 Site: hand-written HTML/CSS/JS portfolio at ai-yyc.com, DNS proxied through
 Cloudflare on the free plan. Deploy is a **manual upload to `public_html`**, not
@@ -133,8 +133,8 @@ How Clarity covers the goal metrics:
 | Session duration / time on site | Yes |
 | Pages visited | Yes |
 | Device type | Yes |
-| Time of visit | **Weak.** Per-session timestamps, but no time-of-day distribution chart |
-| Time spent per page | **Uncertain.** Verify live rather than assume |
+| Time of visit | **Weak, accepted.** Per-session timestamps, no distribution chart |
+| Time spent per page | **Not available, accepted.** Not pursued at this volume |
 
 **Attribution is weak and that is now permanent.** The install was pulled forward to
 measure a LinkedIn DM blitz, but LinkedIn rate-limited the sends as suspected spam,
@@ -232,16 +232,39 @@ Network, filtered to `clarity`, in an incognito window:
 
 ---
 
-## Still outstanding: dashboard customization
+## Dashboard: no customization needed
 
-The only remaining work. Clarity's default dashboard is busy with rage clicks, dead
-clicks and scroll depth, which is noise for this use case. The fix is removing and
-rearranging cards.
+**Reviewed live on 2026-09-15 and closed.** The brief previously budgeted 45 to 90
+minutes to strip Clarity's default dashboard down to the goal metrics, on the
+assumption it would be as noisy as Google Analytics and Cloudflare Web Analytics,
+both of which the owner rejected for exactly that reason. It is not. The default
+above-the-fold view carries the whole list and little else:
 
-**Deliberately deferred until a week of real data exists**, so 2026-09-22 onward,
-once it is clear what actually gets looked at. Budget 45 to 90 minutes,
-collaborative. Add 1 to 2 hours if the time-of-day and per-page gaps in the table
-above need a charting workaround built from a CSV export.
+| Wanted | Where it is |
+|---|---|
+| Unique visitors over time | Users overview card, with a new vs returning split |
+| City | Region tab, Countries / States / Cities |
+| Session duration | Active time spent tile |
+| Pages per session | Pages per session tile |
+| Device type | Devices tab |
+| Referrer | Referrer card |
 
-Own-IP filtering is not a dashboard task. It is the `localStorage` gate, already
-done and described above. No IP blocking.
+Owner's verdict: *"The above-the-fold viewport gives me exactly what I needed, no
+more, no less."* **Do not propose a dashboard cleanup session.** If cards populate
+below the fold they are simply ignored, which costs nothing.
+
+The one piece of noise in the default view is the **Scroll depth** tile. It was left
+alone deliberately; it is not worth a click to remove.
+
+Two gaps remain and are accepted, not open work:
+
+- **Time of day.** Per-session timestamps only, no distribution chart. At roughly
+  five visitors a week the Recordings list shows this per session anyway.
+- **Time spent per page.** Never verified as available. Not pursued, since the
+  per-session figure is sufficient at this volume.
+
+If either ever becomes worth having, the route is a CSV export and a chart built
+from it, roughly 1 to 2 hours. Nobody needs to do that now.
+
+Own-IP filtering is not a dashboard task. It is the `localStorage` gate, described
+above. No IP blocking.
