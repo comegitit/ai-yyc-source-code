@@ -29,13 +29,10 @@ BASE = "https://ai-yyc.com/"
 #   404.html        the error page itself, never belongs in a sitemap
 #   statistics.html archived, deliberately not deployed
 #   webdev.html     archived, deliberately not deployed
-#   privacy.html    parked until the Microsoft Clarity tag ships. REMOVE THIS
-#                   LINE when privacy.html goes live.
 EXCLUDE = {
     "404.html",
     "statistics.html",
     "webdev.html",
-    "privacy.html",
 }
 
 # Landing pages first, in a deliberate order. Anything not named here is
