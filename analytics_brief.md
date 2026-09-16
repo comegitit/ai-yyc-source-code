@@ -49,10 +49,33 @@ correct, not a finding.
 
 ### Masking
 
-**Strict**, set before the first session was ever recorded. This is not a
-preference. `privacy.html` publicly states the site runs Clarity's strictest
-masking, so Strict must stay on for as long as that page is live. The site has no
-contact form, only a `mailto:` link, so Strict costs nothing.
+**Relaxed**, changed 2026-09-15 from Strict. Clarity offers three modes: Strict
+masks all content, Balanced (the default) masks numbers and email addresses, and
+Relaxed masks nothing except input boxes and dropdowns.
+
+Strict was set at install because `privacy.html` promised "Clarity's strictest
+masking setting". It was then changed because that promise was doing no real work:
+**this site has no forms, no search box and no input fields at all**, so there is
+no visitor-entered data for any mode to protect. The only thing Strict masked was
+the site's own published text, which anyone can read by visiting. What it cost was
+legibility, since replays and heatmaps are hard to interpret with everything
+blocked out.
+
+**The page was edited first, then the toggle.** That order is the rule, not a
+detail. The wording now explains rather than asserts: it states that the playbacks
+show the same pages a reader is already looking at, and that the site has no input
+fields, which a visitor can verify for themselves. The old claim could not be
+verified by anyone, and would have become a false statement on a live page the
+moment the toggle moved.
+
+**If masking ever changes again, edit `privacy.html` first and upload it before
+touching Clarity.** Two notes from Microsoft's docs: changes take up to an hour to
+affect new recordings, and **they are never retroactive**, so existing recordings
+keep whatever masking was live when they were captured.
+
+Per-element overrides also exist if a specific thing ever needs hiding: CSS
+selectors under Settings > Masking, or a `data-clarity-mask="True"` attribute in
+the HTML, either of which overrides the global mode.
 
 ### Self-exclusion
 
@@ -123,6 +146,13 @@ roughly five visitors a week, and single-digit session counts make every trend l
 useless. Each row of the recordings list is one session with its timestamp,
 location, device and duration, which is the entire metric list, per visitor, in
 list form. Expect that to stay more useful than the charts until volume grows.
+
+**Where the per-visitor detail actually lives.** A recording card in the Recordings
+list shows entry page, exit page, duration, click and page counts, browser, device
+and country. **Click "More details" for the two things the card omits: the full page
+sequence, and the city.** Verified 2026-09-15: city resolves correctly to Calgary,
+and all pages in the session are listed in order. The camera icons on the dashboard
+cards are shortcuts into this list, pre-filtered to that group of visitors.
 
 How Clarity covers the goal metrics:
 
