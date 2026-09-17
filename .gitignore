@@ -43,3 +43,9 @@ career_profile.json
 # history they were made to preserve.
 *_old_2026.docx
 *_old_2026.pdf
+
+# Self-employment / consulting strategy briefs. Working notes for Roy, not
+# site content: they carry candid self-assessment, pricing floors and named
+# prospects. This repo is public, and git history is forever, so these stay
+# local. They also sit in the web root, so they must never reach public_html.
+Self-employment-Research-*.docx
