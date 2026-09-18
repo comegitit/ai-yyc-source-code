@@ -29,6 +29,10 @@ What it understands, which is what tools/build_*.py produce:
     an empty bordered para   ---
 
 Anything else becomes a plain paragraph, which is the safe failure.
+
+To keep a section in Word and out of the markdown, give it a heading
+containing the words "not exported". Everything from that heading to the end
+of the document is dropped, so put local-only notes last.
 """
 
 import re
@@ -50,6 +54,11 @@ ROOT = Path(__file__).resolve().parent.parent
 EXCLUDE_DIRS = {"documents", "tools", ".git"}
 
 EM_DASH = "—"
+
+# A heading whose text matches this ends the export. Everything below it stays
+# in the Word file and never reaches the markdown, which is how the .docx
+# carries notes meant only for the person editing it.
+STOP_MARKER = re.compile(r"not exported", re.I)
 
 
 # --------------------------------------------------------------- docx reading
@@ -235,6 +244,8 @@ def docx_to_md(path):
         last_was_table = False
 
         if style.startswith("Heading"):
+            if STOP_MARKER.search(text):
+                break
             level = int(style.split()[-1]) if style.split()[-1].isdigit() else 2
             # The title block already claimed #, so everything shifts down one
             # and the document keeps a single top-level heading.
