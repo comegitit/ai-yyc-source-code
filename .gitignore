@@ -44,8 +44,15 @@ career_profile.json
 *_old_2026.docx
 *_old_2026.pdf
 
-# Self-employment / consulting strategy briefs. Working notes for Roy, not
-# site content: they carry candid self-assessment, pricing floors and named
-# prospects. This repo is public, and git history is forever, so these stay
-# local. They also sit in the web root, so they must never reach public_html.
-Self-employment-Research-*.docx
+# Self-employment / consulting strategy briefs, in every format. Working
+# notes for Roy, not site content: they carry candid self-assessment, pricing
+# floors and named prospects. This repo is public, and git history is forever,
+# so these stay local. They also sit in the web root, so they must never reach
+# public_html.
+Self-employment-Research-*
+
+# Briefs at the repo root are kept as a tracked .md plus a local .docx: the
+# markdown is what gets reviewed and diffed, the Word copy is for reading and
+# printing. Root-anchored on purpose, so the tracked resumes in documents/
+# are unaffected.
+/*.docx
