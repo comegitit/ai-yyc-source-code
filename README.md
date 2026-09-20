@@ -94,6 +94,11 @@ python tools/sync_brief.py            # regenerate the .md from the .docx
 python tools/sync_brief.py --check    # report staleness only, write nothing
 ```
 
+These run against whatever `python` is on your PATH. There is no virtual
+environment here on purpose, for three small maintenance scripts. The one
+third-party dependency is `python-docx`, recorded in `requirements.txt`, so a
+fresh machine needs `pip install -r requirements.txt` before the sync will run.
+
 Edit the `.docx` in Word, then run the sync. The `.docx` is deliberately
 untracked (`/*.docx`, root-anchored, so the resumes in `documents/` are
 unaffected) and the generated `.md` is what git carries. The sync is one

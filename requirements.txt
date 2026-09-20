@@ -1,0 +1,7 @@
+# The only third-party dependency in this repo. tools/sync_brief.py reads the
+# .docx brief; tools/generate_sitemap.py and tools/generate_structured_data.py
+# are standard library only.
+#
+# There is no virtual environment here on purpose: three small maintenance
+# scripts run against whatever python is on PATH.
+python-docx==1.2.0
