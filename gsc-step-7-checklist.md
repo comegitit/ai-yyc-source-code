@@ -1,12 +1,27 @@
-# Search Console: the checks due 2026-09-30
+# Search Console: step 7, CLOSED 2026-09-20
+
+> **CLOSED 2026-09-20. Nothing below is an open action.** The flip landed ten
+> days early, so the checks scheduled for the 30th were never needed and the
+> calendar entry was dropped. Search Console reports "URL is on Google / Page is
+> indexed" for `https://ai-yyc.com/`, which is row one of the decision tree, and
+> the "Roy Aggarwal" result now shows the current applied-AI description with
+> LinkedIn at hit two. Re-verified the same day: `www` 301s to the bare domain,
+> the live canonical, title and meta description are current, and the repo
+> `sitemap.xml` is byte-identical to the deployed copy at 34 URLs.
+>
+> **Do not re-run the decision tree.** The whole of the SEO plan agreed
+> 2026-09-08 is now complete. The only live Search Console work is the standing
+> publish routine at the end of this file.
+>
+> The file is kept for the two sections that outlive the fix: how to read a
+> search result and how to read an inspection result. Both describe traps that
+> produced false positives during this work and will do so again.
 
 Working document for Claude Code and for future me. Written 2026-09-13,
 updated 2026-09-14 with a live verification pass and a dated reading of the
-search result. This is step 7, the last open item of the SEO plan agreed
-2026-09-08. Steps 1 to 6 are done. Step 7 is a wait, and this file is what to
-do when the wait is over.
-
-**Read this before touching anything in Search Console on the 30th.**
+search result, closed 2026-09-20. This was step 7, the last open item of the
+SEO plan agreed 2026-09-08. Everything below is written in the present tense of
+the wait, and is preserved that way as the record of it.
 
 ---
 
