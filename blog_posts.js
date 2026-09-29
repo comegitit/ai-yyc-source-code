@@ -210,6 +210,18 @@ const BLOG_POSTS = [
     minuteRead: 5,
   },
 
+  {
+    id: "the-alberta-data-centre-advantage",
+    url: "posts/the-alberta-data-centre-advantage.html",
+    title: "Power First, Compute Second: Why Alberta Sits at the Centre of North America's AI Build-Out",
+    date: "2026-09-30",
+    displayDate: "September 2026",
+    category: "AI Strategy",
+    excerpt:
+      "The bottleneck for new AI capacity is no longer chips but firm power. Why Alberta is positioned to win, and what could still stand in the way.",
+    minuteRead: 7,
+  },
+
   // Add future posts here as new objects, for example:
   // {
   //   id: "my-new-post",
