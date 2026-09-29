@@ -53,6 +53,10 @@ ROOT = Path(__file__).resolve().parent.parent
 # Word files with no markdown counterpart) are never touched.
 BRIEFS = ROOT / "documentation"
 
+# Word copies built *from* a hand-edited .md, the opposite direction. Syncing
+# one would overwrite the markdown it was made from, so they are never briefs.
+REFERENCE_COPIES = {"creating_new_posts.docx"}
+
 EM_DASH = "—"
 
 # A heading whose text matches this ends the export. Everything below it stays
@@ -302,8 +306,9 @@ def tidy(lines):
 
 # --------------------------------------------------------------- driver
 def briefs():
-    """The .docx briefs in documentation/, skipping Word lock files."""
-    return [p for p in sorted(BRIEFS.glob("*.docx")) if not p.name.startswith("~$")]
+    """The .docx briefs in documentation/, skipping Word lock files and reference copies."""
+    return [p for p in sorted(BRIEFS.glob("*.docx"))
+            if not p.name.startswith("~$") and p.name not in REFERENCE_COPIES]
 
 
 def report(path, md_path, wrote, body):
@@ -322,6 +327,9 @@ def main():
     args = [a for a in sys.argv[1:]]
     check = "--check" in args
     named = [a for a in args if not a.startswith("--")]
+    refused = [n for n in named if Path(n).name in REFERENCE_COPIES]
+    if refused:
+        sys.exit("Reference copy, built from its .md, never synced: " + ", ".join(refused))
 
     targets = [BRIEFS / n for n in named] if named else briefs()
     missing = [t for t in targets if not t.exists()]
