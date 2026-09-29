@@ -16,7 +16,8 @@ cannot drift away from what the page actually says:
 Publication dates and categories come from BLOG_POSTS in blog_posts.js, which
 is already the single source of truth for the listings.
 
-The block is wrapped in HTML comment markers and inserted before </head>.
+The block is wrapped in HTML comment markers. A page without one gets it just
+before </head>; a page that already has one gets it refreshed where it sits.
 Re-running replaces the block in place, so this is safe to run as often as you
 like. Any hand-written ld+json on a page is replaced too; edit this script
 rather than the pages.
@@ -298,20 +299,28 @@ def main():
             continue
 
         cleaned = strip_existing(text)
+        existing = re.search(r"\n[ \t]*" + re.escape(START), text)
         match = re.search(r"\n([ \t]*)</head>", cleaned)
         if not match:
             problems.append("%s has no </head>" % rel)
             continue
 
-        indent = match.group(1)
-        updated = (
-            cleaned[: match.start()]
-            + "\n"
-            + render(nodes, indent)
-            + indent
-            + "</head>"
-            + cleaned[match.end() :]
-        )
+        if existing and cleaned[: existing.start()] == text[: existing.start()]:
+            # Refresh the block where it already sits. Moving it back to
+            # </head> would reorder it against anything added after it (the
+            # analytics tag) and touch every page on every run.
+            cut = existing.start() + 1
+            updated = cleaned[:cut] + render(nodes, match.group(1)) + cleaned[cut:]
+        else:
+            indent = match.group(1)
+            updated = (
+                cleaned[: match.start()]
+                + "\n"
+                + render(nodes, indent)
+                + indent
+                + "</head>"
+                + cleaned[match.end() :]
+            )
         if updated != text:
             path.write_text(updated, encoding="utf-8", newline="\n")
         written.append(rel)
