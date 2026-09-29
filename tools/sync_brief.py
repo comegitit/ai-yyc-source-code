@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Regenerate a brief's .md from the .docx you edited in Word.
 
-    python tools/sync_brief.py            # sync every root brief that needs it
+    python tools/sync_brief.py            # sync every brief in documentation/
     python tools/sync_brief.py --check    # report only, write nothing
-    python tools/sync_brief.py Publishing-New-Content-Checklist.docx
+    python tools/sync_brief.py "Self-employment-Research-Iteration 1.docx"
 
 One direction only: .docx is the source you edit, .md is the generated copy
 that git tracks. Two-way sync is not offered on purpose. Round-tripping
@@ -49,9 +49,9 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Briefs only. Never touch the resumes, which are hand-maintained Word files
-# with no markdown counterpart and are tracked in git as-is.
-EXCLUDE_DIRS = {"documents", "tools", ".git"}
+# Briefs live here and nowhere else, so the resumes in documents/ (hand-kept
+# Word files with no markdown counterpart) are never touched.
+BRIEFS = ROOT / "documentation"
 
 EM_DASH = "—"
 
@@ -302,15 +302,8 @@ def tidy(lines):
 
 # --------------------------------------------------------------- driver
 def briefs():
-    """Root-level .docx files that are briefs, not resumes."""
-    found = []
-    for path in sorted(ROOT.glob("*.docx")):
-        if path.name.startswith("~$"):
-            continue
-        if path.parent.name in EXCLUDE_DIRS:
-            continue
-        found.append(path)
-    return found
+    """The .docx briefs in documentation/, skipping Word lock files."""
+    return [p for p in sorted(BRIEFS.glob("*.docx")) if not p.name.startswith("~$")]
 
 
 def report(path, md_path, wrote, body):
@@ -330,12 +323,12 @@ def main():
     check = "--check" in args
     named = [a for a in args if not a.startswith("--")]
 
-    targets = [ROOT / n for n in named] if named else briefs()
+    targets = [BRIEFS / n for n in named] if named else briefs()
     missing = [t for t in targets if not t.exists()]
     if missing:
         sys.exit("Not found: " + ", ".join(m.name for m in missing))
     if not targets:
-        print("No briefs found at the repo root.")
+        print("No briefs found in documentation/.")
         return
 
     print("check only, nothing written\n" if check else "")

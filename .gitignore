@@ -51,8 +51,8 @@ career_profile.json
 # public_html.
 Self-employment-Research-*
 
-# Briefs at the repo root are kept as a tracked .md plus a local .docx: the
-# markdown is what gets reviewed and diffed, the Word copy is for reading and
-# printing. Root-anchored on purpose, so the tracked resumes in documents/
-# are unaffected.
+# Word files are local working copies: drafts at the root, and the Word side
+# of any brief in documentation/, whose generated .md is what git tracks.
+# Both anchored on purpose, so the tracked resumes in documents/ are unaffected.
 /*.docx
+/documentation/*.docx
