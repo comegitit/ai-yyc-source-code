@@ -56,3 +56,8 @@ Self-employment-Research-*
 # Both anchored on purpose, so the tracked resumes in documents/ are unaffected.
 /*.docx
 /documentation/*.docx
+
+# Screenshots for the publishing guide's local Word copy, used by
+# tools/build_guide_docx.py. They show account emails and dashboard details,
+# and this repo is public.
+/documentation/creating_new_posts_images/
