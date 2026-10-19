@@ -7,8 +7,7 @@ const BLOG_POSTS = [
     date: "2026-02-01", // ISO for sorting
     displayDate: "February 2026",
     category: "Governance & Ethics",
-    excerpt:
-      'A summarized introduction from "Trustworthy AI: A Business Guide For Navigating Trust & Ethics in AI".',
+    excerpt: 'A summarized introduction from "Trustworthy AI: A Business Guide For Navigating Trust & Ethics in AI".',
     minuteRead: 3,
   },
   {
@@ -30,8 +29,7 @@ const BLOG_POSTS = [
     date: "2026-02-21",
     displayDate: "February 2026",
     category: "Agentic AI",
-    excerpt:
-      "Agentic AI is transforming industries through autonomous decision making.",
+    excerpt: "Agentic AI is transforming industries through autonomous decision making.",
     minuteRead: 3,
   },
 
@@ -97,8 +95,7 @@ const BLOG_POSTS = [
     date: "2026-04-13",
     displayDate: "April 2026",
     category: "Digital Transformation",
-    excerpt:
-      "An executive summary of the state of AI Digital Transformation in Calgary's business community in 2026",
+    excerpt: "An executive summary of the state of AI Digital Transformation in Calgary's business community in 2026",
     minuteRead: 4,
   },
 
@@ -116,13 +113,11 @@ const BLOG_POSTS = [
   {
     id: "agentic-job-match",
     url: "posts/agentic-job-match.html",
-    title:
-      "An Agentic AI Solution Automating Job Searching & Document Creation",
+    title: "An Agentic AI Solution Automating Job Searching & Document Creation",
     date: "2026-05-08",
     displayDate: "May 2026",
     category: "Agentic AI",
-    excerpt:
-      "Job matching, scoring, and autonomous document creation using agentic AI.",
+    excerpt: "Job matching, scoring, and autonomous document creation using agentic AI.",
     minuteRead: 5,
   },
 
@@ -140,13 +135,11 @@ const BLOG_POSTS = [
   {
     id: "canada-ai-for-all-strategy-not-yet-law",
     url: "posts/canada-ai-for-all-strategy-not-yet-law.html",
-    title:
-      "Canada's AI for All: A Strategy, Not Yet a Law, and Why the Distinction Matters",
+    title: "Canada's AI for All: A Strategy, Not Yet a Law, and Why the Distinction Matters",
     date: "2026-06-06",
     displayDate: "June 2026",
     category: "AI Strategy",
-    excerpt:
-      "A federal strategy, not a law. Here is what that means for Calgary organizations.",
+    excerpt: "A federal strategy, not a law. Here is what that means for Calgary organizations.",
     minuteRead: 4,
   },
 
@@ -157,8 +150,7 @@ const BLOG_POSTS = [
     date: "2026-07-08",
     displayDate: "July 2026",
     category: "Applied AI",
-    excerpt:
-      "AI needs to be more metacogitive as the future unfolds. Here is why and how.",
+    excerpt: "AI needs to be more metacogitive as the future unfolds. Here is why and how.",
     minuteRead: 4,
   },
 
@@ -169,8 +161,7 @@ const BLOG_POSTS = [
     date: "2026-07-13",
     displayDate: "July 2026",
     category: "Agentic AI",
-    excerpt:
-      "Agentic AI solutions don't have to be long, complicated, or expensive.",
+    excerpt: "Agentic AI solutions don't have to be long, complicated, or expensive.",
     minuteRead: 4,
   },
 
@@ -208,6 +199,17 @@ const BLOG_POSTS = [
     excerpt:
       "Dario Amodei asked the industry to slow down and two rivals agreed within hours. What the proposal commits to, and what it means if you deploy AI rather than build it.",
     minuteRead: 5,
+  },
+
+  {
+    id: "banner-finance-ai-modernization",
+    url: "posts/banner-finance-ai-modernization.html",
+    title: "Banner Finance Meets AI: Modernization Without the Marketing Gloss",
+    date: "2026-10-19",
+    displayDate: "October 2026",
+    category: "AI Strategy",
+    excerpt: "How AI is impacting the use of the banner ERP at post secondary institutions.",
+    minuteRead: 4,
   },
 
   {
